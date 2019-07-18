@@ -1,0 +1,28 @@
+
+ platform :ios, '9.0'
+xcodeproj 'TodayHeadline'
+
+workspace 'TodayHeadline'
+use_frameworks!
+target 'TodayHeadline' do
+  
+    pod 'Alamofire'
+    pod 'ReachabilitySwift'
+    pod 'SQLite.swift'
+    pod 'NVActivityIndicatorView'
+    pod 'DGElasticPullToRefresh'
+    pod 'SnapKit'
+    pod 'SwiftyJSON'
+    pod 'Kingfisher'
+    pod 'HandyJSON', '~> 4.1.1'
+    pod 'SwiftTheme'
+    pod 'RxSwift'
+    pod 'SGPagingView'
+     pod 'FDFullscreenPopGesture'
+    pod 'ObjectMapper'
+    pod 'MJExtension'
+    pod 'MJRefresh'
+   pod 'IBAnimatable'
+  end
+
+ 
