@@ -280,6 +280,7 @@
 		796E69E422C9ADC20026B638 /* THHomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796E69E322C9ADC20026B638 /* THHomeVM.swift */; };
 		796E69E822C9E5ED0026B638 /* THHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796E69E722C9E5ED0026B638 /* THHomeCell.swift */; };
 		79BB3E0A22E096B60092E527 /* THSmallVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BB3E0922E096B60092E527 /* THSmallVideoViewController.swift */; };
+		79D8593B22F9B85A00E69F9B /* THTextTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D8593A22F9B85A00E69F9B /* THTextTable.swift */; };
 		79E91DD822CBA98B00854AC1 /* THUserAuthInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E91DD722CBA98B00854AC1 /* THUserAuthInfo.swift */; };
 		823D7B4F22CDA9D0005CF752 /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D7B4E22CDA9D0005CF752 /* UIKit+Extension.swift */; };
 		823D7B5122CDCA5E005CF752 /* THHomeUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D7B5022CDCA5E005CF752 /* THHomeUserCell.swift */; };
@@ -608,6 +609,7 @@
 		796E69E322C9ADC20026B638 /* THHomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THHomeVM.swift; sourceTree = "<group>"; };
 		796E69E722C9E5ED0026B638 /* THHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THHomeCell.swift; sourceTree = "<group>"; };
 		79BB3E0922E096B60092E527 /* THSmallVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = THSmallVideoViewController.swift; sourceTree = "<group>"; };
+		79D8593A22F9B85A00E69F9B /* THTextTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = THTextTable.swift; sourceTree = "<group>"; };
 		79E91DD722CBA98B00854AC1 /* THUserAuthInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THUserAuthInfo.swift; sourceTree = "<group>"; };
 		823D7B4E22CDA9D0005CF752 /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
 		823D7B5022CDCA5E005CF752 /* THHomeUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THHomeUserCell.swift; sourceTree = "<group>"; };
@@ -1450,6 +1452,7 @@
 				82CD5A8422C35FAE00BA9230 /* THHttpTool.swift */,
 				79211CB322C50D8D002FAE8F /* THSqlitManger.swift */,
 				79211F2122C5FE11002FAE8F /* THUikity.swift */,
+				79D8593A22F9B85A00E69F9B /* THTextTable.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1856,6 +1859,7 @@
 				79179C9A22CE36A4000EDF4D /* ISO8601DateTransform.swift in Sources */,
 				79179CAE22CE36A4000EDF4D /* PropertyInfo.swift in Sources */,
 				79211EF822C5D19B002FAE8F /* ViewControllerDesignable.swift in Sources */,
+				79D8593B22F9B85A00E69F9B /* THTextTable.swift in Sources */,
 				79211ECE22C5D19B002FAE8F /* ActivityIndicatorAnimationSquareSpin.swift in Sources */,
 				796E69D222C8A0D00026B638 /* JXSegmentedTitleItemModel.swift in Sources */,
 				79211ED322C5D19B002FAE8F /* ActivityIndicatorAnimationBallClipRotate.swift in Sources */,
