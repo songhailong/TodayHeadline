@@ -18,9 +18,9 @@ class THTextTable: NSObject {
     let textID=Expression<Int64>("textid")
     let userID=Expression<Int64>("userid")
     private var tableName:String=""
-    func creatTable(tableName:String)  {
-        let text_title = Table(tableName)
-        self.tableName=tableName
+    func creatTable(tablename:String)  {
+        let text_title = Table(tablename)
+        self.tableName=tablename
         try! manager.database.run(text_title.create(ifNotExists: true,block:{ (t) in
             
             /**t.column(id, primaryKey: true)
