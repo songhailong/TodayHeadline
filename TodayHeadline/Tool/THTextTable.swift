@@ -14,8 +14,8 @@ class THTextTable: NSObject {
     
     /// 表字段
     let id = Expression<Int64>("id")
-    let text = Expression<Int64>("text")
-    let textID=Expression<Int64>("textid")
+    let text = Expression<Data>("text")
+    let textID=Expression<String>("textid")
     let userID=Expression<Int64>("userid")
     private var tableName:String=""
     func creatTable(tablename:String)  {
@@ -48,6 +48,7 @@ class THTextTable: NSObject {
             //自增长字段
             t.column(id, primaryKey: true)
             t.column(text)
+            
             //设置唯一
             t.column(textID,unique: true)
             t.column(userID)
@@ -57,8 +58,9 @@ class THTextTable: NSObject {
     func insertData(textDic:[String:Any])  {
         let text_title = Table(tableName)
         //需要归档
-         let textData:NSData
-        //let insert=text_title.insert(text<-textData)
+        let textData:Data = try! NSKeyedArchiver.archivedData(withRootObject: textDic, requiringSecureCoding: true) as Data
+        let insert=text_title.insert(text <- textData,textID <- textDic["item_id"] as! String,userID <- Int64(iid) )
+       try! manager.database.run(insert)
     }
 //    /**判断是否存在***/
 //    func exist(textid:String,tableName:String) ->Bool {
@@ -68,8 +70,18 @@ class THTextTable: NSObject {
 //     return true
 //    }
     /***查询**/
-    func selectText() -> [Any] {
-        var texts=[Any]()
+    func selectText() -> [[String:Any]] {
+        var texts=[[String:Any]]()
+        let text_title = Table(tableName)
+        for title in try! manager.database.prepare(text_title) {
+            let textdata=title[text]
+            //解档
+            let acount=try!NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(textdata)
+            texts.append(acount as! [String : Any])
+        }
+        
+        
+        //需要归档
         return texts
     }
    
