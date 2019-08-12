@@ -39,7 +39,7 @@ class THTexstsModel:HandyJSON{
                 }
                 else {
                     
-                    return 90
+                   height+=image3Width
                 }
             }
             
