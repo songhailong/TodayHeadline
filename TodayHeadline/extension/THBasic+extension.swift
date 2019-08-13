@@ -33,7 +33,12 @@ extension String{
         /***计算高度**/
         return self.boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [.font: UIFont.systemFont(ofSize: fontSize)], context: nil).size.height
     }
-    
+    func calculateWidth(fontSize:CGFloat,height:CGFloat) -> CGFloat {
+        /***计算宽度**/
+        let font = UIFont.systemFont(ofSize: fontSize)
+        let rect = NSString(string: self).boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: height), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        return ceil(rect.width)
+    }
 }
 extension TimeInterval {
     // 把秒数转换成时间的字符串

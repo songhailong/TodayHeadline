@@ -24,21 +24,36 @@ class THHomeCell: UITableViewCell {
                 videoImageButton.removeFromSuperview()
               
             }
+            middleView.snp.makeConstraints { (mask) in
+                mask.height.equalTo(0)
+            }
             BootomView.snp.updateConstraints { (mask) in
                 mask.height.equalTo(0)
             }
             downLoadBtn.setTitle("", for: .normal)
+            var nameLableW:CGFloat=0
             if self.textmodel.media_name != ""{
+             nameLableW=self.textmodel.media_name.calculateWidth(fontSize: 13, height: 16)
                 nameLable.text=self.textmodel.media_name
             }else if self.textmodel.media_info.media_id != 0{
+                nameLableW=self.textmodel.media_info.name.calculateWidth(fontSize: 13, height: 16)
                  nameLable.text=self.textmodel.media_info.name
             }else if self.textmodel.user_info.user_id != 0{
+                nameLableW=self.textmodel.user_info.name.calculateWidth(fontSize: 13, height: 16)
                 nameLable.text=self.textmodel.user_info.name
             }
+            
+            nameLable.snp.makeConstraints { (mask) in
+                mask.width.equalTo(nameLableW+5)
+            }
+            
             
        commentLabl.text=self.textmodel.commentCount+"评论"
        releaseTimeLable.text=self.textmodel.publishTime
             //热点
+            adOrHotLable.snp.makeConstraints { (mask) in
+                 mask.width.equalTo(0)
+            }
            adOrHotLable.textColor=UIColor.globalRedColor()
            adOrHotLable.borderColor = .globalRedColor()
            adOrHotLable.text=self.textmodel.label
@@ -108,7 +123,8 @@ class THHomeCell: UITableViewCell {
                 
             }else{
                 //没有视频
-                if self.textmodel.middle_image.url != "" && self.textmodel.image_list.count == 0{
+                if self.textmodel.middle_image.url != "" && self.textmodel.image_list.count==0{
+                    //这个y应该显示大图
                     //把中间的显示在了 右面
                     rightImageview.kf.setImage(with: URL.init(string: self.textmodel.middle_image.urlString))
                     rightImageview.snp.updateConstraints { (mask) in
@@ -117,7 +133,7 @@ class THHomeCell: UITableViewCell {
                 }else{
                   setupRightImageView()
                   
-                    if self.textmodel.image_list.count == 1 { // 右侧显示图片
+                    if self.textmodel.image_list.count>=1 && self.textmodel.image_list.count<3{ // 右侧显示图片
                         
                         rightImageview.snp.updateConstraints { (mask) in
                             mask.width.equalTo(screenWidth*0.28)
@@ -128,10 +144,10 @@ class THHomeCell: UITableViewCell {
                     } else {
                        
                         self.middleView.snp.updateConstraints { (mask) in
-                            mask.height.equalTo(image3Width)
+                            mask.height.equalTo(image3Width*0.7)
                         }
-                       middleView.addSubview(collectionView)
-                        collectionView.frame = CGRect(x: 0, y: 0, width: screenWidth - 30, height: image3Width)
+                        middleView.addSubview(collectionView)
+                        collectionView.frame = CGRect(x: 0, y: 0, width: screenWidth - 30, height: image3Width*0.7)
                         collectionView.images = self.textmodel.image_list
                     }
                     
@@ -163,6 +179,11 @@ class THHomeCell: UITableViewCell {
        // nameLabelLeading.constant = 37
     }
     func setupRightImageView() {
+//        middleView.snp.makeConstraints { (mask) in
+//            mask.height.equalTo(0)
+//        }
+//
+        
         rightTimeButton.snp.updateConstraints { (mask) in
             mask.width.equalTo(0)
         }
@@ -224,15 +245,16 @@ class THHomeCell: UITableViewCell {
             mask.width.equalTo(54)
             mask.height.equalTo(16)
         }
+        self.middleView.backgroundColor=UIColor.red
         self.middleView.snp.makeConstraints { (mask) in
             mask.left.equalToSuperview().offset(15)
-            mask.right.equalToSuperview().offset(-5)
+            mask.right.equalToSuperview().offset(-10)
            
-            mask.height.equalTo(1)
+            mask.height.equalTo(0)
             mask.top.equalTo(self.titleLable.snp_bottom).offset(5)
         }
         self.titleLable.snp.makeConstraints { (mask) in
-            mask.left.equalToSuperview().offset(15)
+            mask.left.equalToSuperview().offset(10)
             mask.right.equalTo(self.rightImageview.snp_left).offset(-5)
             mask.top.equalTo(self.topImageView.snp_bottom).offset(5)
             mask.bottom.equalTo(self.middleView.snp_top).offset(-5)
@@ -313,7 +335,7 @@ class THHomeCell: UITableViewCell {
         let titleLable=UILabel.init()
         titleLable.textColor=UIColor.black
         titleLable.font=UIFont.systemFont(ofSize: 17)
-        titleLable.numberOfLines=0
+        titleLable.numberOfLines=3
         return titleLable
     }()
     /***广告**/

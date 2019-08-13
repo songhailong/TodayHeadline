@@ -20,13 +20,15 @@ class HomeImageCollectionView: UICollectionView, UICollectionViewDelegateFlowLay
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        collectionViewLayout = DongtaiCollectionViewFlowLayout()
+        //collectionViewLayout = DongtaiCollectionViewFlowLayout()
+        setCollectionViewLayout(DongtaiCollectionViewFlowLayout(), animated: true)
         ym_registerCell(cell: HomeImageCell.self)
         delegate = self
         dataSource = self
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(images.count)
         return images.count
     }
     
@@ -36,9 +38,9 @@ class HomeImageCollectionView: UICollectionView, UICollectionViewDelegateFlowLay
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: image3Width, height: image3Width)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: image3Width, height: image3Width)
+//    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         didSelect?(indexPath.item)
@@ -49,5 +51,8 @@ class DongtaiCollectionViewFlowLayout: UICollectionViewFlowLayout {
         super.prepare()
         minimumLineSpacing = 5
         minimumInteritemSpacing = 5
+        sectionInset=UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 5)
+        scrollDirection = .horizontal
+        itemSize=CGSize.init(width: image3Width, height: image3Width*0.7)
     }
 }

@@ -18,7 +18,7 @@ class THTexstsModel:HandyJSON{
     //MARK  普通cell分为 用户 关注  基本
     var cellHeight:CGFloat{
         /**固定的 头部距离10 评论高16 评论距离5 底部还有5 */
-        var height:CGFloat=titleH+36
+        var height:CGFloat=titleH+36+5
         if video_duration != 0 && video_style == 2{
             //说明有视频显示
             height+=screenWidth*0.5
@@ -33,13 +33,13 @@ class THTexstsModel:HandyJSON{
             return 95
         }else{
             if image_list.count != 0 {
-                if image_list.count == 1 {
+                if image_list.count >= 1&&image_list.count < 3 {
                      height+=screenWidth*0.5
                     
                 }
                 else {
                     
-                   height+=image3Width
+                   height+=image3Width*0.7+5
                 }
             }
             
@@ -54,7 +54,14 @@ class THTexstsModel:HandyJSON{
         if video_duration != 0 && video_style == 0 { // // 右侧有图
             return title.calculateHeight(fontSize: 17, width: screenWidth * 0.72 - 30)
         } else {
-            return title.calculateHeight(fontSize: 17, width: screenWidth - 30)
+            let textH = title.calculateHeight(fontSize: 17, width: screenWidth - 30)
+            if textH>100{
+                return 100
+            }else{
+              return textH
+            }
+            
+           
         }
     }
     
