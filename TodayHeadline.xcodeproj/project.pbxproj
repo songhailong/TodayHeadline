@@ -284,6 +284,10 @@
 		79E91DD822CBA98B00854AC1 /* THUserAuthInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E91DD722CBA98B00854AC1 /* THUserAuthInfo.swift */; };
 		823D7B4F22CDA9D0005CF752 /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D7B4E22CDA9D0005CF752 /* UIKit+Extension.swift */; };
 		823D7B5122CDCA5E005CF752 /* THHomeUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D7B5022CDCA5E005CF752 /* THHomeUserCell.swift */; };
+		82521AB02303A3B5000E5FB1 /* THWenDaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82521AAF2303A3B5000E5FB1 /* THWenDaViewController.swift */; };
+		82521AB22303A4A6000E5FB1 /* THWendaAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82521AB12303A4A6000E5FB1 /* THWendaAnswer.swift */; };
+		82521AB62303AE00000E5FB1 /* THWenDaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82521AB52303AE00000E5FB1 /* THWenDaTableViewCell.swift */; };
+		82521AB82303B2D2000E5FB1 /* THEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82521AB72303B2D2000E5FB1 /* THEmoji.swift */; };
 		8256DA4A22DDB0D50019AA24 /* NSData+CRC32.m in Sources */ = {isa = PBXBuildFile; fileRef = 8256DA4922DDB0D40019AA24 /* NSData+CRC32.m */; };
 		8256DA4C22DDB5BA0019AA24 /* THVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8256DA4B22DDB5BA0019AA24 /* THVideo.swift */; };
 		8258E16A22DFF1F300932D26 /* THHomeImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E16922DFF1F300932D26 /* THHomeImageCell.swift */; };
@@ -613,6 +617,10 @@
 		79E91DD722CBA98B00854AC1 /* THUserAuthInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THUserAuthInfo.swift; sourceTree = "<group>"; };
 		823D7B4E22CDA9D0005CF752 /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
 		823D7B5022CDCA5E005CF752 /* THHomeUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THHomeUserCell.swift; sourceTree = "<group>"; };
+		82521AAF2303A3B5000E5FB1 /* THWenDaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THWenDaViewController.swift; sourceTree = "<group>"; };
+		82521AB12303A4A6000E5FB1 /* THWendaAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THWendaAnswer.swift; sourceTree = "<group>"; };
+		82521AB52303AE00000E5FB1 /* THWenDaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THWenDaTableViewCell.swift; sourceTree = "<group>"; };
+		82521AB72303B2D2000E5FB1 /* THEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THEmoji.swift; sourceTree = "<group>"; };
 		8256DA4822DDB0D40019AA24 /* NSData+CRC32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CRC32.h"; sourceTree = "<group>"; };
 		8256DA4922DDB0D40019AA24 /* NSData+CRC32.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CRC32.m"; sourceTree = "<group>"; };
 		8256DA4B22DDB5BA0019AA24 /* THVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THVideo.swift; sourceTree = "<group>"; };
@@ -1179,6 +1187,7 @@
 				7913E69922CB4DB200801977 /* THNewsType.swift */,
 				79E91DD722CBA98B00854AC1 /* THUserAuthInfo.swift */,
 				826EF56122CC96DA004ACEF0 /* THSmallVideo.swift */,
+				82521AB12303A4A6000E5FB1 /* THWendaAnswer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1207,6 +1216,7 @@
 				8258E16D22E06E1A00932D26 /* THHomeAddCategryCell.swift */,
 				8258E16F22E06EF400932D26 /* THHomeChannelCell.swift */,
 				8258E17122E0704500932D26 /* THHomeAddHeadViewCell.swift */,
+				82521AB52303AE00000E5FB1 /* THWenDaTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1222,6 +1232,7 @@
 			isa = PBXGroup;
 			children = (
 				82CD5A7222C3307400BA9230 /* THHomeViewController.swift */,
+				82521AAF2303A3B5000E5FB1 /* THWenDaViewController.swift */,
 				79059D2D22C71453007C2733 /* THHomeBassTableViewController.swift */,
 				790EA12B22D60715004B1129 /* THHomeVideoTableViewController.swift */,
 				79059D3122C7159B007C2733 /* THHomeJokeViewController.swift */,
@@ -1453,6 +1464,7 @@
 				79211CB322C50D8D002FAE8F /* THSqlitManger.swift */,
 				79211F2122C5FE11002FAE8F /* THUikity.swift */,
 				79D8593A22F9B85A00E69F9B /* THTextTable.swift */,
+				82521AB72303B2D2000E5FB1 /* THEmoji.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1770,6 +1782,7 @@
 				79211ED222C5D19B002FAE8F /* ActivityIndicatorAnimationBallSpinFadeLoader.swift in Sources */,
 				82CD5A8322C35E8400BA9230 /* UIView+extension.swift in Sources */,
 				79211F0B22C5D19B002FAE8F /* SideImageDesignable.swift in Sources */,
+				82521AB62303AE00000E5FB1 /* THWenDaTableViewCell.swift in Sources */,
 				79E91DD822CBA98B00854AC1 /* THUserAuthInfo.swift in Sources */,
 				79211E9C22C5D19B002FAE8F /* TimingFunctionType.swift in Sources */,
 				79211EAB22C5D19B002FAE8F /* UIViewControllerExtension.swift in Sources */,
@@ -1793,6 +1806,7 @@
 				79179CA722CE36A4000EDF4D /* DataTransform.swift in Sources */,
 				79059D3622C7179B007C2733 /* THHomeImageControol.swift in Sources */,
 				79211ED722C5D19B002FAE8F /* ActivityIndicatorAnimationBallTrianglePath.swift in Sources */,
+				82521AB02303A3B5000E5FB1 /* THWenDaViewController.swift in Sources */,
 				79211F0D22C5D19B002FAE8F /* RootWindowDesignable.swift in Sources */,
 				79211EF022C5D19B002FAE8F /* AnimatableBarButtonItem.swift in Sources */,
 				79211EA822C5D19B002FAE8F /* AnimationChainable.swift in Sources */,
@@ -1805,6 +1819,7 @@
 				79211EDF22C5D19B002FAE8F /* ActivityIndicatorAnimationAudioEqualizer.swift in Sources */,
 				79211CC922C5C2EB002FAE8F /* BMTimeSlider.swift in Sources */,
 				796E69B922C8A0D00026B638 /* JXSegmentedTitleOrImageCell.swift in Sources */,
+				82521AB22303A4A6000E5FB1 /* THWendaAnswer.swift in Sources */,
 				796E69D822C8A0D00026B638 /* JXSegmentedNumberItemModel.swift in Sources */,
 				79211EB322C5D19B002FAE8F /* PresentFadeWithDismissInteractionSegue.swift in Sources */,
 				79211EAC22C5D19B002FAE8F /* PresentNatGeoSegue.swift in Sources */,
@@ -1897,6 +1912,7 @@
 				79179C9322CE36A4000EDF4D /* PointerType.swift in Sources */,
 				796E69C522C8A0D00026B638 /* JXSegmentedIndicatorBackgroundView.swift in Sources */,
 				79211EEC22C5D19B002FAE8F /* AnimatableTableView.swift in Sources */,
+				82521AB82303B2D2000E5FB1 /* THEmoji.swift in Sources */,
 				79211EF222C5D19B002FAE8F /* AnimatableActivityIndicatorView.swift in Sources */,
 				79179C9B22CE36A4000EDF4D /* Export.swift in Sources */,
 				79211EB822C5D19B002FAE8F /* PresentFoldWithDismissInteractionSegue.swift in Sources */,
