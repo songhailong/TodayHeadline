@@ -280,6 +280,7 @@
 		796E69E422C9ADC20026B638 /* THHomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796E69E322C9ADC20026B638 /* THHomeVM.swift */; };
 		796E69E822C9E5ED0026B638 /* THHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796E69E722C9E5ED0026B638 /* THHomeCell.swift */; };
 		79BB3E0A22E096B60092E527 /* THSmallVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BB3E0922E096B60092E527 /* THSmallVideoViewController.swift */; };
+		79C5ADAA2305887700BCA65B /* THDongtaiCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5ADA92305887700BCA65B /* THDongtaiCommentCell.swift */; };
 		79D8593B22F9B85A00E69F9B /* THTextTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D8593A22F9B85A00E69F9B /* THTextTable.swift */; };
 		79E91DD822CBA98B00854AC1 /* THUserAuthInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E91DD722CBA98B00854AC1 /* THUserAuthInfo.swift */; };
 		823D7B4F22CDA9D0005CF752 /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D7B4E22CDA9D0005CF752 /* UIKit+Extension.swift */; };
@@ -617,6 +618,7 @@
 		796E69E322C9ADC20026B638 /* THHomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THHomeVM.swift; sourceTree = "<group>"; };
 		796E69E722C9E5ED0026B638 /* THHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THHomeCell.swift; sourceTree = "<group>"; };
 		79BB3E0922E096B60092E527 /* THSmallVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = THSmallVideoViewController.swift; sourceTree = "<group>"; };
+		79C5ADA92305887700BCA65B /* THDongtaiCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THDongtaiCommentCell.swift; sourceTree = "<group>"; };
 		79D8593A22F9B85A00E69F9B /* THTextTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = THTextTable.swift; sourceTree = "<group>"; };
 		79E91DD722CBA98B00854AC1 /* THUserAuthInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THUserAuthInfo.swift; sourceTree = "<group>"; };
 		823D7B4E22CDA9D0005CF752 /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
@@ -1225,6 +1227,7 @@
 				8258E16F22E06EF400932D26 /* THHomeChannelCell.swift */,
 				8258E17122E0704500932D26 /* THHomeAddHeadViewCell.swift */,
 				82521AB52303AE00000E5FB1 /* THWenDaTableViewCell.swift */,
+				79C5ADA92305887700BCA65B /* THDongtaiCommentCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1889,6 +1892,7 @@
 				79211EFC22C5D19B002FAE8F /* RefreshControlerDesignable.swift in Sources */,
 				790EA13022D6079C004B1129 /* THTexstsModel.swift in Sources */,
 				79211E9D22C5D19B002FAE8F /* BorderType.swift in Sources */,
+				79C5ADAA2305887700BCA65B /* THDongtaiCommentCell.swift in Sources */,
 				79211EDC22C5D19B002FAE8F /* ActivityIndicatorAnimationBallScaleRippleMultiple.swift in Sources */,
 				79211CC822C5C2EB002FAE8F /* BMPlayerManager.swift in Sources */,
 				79211F0A22C5D19B002FAE8F /* BlurDesignable.swift in Sources */,

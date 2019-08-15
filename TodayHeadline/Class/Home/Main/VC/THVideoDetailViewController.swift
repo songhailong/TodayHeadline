@@ -13,10 +13,13 @@ protocol VideoDetailViewControllerDelegate: class {
 }
 class THVideoDetailViewController: UIViewController {
      weak var delegate: VideoDetailViewControllerDelegate?
+    
+    //播放器
+    lazy var player:BMPlayer=BMPlayer.init(customControlView:BMPlayerControlView())
     /// 当前视频数据
     var video = THTexstsModel()
     /// 评论数据
-   // private var comments = [DongtaiComment]()
+    private var comments = [DongtaiComment]()
     /// 真实视频地址
     var realVideo = RealVideo()
     /// 当前播放的时间
@@ -36,6 +39,24 @@ class THVideoDetailViewController: UIViewController {
     }
     
 
-    
+    lazy var tableView: UITableView = {
+        let tableview=UITableView()
+        tableview.register(THDongtaiCommentCell.self, forCellReuseIdentifier: "THDongtaiCommentCell")
+        tableview.delegate=self
+        tableview.dataSource=self
+        return tableview
+    }()
 
+}
+extension THVideoDetailViewController:UITableViewDelegate,UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return comments.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let  cell   = tableView.dequeueReusableCell(withIdentifier: "THDongtaiCommentCell", for: indexPath) as! THDongtaiCommentCell
+        return cell
+    }
+    
+    
 }
