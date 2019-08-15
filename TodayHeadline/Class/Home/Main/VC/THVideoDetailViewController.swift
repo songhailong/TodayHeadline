@@ -23,6 +23,12 @@ class THVideoDetailViewController: UIViewController {
     var currentTime: TimeInterval = 0
     /// 当前点击的索引
     var currentIndexPath = IndexPath(item: 0, section: 0)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // 设置状态栏属性
+        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.setBackgroundImage(UIImage.init(named: "navigation_background"), for: UIBarMetrics.compact)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,14 +36,6 @@ class THVideoDetailViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

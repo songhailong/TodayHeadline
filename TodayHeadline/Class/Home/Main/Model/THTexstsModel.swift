@@ -55,8 +55,8 @@ class THTexstsModel:HandyJSON{
             return title.calculateHeight(fontSize: 17, width: screenWidth * 0.72 - 30)
         } else {
             let textH = title.calculateHeight(fontSize: 17, width: screenWidth - 30)
-            if textH>100{
-                return 100
+            if textH>60{
+                return 60
             }else{
               return textH
             }

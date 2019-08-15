@@ -48,17 +48,47 @@ extension THHomeTableViewVC{
             
        
         case .user:
-              let cell=tableView.dequeueReusableCell(withIdentifier:"THTheyAlsoUseCell", for:indexPath) as! THHomeUserCell
+              let cell=tableView.dequeueReusableCell(withIdentifier:"THHomeUserCell", for:indexPath) as! THHomeUserCell
              cell.textModel=model
              return cell
         case .relatedConcern:
-              let cell=tableView.dequeueReusableCell(withIdentifier:"THHomeCell", for:indexPath) as! THTheyAlsoUseCell
+              let cell=tableView.dequeueReusableCell(withIdentifier:"THTheyAlsoUseCell", for:indexPath) as! THTheyAlsoUseCell
               cell.smallVieo=model.raw_data
              return cell
         }
         
         
       
+    }
+    
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model=dadeArr[indexPath.row]
+       
+        if newsTitle.categoryType == .questionAndAnswer{
+            //跳转问答
+            let  defailVC=THWenDaViewController()
+               defailVC.qid=model.item_id
+               defailVC.enterForm = .clickHeadline
+            navigationController?.pushViewController(defailVC, animated: true)
+        }else{
+            //还得添加视频
+            switch model.cell_type {
+            case .none:
+                let  defailVC=THDefailWebViewController()
+               navigationController?.pushViewController(defailVC, animated: true)
+              //用户
+            case .user:
+                let  defailVC=THUserVC()
+                navigationController?.pushViewController(defailVC, animated: true)
+        //用户详情
+            case .relatedConcern:
+
+                let  defailVC=THUserMesseageViewController()
+                navigationController?.pushViewController(defailVC, animated: true)
+            }
+        }
     }
     
     

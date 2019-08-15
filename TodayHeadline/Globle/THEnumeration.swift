@@ -21,3 +21,9 @@ enum TTFrom {
     case auto
     case enterAuto
 }
+/// 从哪里进入问答控制器
+enum WendaEnterFrom: String {
+    case dongtai = "dongtai"
+    case clickHeadline = "click_headline"
+    case clickCategory = "click_category"
+}

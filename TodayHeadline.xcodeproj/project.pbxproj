@@ -295,6 +295,10 @@
 		8258E16E22E06E1A00932D26 /* THHomeAddCategryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E16D22E06E1A00932D26 /* THHomeAddCategryCell.swift */; };
 		8258E17022E06EF400932D26 /* THHomeChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E16F22E06EF400932D26 /* THHomeChannelCell.swift */; };
 		8258E17222E0704500932D26 /* THHomeAddHeadViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E17122E0704500932D26 /* THHomeAddHeadViewCell.swift */; };
+		8260FA962304FBFF00B0A282 /* THDefailWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8260FA952304FBFF00B0A282 /* THDefailWebViewController.swift */; };
+		8260FA982304FE5F00B0A282 /* THUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8260FA972304FE5F00B0A282 /* THUserVC.swift */; };
+		8260FA9A2304FE8300B0A282 /* THUserMesseageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8260FA992304FE8300B0A282 /* THUserMesseageViewController.swift */; };
+		8260FA9C23052E9400B0A282 /* THWenDaVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8260FA9B23052E9400B0A282 /* THWenDaVM.swift */; };
 		826EF56222CC96DA004ACEF0 /* THSmallVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826EF56122CC96DA004ACEF0 /* THSmallVideo.swift */; };
 		828CB2C922CDA3210003A9F4 /* TheyUseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828CB2C722CDA3210003A9F4 /* TheyUseCollectionCell.swift */; };
 		828CB2CA22CDA3210003A9F4 /* TheyUseCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828CB2C822CDA3210003A9F4 /* TheyUseCollectionCell.xib */; };
@@ -629,6 +633,10 @@
 		8258E16D22E06E1A00932D26 /* THHomeAddCategryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THHomeAddCategryCell.swift; sourceTree = "<group>"; };
 		8258E16F22E06EF400932D26 /* THHomeChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = THHomeChannelCell.swift; path = ../VC/THHomeChannelCell.swift; sourceTree = "<group>"; };
 		8258E17122E0704500932D26 /* THHomeAddHeadViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THHomeAddHeadViewCell.swift; sourceTree = "<group>"; };
+		8260FA952304FBFF00B0A282 /* THDefailWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THDefailWebViewController.swift; sourceTree = "<group>"; };
+		8260FA972304FE5F00B0A282 /* THUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THUserVC.swift; sourceTree = "<group>"; };
+		8260FA992304FE8300B0A282 /* THUserMesseageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THUserMesseageViewController.swift; sourceTree = "<group>"; };
+		8260FA9B23052E9400B0A282 /* THWenDaVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THWenDaVM.swift; sourceTree = "<group>"; };
 		826EF56122CC96DA004ACEF0 /* THSmallVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THSmallVideo.swift; sourceTree = "<group>"; };
 		828CB2C722CDA3210003A9F4 /* TheyUseCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheyUseCollectionCell.swift; sourceTree = "<group>"; };
 		828CB2C822CDA3210003A9F4 /* TheyUseCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TheyUseCollectionCell.xib; sourceTree = "<group>"; };
@@ -1242,6 +1250,9 @@
 				796E69E022C8AAED0026B638 /* THHomeTableViewVC.swift */,
 				790EA12922D606E4004B1129 /* THVideoDetailViewController.swift */,
 				8258E16B22E0612200932D26 /* THHomeAddCategroyVC.swift */,
+				8260FA952304FBFF00B0A282 /* THDefailWebViewController.swift */,
+				8260FA972304FE5F00B0A282 /* THUserVC.swift */,
+				8260FA992304FE8300B0A282 /* THUserMesseageViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -1379,8 +1390,49 @@
 			children = (
 				796E69E322C9ADC20026B638 /* THHomeVM.swift */,
 				8256DA4B22DDB5BA0019AA24 /* THVideo.swift */,
+				8260FA9B23052E9400B0A282 /* THWenDaVM.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8260FA9D230552AF00B0A282 /* micro */ = {
+			isa = PBXGroup;
+			children = (
+				8260FAA12305530500B0A282 /* VC */,
+				8260FAA0230552F600B0A282 /* ModelView */,
+				8260FA9F230552EA00B0A282 /* Model */,
+				8260FA9E230552D800B0A282 /* Views */,
+				82CD5A7422C330F400BA9230 /* THWatermelonViewController.swift */,
+			);
+			path = micro;
+			sourceTree = "<group>";
+		};
+		8260FA9E230552D800B0A282 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8260FA9F230552EA00B0A282 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8260FAA0230552F600B0A282 /* ModelView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModelView;
+			sourceTree = "<group>";
+		};
+		8260FAA12305530500B0A282 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VC;
 			sourceTree = "<group>";
 		};
 		82CD5A3522C3214B00BA9230 = {
@@ -1417,7 +1469,6 @@
 				82CD5A4122C3214C00BA9230 /* AppDelegate.swift */,
 				82CD5A4322C3214C00BA9230 /* ViewController.swift */,
 				82CD5A7622C3313A00BA9230 /* TBMineViewController.swift */,
-				82CD5A7422C330F400BA9230 /* THWatermelonViewController.swift */,
 				82CD5A7022C3302900BA9230 /* THBassViewController.swift */,
 				82CD5A4822C3214D00BA9230 /* Assets.xcassets */,
 				82CD5A4A22C3214D00BA9230 /* LaunchScreen.storyboard */,
@@ -1483,6 +1534,7 @@
 		82CD5A7E22C3388300BA9230 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				8260FA9D230552AF00B0A282 /* micro */,
 				7919D4E822D36B7E00BD7FFF /* Huoshan */,
 				79211F1622C5F07F002FAE8F /* Home */,
 			);
@@ -1704,6 +1756,7 @@
 				796E69D922C8A0D00026B638 /* JXSegmentedNumberCell.swift in Sources */,
 				79211E7E22C5D19B002FAE8F /* InteractiveAnimatorFactory.swift in Sources */,
 				79211EEE22C5D19B002FAE8F /* AnimatableCollectionViewCell.swift in Sources */,
+				8260FA9C23052E9400B0A282 /* THWenDaVM.swift in Sources */,
 				79211F0F22C5D19B002FAE8F /* TransitionAnimatable.swift in Sources */,
 				79211E8D22C5D19B002FAE8F /* FadeAnimator.swift in Sources */,
 				79179C9922CE36A4000EDF4D /* Measuable.swift in Sources */,
@@ -1740,6 +1793,7 @@
 				79211E8522C5D19B002FAE8F /* Navigator.swift in Sources */,
 				79179C9422CE36A4000EDF4D /* Logger.swift in Sources */,
 				79211F0C22C5D19B002FAE8F /* BorderDesignable.swift in Sources */,
+				8260FA9A2304FE8300B0A282 /* THUserMesseageViewController.swift in Sources */,
 				79211E9422C5D19B002FAE8F /* BorderSide.swift in Sources */,
 				79211EDE22C5D19B002FAE8F /* ActivityIndicatorAnimationBallRotateChase.swift in Sources */,
 				79211E9F22C5D19B002FAE8F /* IBEnum.swift in Sources */,
@@ -1759,6 +1813,7 @@
 				79211E8122C5D19B002FAE8F /* TransitionPresenter.swift in Sources */,
 				79211EAD22C5D19B002FAE8F /* PresentSlideSegue.swift in Sources */,
 				79059D2E22C71453007C2733 /* THHomeBassTableViewController.swift in Sources */,
+				8260FA962304FBFF00B0A282 /* THDefailWebViewController.swift in Sources */,
 				796E69D622C8A0D00026B638 /* JXSegmentedTitleGradientItemModel.swift in Sources */,
 				7919D4F022D36B7E00BD7FFF /* THHuoshanBassVC.swift in Sources */,
 				79211ECC22C5D19B002FAE8F /* ActivityIndicatorAnimationLineSpinFadeLoader.swift in Sources */,
@@ -1989,6 +2044,7 @@
 				79211E8022C5D19B002FAE8F /* TransitionPresenterManager.swift in Sources */,
 				8258E16A22DFF1F300932D26 /* THHomeImageCell.swift in Sources */,
 				79211F0322C5D19B002FAE8F /* FillDesignable.swift in Sources */,
+				8260FA982304FE5F00B0A282 /* THUserVC.swift in Sources */,
 				796E69BF22C8A0D00026B638 /* JXSegmentedIndicatorDotLineView.swift in Sources */,
 				79211CC722C5C2EB002FAE8F /* BMPlayerClearityChooseButton.swift in Sources */,
 				79211EB522C5D19B002FAE8F /* PresentPortalSegue.swift in Sources */,

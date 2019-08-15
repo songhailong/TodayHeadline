@@ -12,11 +12,14 @@ class THWenDaViewController: UIViewController {
     /// 问答数据
     var wenda = THWendaAnswer()
     var answers = [WendaAnswer]()
+     var enterForm: WendaEnterFrom = .clickHeadline
     var qid = 0
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        THWenDaVM.loadProposeQuestionBrow(qid: qid, enterForm:enterForm,completionHandler: {_ in 
+            
+        })
     }
     
     lazy var tableView = { () -> UITableView in
@@ -26,7 +29,7 @@ class THWenDaViewController: UIViewController {
         table.register(THWenDaTableViewCell.self, forCellReuseIdentifier: "THWenDaTableViewCell")
         return table
     }
-    lazy var bottom :UIButton = {
+    lazy var answerButton :UIButton = {
         let button=UIButton.init()
         return button
     }()
