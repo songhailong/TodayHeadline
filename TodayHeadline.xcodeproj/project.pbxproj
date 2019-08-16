@@ -285,6 +285,10 @@
 		79E91DD822CBA98B00854AC1 /* THUserAuthInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E91DD722CBA98B00854AC1 /* THUserAuthInfo.swift */; };
 		823D7B4F22CDA9D0005CF752 /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D7B4E22CDA9D0005CF752 /* UIKit+Extension.swift */; };
 		823D7B5122CDCA5E005CF752 /* THHomeUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D7B5022CDCA5E005CF752 /* THHomeUserCell.swift */; };
+		824E6ED12306417000E1F5B1 /* THVideoDefailBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824E6ED02306417000E1F5B1 /* THVideoDefailBottomView.swift */; };
+		824E6ED32306418900E1F5B1 /* VideoDetailUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824E6ED22306418900E1F5B1 /* VideoDetailUserView.swift */; };
+		824E6ED52306440400E1F5B1 /* THRecommendedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824E6ED42306440400E1F5B1 /* THRecommendedView.swift */; };
+		824E6ED723068E0800E1F5B1 /* THVideoDefailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824E6ED623068E0800E1F5B1 /* THVideoDefailVM.swift */; };
 		82521AB02303A3B5000E5FB1 /* THWenDaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82521AAF2303A3B5000E5FB1 /* THWenDaViewController.swift */; };
 		82521AB22303A4A6000E5FB1 /* THWendaAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82521AB12303A4A6000E5FB1 /* THWendaAnswer.swift */; };
 		82521AB62303AE00000E5FB1 /* THWenDaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82521AB52303AE00000E5FB1 /* THWenDaTableViewCell.swift */; };
@@ -623,6 +627,10 @@
 		79E91DD722CBA98B00854AC1 /* THUserAuthInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THUserAuthInfo.swift; sourceTree = "<group>"; };
 		823D7B4E22CDA9D0005CF752 /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
 		823D7B5022CDCA5E005CF752 /* THHomeUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THHomeUserCell.swift; sourceTree = "<group>"; };
+		824E6ED02306417000E1F5B1 /* THVideoDefailBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THVideoDefailBottomView.swift; sourceTree = "<group>"; };
+		824E6ED22306418900E1F5B1 /* VideoDetailUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailUserView.swift; sourceTree = "<group>"; };
+		824E6ED42306440400E1F5B1 /* THRecommendedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THRecommendedView.swift; sourceTree = "<group>"; };
+		824E6ED623068E0800E1F5B1 /* THVideoDefailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THVideoDefailVM.swift; sourceTree = "<group>"; };
 		82521AAF2303A3B5000E5FB1 /* THWenDaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THWenDaViewController.swift; sourceTree = "<group>"; };
 		82521AB12303A4A6000E5FB1 /* THWendaAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THWendaAnswer.swift; sourceTree = "<group>"; };
 		82521AB52303AE00000E5FB1 /* THWenDaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THWenDaTableViewCell.swift; sourceTree = "<group>"; };
@@ -1228,6 +1236,9 @@
 				8258E17122E0704500932D26 /* THHomeAddHeadViewCell.swift */,
 				82521AB52303AE00000E5FB1 /* THWenDaTableViewCell.swift */,
 				79C5ADA92305887700BCA65B /* THDongtaiCommentCell.swift */,
+				824E6ED02306417000E1F5B1 /* THVideoDefailBottomView.swift */,
+				824E6ED22306418900E1F5B1 /* VideoDetailUserView.swift */,
+				824E6ED42306440400E1F5B1 /* THRecommendedView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1394,6 +1405,7 @@
 				796E69E322C9ADC20026B638 /* THHomeVM.swift */,
 				8256DA4B22DDB5BA0019AA24 /* THVideo.swift */,
 				8260FA9B23052E9400B0A282 /* THWenDaVM.swift */,
+				824E6ED623068E0800E1F5B1 /* THVideoDefailVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1762,6 +1774,7 @@
 				8260FA9C23052E9400B0A282 /* THWenDaVM.swift in Sources */,
 				79211F0F22C5D19B002FAE8F /* TransitionAnimatable.swift in Sources */,
 				79211E8D22C5D19B002FAE8F /* FadeAnimator.swift in Sources */,
+				824E6ED32306418900E1F5B1 /* VideoDetailUserView.swift in Sources */,
 				79179C9922CE36A4000EDF4D /* Measuable.swift in Sources */,
 				79211EC222C5D19B002FAE8F /* ActivityIndicatorAnimationBallGridBeat.swift in Sources */,
 				82CD5A8522C35FAE00BA9230 /* THHttpTool.swift in Sources */,
@@ -1814,6 +1827,7 @@
 				796E69CD22C8A0D00026B638 /* JXSegmentedDotItemModel.swift in Sources */,
 				82CD5A7322C3307400BA9230 /* THHomeViewController.swift in Sources */,
 				79211E8122C5D19B002FAE8F /* TransitionPresenter.swift in Sources */,
+				824E6ED52306440400E1F5B1 /* THRecommendedView.swift in Sources */,
 				79211EAD22C5D19B002FAE8F /* PresentSlideSegue.swift in Sources */,
 				79059D2E22C71453007C2733 /* THHomeBassTableViewController.swift in Sources */,
 				8260FA962304FBFF00B0A282 /* THDefailWebViewController.swift in Sources */,
@@ -1849,6 +1863,7 @@
 				79211EA722C5D19B002FAE8F /* MaskType.swift in Sources */,
 				79211E7F22C5D19B002FAE8F /* PresentationPresenterManager.swift in Sources */,
 				79211ED422C5D19B002FAE8F /* ActivityIndicatorAnimationPacman.swift in Sources */,
+				824E6ED723068E0800E1F5B1 /* THVideoDefailVM.swift in Sources */,
 				79211E9A22C5D19B002FAE8F /* PresentationKeyboardTranslation.swift in Sources */,
 				79179C9D22CE36A4000EDF4D /* NSDecimalNumberTransform.swift in Sources */,
 				790EA12E22D6075F004B1129 /* THVideoViewCell.swift in Sources */,
@@ -1931,6 +1946,7 @@
 				823D7B4F22CDA9D0005CF752 /* UIKit+Extension.swift in Sources */,
 				79211EBA22C5D19B002FAE8F /* PresentFlipWithDismissInteractionSegue.swift in Sources */,
 				79179C9A22CE36A4000EDF4D /* ISO8601DateTransform.swift in Sources */,
+				824E6ED12306417000E1F5B1 /* THVideoDefailBottomView.swift in Sources */,
 				79179CAE22CE36A4000EDF4D /* PropertyInfo.swift in Sources */,
 				79211EF822C5D19B002FAE8F /* ViewControllerDesignable.swift in Sources */,
 				79D8593B22F9B85A00E69F9B /* THTextTable.swift in Sources */,

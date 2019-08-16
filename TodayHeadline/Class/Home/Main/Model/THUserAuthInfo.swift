@@ -69,3 +69,29 @@ struct DongtaiPosition: HandyJSON {
     
     var position: String = ""
 }
+
+// MARK: 关注用户
+struct ConcernUser: HandyJSON {
+    
+    var is_followed: Bool = false
+    var is_following: Bool = false // 是否正在关注
+    
+    var media_id: Int = 0               // 1554769814257666
+    
+    var create_time: TimeInterval = 0
+    
+    var user_verified: Bool = false
+    
+    var screen_name: String = "" // 考研张雪峰
+    var name: String = "" // 考研张雪峰
+    
+    var user_id: Int = 0                // 53271122458
+    
+    var last_update: String = ""
+    
+    var avatar_url: String = ""
+    
+    var user_auth_info = THUserAuthInfo()
+    
+    var type: Int = 0
+}

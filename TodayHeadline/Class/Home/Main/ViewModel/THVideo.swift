@@ -10,6 +10,9 @@ import UIKit
 import HandyJSON
 class THVideo: NSObject {
     required override init(){}
+    
+    
+    
 }
 
 
