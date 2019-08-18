@@ -135,23 +135,23 @@ extension THVideoDetailViewController:UITableViewDelegate,UITableViewDataSource{
 }
 extension THVideoDetailViewController:BMPlayerDelegate{
     func bmPlayer(player: BMPlayer, playerStateDidChange state: BMPlayerState) {
-        <#code#>
+        
     }
     
     func bmPlayer(player: BMPlayer, loadedTimeDidChange loadedDuration: TimeInterval, totalDuration: TimeInterval) {
-        <#code#>
+        
     }
     
     func bmPlayer(player: BMPlayer, playTimeDidChange currentTime: TimeInterval, totalTime: TimeInterval) {
-        <#code#>
+        
     }
     
     func bmPlayer(player: BMPlayer, playerIsPlaying playing: Bool) {
-        <#code#>
+        
     }
     
     func bmPlayer(player: BMPlayer, playerOrientChanged isFullscreen: Bool) {
-        <#code#>
+        
     }
     
     

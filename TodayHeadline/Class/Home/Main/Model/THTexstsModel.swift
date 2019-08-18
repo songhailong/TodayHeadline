@@ -113,6 +113,7 @@ class THTexstsModel:HandyJSON{
     var label:String=""
      var hot: Bool = false  // 热
     var digg_count:Int=0
+     var diggCount: String { return digg_count.convertString() }
   //详情页
     var display_url:String=""
      var filter_words:[Any]?
@@ -145,7 +146,7 @@ class THTexstsModel:HandyJSON{
     var media_name:String=""
     /**机构图片**/
     var middle_image=ImageList()
-    
+     var description = ""
    var need_client_impr_recycle:Int=0
     //阅读数量
     var read_count:Int=0
