@@ -225,11 +225,13 @@ class THTexstsModel:HandyJSON{
     // 来自。。。
     var brand_info = ""
     
+     var card_type:CardType = .video
     
     
     
     
 }
+
 
 
 

@@ -298,6 +298,7 @@
 		82521AB82303B2D2000E5FB1 /* THEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82521AB72303B2D2000E5FB1 /* THEmoji.swift */; };
 		8256DA4A22DDB0D50019AA24 /* NSData+CRC32.m in Sources */ = {isa = PBXBuildFile; fileRef = 8256DA4922DDB0D40019AA24 /* NSData+CRC32.m */; };
 		8256DA4C22DDB5BA0019AA24 /* THVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8256DA4B22DDB5BA0019AA24 /* THVideo.swift */; };
+		82588163230A86A400BEB761 /* THNewsDefailWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82588162230A86A400BEB761 /* THNewsDefailWebViewController.swift */; };
 		8258E16A22DFF1F300932D26 /* THHomeImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E16922DFF1F300932D26 /* THHomeImageCell.swift */; };
 		8258E16C22E0612200932D26 /* THHomeAddCategroyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E16B22E0612200932D26 /* THHomeAddCategroyVC.swift */; };
 		8258E16E22E06E1A00932D26 /* THHomeAddCategryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258E16D22E06E1A00932D26 /* THHomeAddCategryCell.swift */; };
@@ -644,6 +645,7 @@
 		8256DA4822DDB0D40019AA24 /* NSData+CRC32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CRC32.h"; sourceTree = "<group>"; };
 		8256DA4922DDB0D40019AA24 /* NSData+CRC32.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CRC32.m"; sourceTree = "<group>"; };
 		8256DA4B22DDB5BA0019AA24 /* THVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THVideo.swift; sourceTree = "<group>"; };
+		82588162230A86A400BEB761 /* THNewsDefailWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THNewsDefailWebViewController.swift; sourceTree = "<group>"; };
 		8258E16922DFF1F300932D26 /* THHomeImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THHomeImageCell.swift; sourceTree = "<group>"; };
 		8258E16B22E0612200932D26 /* THHomeAddCategroyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THHomeAddCategroyVC.swift; sourceTree = "<group>"; };
 		8258E16D22E06E1A00932D26 /* THHomeAddCategryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THHomeAddCategryCell.swift; sourceTree = "<group>"; };
@@ -1270,6 +1272,7 @@
 				8260FA952304FBFF00B0A282 /* THDefailWebViewController.swift */,
 				8260FA972304FE5F00B0A282 /* THUserVC.swift */,
 				8260FA992304FE8300B0A282 /* THUserMesseageViewController.swift */,
+				82588162230A86A400BEB761 /* THNewsDefailWebViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -1874,6 +1877,7 @@
 				82CD5A8322C35E8400BA9230 /* UIView+extension.swift in Sources */,
 				79211F0B22C5D19B002FAE8F /* SideImageDesignable.swift in Sources */,
 				82521AB62303AE00000E5FB1 /* THWenDaTableViewCell.swift in Sources */,
+				82588163230A86A400BEB761 /* THNewsDefailWebViewController.swift in Sources */,
 				79E91DD822CBA98B00854AC1 /* THUserAuthInfo.swift in Sources */,
 				79211E9C22C5D19B002FAE8F /* TimingFunctionType.swift in Sources */,
 				79211EAB22C5D19B002FAE8F /* UIViewControllerExtension.swift in Sources */,
