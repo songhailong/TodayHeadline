@@ -23,19 +23,25 @@ class THRecommentCell: UITableViewCell {
             
             timetLable.text = relatedVideo.videoDuration
             timetLable.isHidden = !relatedVideo.has_video
-            switch relatedVideo. {
+            switch relatedVideo.card_type {
             case .video:    // 视频
                 adLable.isHidden = true
                 //nameLabelLeading.constant = 0
+                adLable.width=0
+                nameLable.width=80
+                palyCountLable.width=80
             case .adVideo:  // 广告视频
-                adLabel.isHidden = false
-                nameLabelLeading.constant = 37.0
+                adLable.isHidden = false
+                adLable.width=40
+                nameLable.width=80
+                palyCountLable.width=0
+                //nameLabelLeading.constant = 37.0
             case .adTextlink:  // 广告链接
-                thumbImageViewWidth = NSLayoutConstraint(item: thumbImageView, attribute: .width, relatedBy: .equal, toItem: thumbImageView.superview, attribute: .width, multiplier: 0, constant: 0)
-                adLabel.isHidden = false
-                timeLabel.isHidden = true
-                playCountLabel.isHidden = true
-                nameLabelLeading.constant = 37.0
+//                thumbImageViewWidth = NSLayoutConstraint(item: thumbImageView, attribute: .width, relatedBy: .equal, toItem: thumbImageView.superview, attribute: .width, multiplier: 0, constant: 0)
+                adLable.isHidden = false
+                timetLable.isHidden = true
+                palyCountLable.isHidden = true
+                //nameLabelLeading.constant = 37.0
             }
             
         }

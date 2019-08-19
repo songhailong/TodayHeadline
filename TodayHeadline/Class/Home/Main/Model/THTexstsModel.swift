@@ -159,7 +159,7 @@ class THTexstsModel:HandyJSON{
     var share_url:String=""
     var source:String=""
    var token_type:Int=0
-  
+   var group_id: Int = 0
     var raw_data=THSmallVideo()
    var show_dislike=false
     var show_portrait:Bool=false

@@ -11,7 +11,7 @@ import UIKit
 class VideoDetailUserView: UIView {
     
     /// 用户模型
-    var userInfo=NewsUseriInfo(){
+    var userInfo=NewsUserInfo(){
         didSet{
             avatarImageView.kf.setImage(with: URL.init(string: userInfo.avatar_url))
             nameLable.text=userInfo.name

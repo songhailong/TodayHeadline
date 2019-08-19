@@ -263,7 +263,7 @@ struct VideoDetail: HandyJSON {
     var diggCount: String { return digg_count.convertString() }
     var group_flags: Int = 0
     var is_wenda: Bool = false
-    var user_info = THUserAuthInfo()
+    var user_info = NewsUserInfo()
     var user_repin: Int = 0
     var like_desc: String = ""
     var ban_danmaku: Bool = false

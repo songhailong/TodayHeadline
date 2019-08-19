@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import MJRefresh
 protocol VideoDetailViewControllerDelegate: class {
     /// 详情控制器将要消失
     func VideoDetailViewControllerViewWillDisappear(_ realVideo: RealVideo, _ currentTime: TimeInterval, _ currentIndexPath: IndexPath)
@@ -78,6 +79,22 @@ class THVideoDetailViewController: UIViewController {
             mask.bottom.equalTo(bottom.snp.top).offset(0)
             mask.left.right.equalTo(view)
         }
+        //获取视频详情
+        THVideoDefailVM.loadArticleInformation(from: "click_video", itemId: video.item_id, groupId:video.group_id) { (resspond:VideoDetail) in
+            self.userView.userInfo=resspond.user_info
+            
+        }
+        
+        tableView.mj_footer = MJRefreshAutoGifFooter.init(refreshingBlock: {
+            [weak self] in
+            THVideoDefailVM.loadUserDetailNormalDongtaiComents(groupId: self!.video.group_id, offset: self!.comments.count, count: 20, completionHandler: { (dataArr) in
+                
+            })
+        })
+        tableView.mj_footer.beginRefreshing()
+        
+        
+        
     }
     
     
