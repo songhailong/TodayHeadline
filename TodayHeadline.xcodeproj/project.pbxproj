@@ -329,6 +329,8 @@
 		82CD5A8522C35FAE00BA9230 /* THHttpTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD5A8422C35FAE00BA9230 /* THHttpTool.swift */; };
 		82CD5A8822C360A100BA9230 /* THHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD5A8722C360A100BA9230 /* THHeader.swift */; };
 		82CD5A8A22C369E400BA9230 /* THEnumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD5A8922C369E400BA9230 /* THEnumeration.swift */; };
+		82EA99CA230BBAA7004DBD78 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 82EA99C9230BBAA7004DBD78 /* MBProgressHUD.m */; };
+		82EA99D2230BBCDA004DBD78 /* MBProgressHUB+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EA99D1230BBCDA004DBD78 /* MBProgressHUB+Extension.swift */; };
 		D19957D202C377DCBC7A7F0D /* Pods_TodayHeadline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 987219C7AEDD15C8524CACEE /* Pods_TodayHeadline.framework */; };
 /* End PBXBuildFile section */
 
@@ -682,6 +684,9 @@
 		82CD5A8422C35FAE00BA9230 /* THHttpTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THHttpTool.swift; sourceTree = "<group>"; };
 		82CD5A8722C360A100BA9230 /* THHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THHeader.swift; sourceTree = "<group>"; };
 		82CD5A8922C369E400BA9230 /* THEnumeration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THEnumeration.swift; sourceTree = "<group>"; };
+		82EA99C8230BBAA6004DBD78 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		82EA99C9230BBAA7004DBD78 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		82EA99D1230BBCDA004DBD78 /* MBProgressHUB+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MBProgressHUB+Extension.swift"; path = "/Users/liangmengfushiliangmengfushi/Desktop/头条/头条/TodayHeadline/TodayHeadline/Class/Home/Main/VC/MBProgressHUB+Extension.swift"; sourceTree = "<absolute>"; };
 		987219C7AEDD15C8524CACEE /* Pods_TodayHeadline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayHeadline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBFC740D0EA538245558A981 /* Pods-TodayHeadline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayHeadline.release.xcconfig"; path = "Target Support Files/Pods-TodayHeadline/Pods-TodayHeadline.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1544,6 +1549,8 @@
 		82CD5A7C22C3381A00BA9230 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				82EA99C8230BBAA6004DBD78 /* MBProgressHUD.h */,
+				82EA99C9230BBAA7004DBD78 /* MBProgressHUD.m */,
 				8256DA4822DDB0D40019AA24 /* NSData+CRC32.h */,
 				8256DA4922DDB0D40019AA24 /* NSData+CRC32.m */,
 				82CD5A8422C35FAE00BA9230 /* THHttpTool.swift */,
@@ -1558,6 +1565,7 @@
 		82CD5A7D22C3387300BA9230 /* extension */ = {
 			isa = PBXGroup;
 			children = (
+				82EA99D1230BBCDA004DBD78 /* MBProgressHUB+Extension.swift */,
 				823D7B4E22CDA9D0005CF752 /* UIKit+Extension.swift */,
 				82CD5A8222C35E8400BA9230 /* UIView+extension.swift */,
 				79211F2522C600B1002FAE8F /* UIColor+Categary.swift */,
@@ -1818,6 +1826,7 @@
 				79211EF522C5D19B002FAE8F /* AnimatableSlider.swift in Sources */,
 				79211ED822C5D19B002FAE8F /* ActivityIndicatorAnimationBallBeat.swift in Sources */,
 				79211E8822C5D19B002FAE8F /* NatGeoAnimator.swift in Sources */,
+				82EA99CA230BBAA7004DBD78 /* MBProgressHUD.m in Sources */,
 				82CD5A4422C3214C00BA9230 /* ViewController.swift in Sources */,
 				79179CA022CE36A4000EDF4D /* CBridge.swift in Sources */,
 				79211EC822C5D19B002FAE8F /* ActivityIndicatorAnimationBallZigZag.swift in Sources */,
@@ -2068,6 +2077,7 @@
 				79211EBF22C5D19B002FAE8F /* ActivityIndicatorShape.swift in Sources */,
 				796E69BC22C8A0D00026B638 /* JXSegmentedBaseCell.swift in Sources */,
 				79179C9C22CE36A4000EDF4D /* URLTransform.swift in Sources */,
+				82EA99D2230BBCDA004DBD78 /* MBProgressHUB+Extension.swift in Sources */,
 				7913BF8222CCF38A00F0688B /* THTheyAlsoUseCell.swift in Sources */,
 				79211F0722C5D19B002FAE8F /* PaddingDesignable.swift in Sources */,
 				79211EC322C5D19B002FAE8F /* ActivityIndicatorAnimationLineScalePulseOut.swift in Sources */,

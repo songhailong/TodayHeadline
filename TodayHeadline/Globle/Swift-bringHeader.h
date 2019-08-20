@@ -14,4 +14,5 @@
 #import<MJExtension/MJExtension.h>
 #import <zlib.h>
 #import "NSData+CRC32.h"
+#import "MBProgressHUD.h"
 #endif /* Swift_bringHeader_h */

@@ -16,9 +16,9 @@ class THVideoDefailBottomView: UIView {
         self.addSubview(expressionBtn)
         self.addSubview(writcomment)
         self.addSubview(cornernBtn)
-        commentVidew.addSubview(writcomment)
-        commentVidew.addSubview(expressionBtn)
-        commentVidew.addSubview(cornernBtn)
+        commentVidew.addSubview(shareButton)
+        commentVidew.addSubview(collection)
+        commentVidew.addSubview(commentsLable)
         let height=self.frame.size.height
         shareButton.snp.makeConstraints { (mask) in
             mask.right.equalToSuperview().offset(-10)

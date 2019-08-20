@@ -32,17 +32,27 @@ class THVideoDetailViewController: UIViewController {
     private let disposeBag = DisposeBag()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.view.backgroundColor=UIColor.white
          navigationController?.setNavigationBarHidden(true, animated: animated)
+         self.tabBarController?.tabBar.isHidden=true
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        configUI()
+        //loadData(with: video)
+        //addAction()
         // Do any additional setup after loading the view.
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.tabBarController?.tabBar.isHidden=false
+        
         delegate?.VideoDetailViewControllerViewWillDisappear(realVideo, currentTime, currentIndexPath)
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
     }
     
     
@@ -79,23 +89,60 @@ class THVideoDetailViewController: UIViewController {
             mask.bottom.equalTo(bottom.snp.top).offset(0)
             mask.left.right.equalTo(view)
         }
+       
+        
+        
+        
+    }
+    
+    
+    
+    /// 获取数据
+    ///
+    /// - Parameter video: <#video description#>
+    func loadData(with video: THTexstsModel)  {
+        
+        MBProgressHUD.show("正在加载")
+        
+        THVideoDefailVM.parseVideoRealURL(video_id: video.video_detail_info.video_id) { (realVideo) in
+             self.realVideo = realVideo
+        }
+        
+        
         //获取视频详情
         THVideoDefailVM.loadArticleInformation(from: "click_video", itemId: video.item_id, groupId:video.group_id) { (resspond:VideoDetail) in
             self.userView.userInfo=resspond.user_info
             
+            self.recommendedView.video = self.video
+            self.recommendedView.videodetail = resspond
+            self.tableView.tableHeaderView = self.recommendedView
+            MBProgressHUD.hide()
         }
         
         tableView.mj_footer = MJRefreshAutoGifFooter.init(refreshingBlock: {
             [weak self] in
             THVideoDefailVM.loadUserDetailNormalDongtaiComents(groupId: self!.video.group_id, offset: self!.comments.count, count: 20, completionHandler: { (dataArr) in
+                self?.tableView.mj_footer.endRefreshing()
+                self?.tableView.mj_footer.pullingPercent=0.0
+                if dataArr.count == 0 {
+                    MBProgressHUD.showInfo("没有数据")
+                    return
+                }
+                 MBProgressHUD.hide()
+                self?.comments += dataArr
+                self?.tableView.reloadData()
                 
             })
         })
         tableView.mj_footer.beginRefreshing()
-        
-        
-        
     }
+    
+    
+  /// 返回监听事件
+  @objc  func backClick()  {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     
     
    //评论列表
@@ -112,7 +159,7 @@ class THVideoDetailViewController: UIViewController {
     /// 返回按钮
     private lazy var backButton: UIButton = {
         let backButton = UIButton()
-    
+        backButton.addTarget(self, action: #selector(backClick), for: UIControl.Event.touchUpInside)
         backButton.setImage(UIImage(named: "personal_home_back_white_24x24_"), for: .normal)
         return backButton
     }()
@@ -135,16 +182,63 @@ class THVideoDetailViewController: UIViewController {
     }()
     
    
+//    deinit {
+//        
+//        //self.player.pause()
+//        //self.player=nil
+//        //tableView=nil
+//    }
+    
+}
+
+extension THVideoDetailViewController{
+    private func addAction() {
+        userView.coverButton.addTarget(self, action: #selector(coverButtonClick), for: UIControl.Event.touchUpInside)
+        
+        
+        recommendedView.didSelectCheckMoreButton =  { [weak self] in
+            self!.tableView.tableHeaderView = self!.recommendedView
+        }
+        
+        recommendedView.didSelectCell = {[weak self] (model) in
+            switch model.card_type {
+            case .video, .adVideo:  // 视频、广告视频
+                // 获取数据
+                self!.loadData(with:model)
+            case .adTextlink:       // 广告链接
+                if self!.player.isPlaying { self!.player.pause() }
+                //let textLinkVC = TextLinkViewController()
+                //textLinkVC.url = $0.web_url
+               // self!.navigationController?.pushViewController(textLinkVC, animated: true)
+            }
+          
+            
+        }
+        
+        
+    }
+    
+    @objc func coverButtonClick(sender:UIButton)  {
+        
+    }
+    
+    
+    
     
     
 }
+
+
+
+
 extension THVideoDetailViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let  cell   = tableView.dequeueReusableCell(withIdentifier: "THDongtaiCommentCell", for: indexPath) as! THDongtaiCommentCell
+        let  cell   = tableView.dequeueReusableCell(withIdentifier: "THDongtaiCommentCell", for: indexPath) as!THDongtaiCommentCell
+        cell.comment=comments[indexPath.row]
         return cell
     }
     

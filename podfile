@@ -21,6 +21,7 @@ target 'TodayHeadline' do
      pod 'FDFullscreenPopGesture'
     pod 'ObjectMapper'
     pod 'MJExtension'
+    pod 'MBProgressHUD'
     pod 'MJRefresh'
    pod 'IBAnimatable'
   end

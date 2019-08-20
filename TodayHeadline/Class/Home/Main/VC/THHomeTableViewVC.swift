@@ -76,8 +76,18 @@ extension THHomeTableViewVC{
             //还得添加视频
             switch model.cell_type {
             case .none:
-                let  defailVC=THDefailWebViewController()
-               navigationController?.pushViewController(defailVC, animated: true)
+                if model.has_video{
+                    let videoDetailVC = THVideoDetailViewController()
+                    videoDetailVC.video = model
+                    videoDetailVC.delegate = self
+                    //videoDetailVC.currentTime = currentTime
+                    videoDetailVC.currentIndexPath = indexPath
+                    
+                    navigationController?.pushViewController(videoDetailVC, animated: true)
+                }else{
+                    let  defailVC=THDefailWebViewController()
+                    navigationController?.pushViewController(defailVC, animated: true)
+                }
               //用户
             case .user:
                 let  defailVC=THUserVC()
@@ -94,4 +104,19 @@ extension THHomeTableViewVC{
     
     
 }
-
+// MARK: - VideoDetailViewControllerDelegate
+extension THHomeTableViewVC: VideoDetailViewControllerDelegate {
+    /// 详情控制器将要消失
+    func VideoDetailViewControllerViewWillDisappear(_ realVideo: RealVideo, _ currentTime: TimeInterval, _ currentIndexPath: IndexPath) {
+        //        let currentCell = tableView.cellForRow(at: currentIndexPath) as! THVideoViewCell
+        //        currentCell.bgImageButton.addSubview(player)
+        //        player.snp.makeConstraints({ $0.edges.equalTo(currentCell.bgImageButton) })
+        //        // 设置视频播放地址
+        //        player.setVideo(resource: BMPlayerResource(url: URL(string: realVideo.video_list.video_1.mainURL)!))
+        //        // 设置当前播放时间
+        //        player.seek(currentTime)
+        //        // 视频播放时隐藏 cell 的部分子视图
+        //       // currentCell.hideSubviews()
+        //        self.priorCell = currentCell
+    }
+}

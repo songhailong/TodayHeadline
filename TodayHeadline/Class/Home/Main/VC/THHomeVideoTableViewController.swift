@@ -11,7 +11,7 @@ import RxSwift
 
 class THHomeVideoTableViewController: THHomeBassTableViewController {
     /// 播放器
-    lazy var player: BMPlayer = BMPlayer(customControlView: SmallVideoPlayerCustomView())
+    lazy var player: BMPlayer = BMPlayer(customControlView: BMPlayerControlView())
     
     //private lazy var disposeBag = DisposeBag()
     /// 上一次播放的 cell
@@ -52,6 +52,12 @@ class THHomeVideoTableViewController: THHomeBassTableViewController {
     
     }
     
+    deinit {
+        
+        self.player.pause()
+        tableView=nil
+    }
+    
     
 }
 extension THHomeVideoTableViewController{
@@ -75,15 +81,15 @@ extension THHomeVideoTableViewController{
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let curruentCell = tableView.cellForRow(at: indexPath)as! THVideoViewCell
-        if player.isPlaying {
-            removePlayer()
-        }
+//        if player.isPlaying {
+//            removePlayer()
+//        }
         let videoDetailVC = THVideoDetailViewController()
         videoDetailVC.video = curruentCell.textModel
         videoDetailVC.delegate = self
         videoDetailVC.currentTime = currentTime
         videoDetailVC.currentIndexPath = indexPath
-       
+        videoDetailVC.player=player
     navigationController?.pushViewController(videoDetailVC, animated: true)
     }
     
@@ -113,16 +119,16 @@ extension THHomeVideoTableViewController{
 extension THHomeVideoTableViewController: VideoDetailViewControllerDelegate {
     /// 详情控制器将要消失
     func VideoDetailViewControllerViewWillDisappear(_ realVideo: RealVideo, _ currentTime: TimeInterval, _ currentIndexPath: IndexPath) {
-        let currentCell = tableView.cellForRow(at: currentIndexPath) as! THVideoViewCell
-        currentCell.bgImageButton.addSubview(player)
-        player.snp.makeConstraints({ $0.edges.equalTo(currentCell.bgImageButton) })
-        // 设置视频播放地址
-        player.setVideo(resource: BMPlayerResource(url: URL(string: realVideo.video_list.video_1.mainURL)!))
-        // 设置当前播放时间
-        player.seek(currentTime)
-        // 视频播放时隐藏 cell 的部分子视图
-       // currentCell.hideSubviews()
-        self.priorCell = currentCell
+//        let currentCell = tableView.cellForRow(at: currentIndexPath) as! THVideoViewCell
+//        currentCell.bgImageButton.addSubview(player)
+//        player.snp.makeConstraints({ $0.edges.equalTo(currentCell.bgImageButton) })
+//        // 设置视频播放地址
+//        player.setVideo(resource: BMPlayerResource(url: URL(string: realVideo.video_list.video_1.mainURL)!))
+//        // 设置当前播放时间
+//        player.seek(currentTime)
+//        // 视频播放时隐藏 cell 的部分子视图
+//       // currentCell.hideSubviews()
+//        self.priorCell = currentCell
     }
 }
 
