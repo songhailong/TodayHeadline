@@ -24,8 +24,8 @@ class THHomeCell: UITableViewCell {
                 videoImageButton.removeFromSuperview()
               
             }
-            middleView.snp.makeConstraints { (mask) in
-                mask.height.equalTo(0)
+            middleView.snp.updateConstraints { (mask) in
+                mask.height.equalTo(0.1)
             }
             BootomView.snp.updateConstraints { (mask) in
                 mask.height.equalTo(0)
@@ -90,12 +90,12 @@ class THHomeCell: UITableViewCell {
                 
                 setupRightImageView()
                 
-                print("视频类型大手大脚肯定是方便大家好\(self.textmodel.video_style)")
+               
                 //视频
                 if self.textmodel.video_style == 0{
-                    //右侧
-
-                    middleView.backgroundColor=UIColor.red
+           
+            print("视频类型大手大脚肯定是方便大家好\(self.textmodel.title)")
+                    //middleView.backgroundColor=UIColor.red
                     //大图
                     middleView.snp.updateConstraints { (mask) in
                         mask.height.equalTo(screenWidth*0.5)
@@ -103,6 +103,12 @@ class THHomeCell: UITableViewCell {
 
                     }
                     middleView.addSubview(videoImageButton)
+                    videoImageButton.snp.makeConstraints { (mask) in
+                        mask.right.equalToSuperview().offset(0)
+                        mask.left.equalToSuperview().offset(0)
+                        mask.bottom.equalToSuperview().offset(0)
+                        mask.top.equalToSuperview().offset(0)
+                    }
                      rightTimeButton.setTitle(self.textmodel.videoDuration, for: .normal)
                     rightTimeButton.snp.updateConstraints { (mask) in
                         mask.width.equalTo(50)}
@@ -238,7 +244,7 @@ class THHomeCell: UITableViewCell {
         self.contentView.addSubview(self.BootomView)
         self.contentView.addSubview(self.subTitleLable)
         self.contentView.addSubview(self.downLoadBtn)
-        middleView.addSubview(self.videoImageButton)
+        //middleView.addSubview(self.videoImageButton)
          setlayoutConstrains()
     }
     
@@ -329,12 +335,12 @@ class THHomeCell: UITableViewCell {
 //            mask.top.equalTo(middleView.snp.bottom).offset(0)
 //        }
         
-        self.videoImageButton.snp.makeConstraints { (mask) in
-            mask.right.equalToSuperview().offset(0)
-            mask.left.equalToSuperview().offset(0)
-            mask.bottom.equalToSuperview().offset(0)
-            mask.top.equalToSuperview().offset(0)
-        }
+//        self.videoImageButton.snp.makeConstraints { (mask) in
+//            mask.right.equalToSuperview().offset(0)
+//            mask.left.equalToSuperview().offset(0)
+//            mask.bottom.equalToSuperview().offset(0)
+//            mask.top.equalToSuperview().offset(0)
+//        }
         
         
         
@@ -407,7 +413,7 @@ class THHomeCell: UITableViewCell {
     /***右面图片**/
     lazy var rightImageview: UIImageView = {
         let rightImageview=UIImageView()
-        rightImageview.backgroundColor=UIColor.red
+        //rightImageview.backgroundColor=UIColor.red
         return rightImageview
     }()
     
@@ -428,7 +434,7 @@ class THHomeCell: UITableViewCell {
     /**中间内容**/
     lazy var middleView: UIView = {
         let middleView=UIView()
-        middleView.backgroundColor=UIColor.red
+        //middleView.backgroundColor=UIColor.red
         return middleView
     }()
     /**底部控件**/
@@ -452,7 +458,8 @@ class THHomeCell: UITableViewCell {
     /// 视频大图
     lazy var videoImageButton: UIButton = {
         let videoImageButton = UIButton()
-        
+        videoImageButton.isUserInteractionEnabled=false
+         //videoImageButton.backgroundColor=UIColor.red
         return videoImageButton
     }()
     

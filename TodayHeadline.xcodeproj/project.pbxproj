@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		79059D2C22C7090F007C2733 /* THNewsTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79059D2B22C7090F007C2733 /* THNewsTitleModel.swift */; };
 		79059D2E22C71453007C2733 /* THHomeBassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79059D2D22C71453007C2733 /* THHomeBassTableViewController.swift */; };
-		79059D3222C7159B007C2733 /* THHomeJokeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79059D3122C7159B007C2733 /* THHomeJokeViewController.swift */; };
 		79059D3422C71709007C2733 /* THHomeJokeViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79059D3322C71709007C2733 /* THHomeJokeViewControl.swift */; };
 		79059D3622C7179B007C2733 /* THHomeImageControol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79059D3522C7179B007C2733 /* THHomeImageControol.swift */; };
 		79059D3822C717BA007C2733 /* THWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79059D3722C717BA007C2733 /* THWebViewController.swift */; };
@@ -355,7 +354,6 @@
 		3E33075417CBB3037283FB15 /* Pods-TodayHeadline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayHeadline.debug.xcconfig"; path = "Target Support Files/Pods-TodayHeadline/Pods-TodayHeadline.debug.xcconfig"; sourceTree = "<group>"; };
 		79059D2B22C7090F007C2733 /* THNewsTitleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THNewsTitleModel.swift; sourceTree = "<group>"; };
 		79059D2D22C71453007C2733 /* THHomeBassTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THHomeBassTableViewController.swift; sourceTree = "<group>"; };
-		79059D3122C7159B007C2733 /* THHomeJokeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THHomeJokeViewController.swift; sourceTree = "<group>"; };
 		79059D3322C71709007C2733 /* THHomeJokeViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THHomeJokeViewControl.swift; sourceTree = "<group>"; };
 		79059D3522C7179B007C2733 /* THHomeImageControol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THHomeImageControol.swift; sourceTree = "<group>"; };
 		79059D3722C717BA007C2733 /* THWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THWebViewController.swift; sourceTree = "<group>"; };
@@ -1267,7 +1265,6 @@
 				82521AAF2303A3B5000E5FB1 /* THWenDaViewController.swift */,
 				79059D2D22C71453007C2733 /* THHomeBassTableViewController.swift */,
 				790EA12B22D60715004B1129 /* THHomeVideoTableViewController.swift */,
-				79059D3122C7159B007C2733 /* THHomeJokeViewController.swift */,
 				79059D3322C71709007C2733 /* THHomeJokeViewControl.swift */,
 				79059D3522C7179B007C2733 /* THHomeImageControol.swift */,
 				79059D3722C717BA007C2733 /* THWebViewController.swift */,
@@ -2023,7 +2020,6 @@
 				79211EF222C5D19B002FAE8F /* AnimatableActivityIndicatorView.swift in Sources */,
 				79179C9B22CE36A4000EDF4D /* Export.swift in Sources */,
 				79211EB822C5D19B002FAE8F /* PresentFoldWithDismissInteractionSegue.swift in Sources */,
-				79059D3222C7159B007C2733 /* THHomeJokeViewController.swift in Sources */,
 				79211E7C22C5D19B002FAE8F /* DropDownAnimator.swift in Sources */,
 				79211EB622C5D19B002FAE8F /* PresentOverCurrentContextSegue.swift in Sources */,
 				790EA12C22D60715004B1129 /* THHomeVideoTableViewController.swift in Sources */,

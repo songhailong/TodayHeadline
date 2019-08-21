@@ -29,6 +29,7 @@ class THVideoDetailViewController: UIViewController {
     /// 当前点击的索引
     var currentIndexPath = IndexPath(item: 0, section: 0)
     
+    var isPlayer=true
     private let disposeBag = DisposeBag()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -41,6 +42,13 @@ class THVideoDetailViewController: UIViewController {
         configUI()
         //loadData(with: video)
         //addAction()
+        
+        if isPlayer{
+            
+        }else{
+            self.player.setVideo(resource: BMPlayerResource.init(url: URL(string:realVideo.video_list.video_1.mainURL)!))
+        }
+        
         // Do any additional setup after loading the view.
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -182,12 +190,12 @@ class THVideoDetailViewController: UIViewController {
     }()
     
    
-//    deinit {
-//        
-//        //self.player.pause()
-//        //self.player=nil
-//        //tableView=nil
-//    }
+    deinit {
+        
+        self.player.pause()
+        //self.player=nil
+        //tableView=nil
+    }
     
 }
 

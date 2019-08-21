@@ -107,8 +107,25 @@ extension THNewsTitleModel{
           print(json)
 
             guard json["message"] == "success" else {
-
-                return }
+                let dataArr:[[String:Any]]=[["name":"推荐","category":"推荐","selected":true],["name":"热点","category":"news_hot","selected":false],["name":"济南","category":"news_local","selected":false],["name":"视频","category":"video","selected":true],["name":"社会","category":"news_society","selected":true],["name":"组图","category":"组图","selected":true],["name":"娱乐","category":"news_entertainment","selected":true],["name":"科技","category":"news_tech","selected":true],["name":"汽车","category":"news_car","selected":true],["name":"财经","category":"news_finance","selected":false],
+                    ["name":"体育","category":"news_sports","selected":false],
+                    ["name":"街拍","category":"image_ppmm","selected":false],
+                    ["name":"趣图","category":"","selected":false]]
+               
+                var titles = [THNewsTitleModel]()
+                var texts=[String]()
+                let dic:Dictionary=["category":"推荐","name":"推荐"]
+                
+                
+                for(index, item)in dataArr.enumerated(){
+                    
+                    titles.append (THNewsTitleModel.mj_object(withKeyValues: item))
+                    
+                }
+                completionHandler(titles)
+                
+              return
+            }
 
             if let datadic = json["data"].dictionary{
                 if let datas = datadic["data"]?.arrayObject {

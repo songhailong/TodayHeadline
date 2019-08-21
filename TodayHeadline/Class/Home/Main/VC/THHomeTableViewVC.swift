@@ -82,8 +82,16 @@ extension THHomeTableViewVC{
                     videoDetailVC.delegate = self
                     //videoDetailVC.currentTime = currentTime
                     videoDetailVC.currentIndexPath = indexPath
+                    videoDetailVC.player=self.thPlayer
+                    videoDetailVC.isPlayer=false
+                    THHomeVM.parseVideoRealURL(video_id: model.video_detail_info.video_id, completionHandler:{  (readVideo) in
+                        videoDetailVC.realVideo=readVideo
+                    self.navigationController?.pushViewController(videoDetailVC, animated: true)
+                        
+                    })
                     
-                    navigationController?.pushViewController(videoDetailVC, animated: true)
+                    
+                
                 }else{
                     let  defailVC=THDefailWebViewController()
                     navigationController?.pushViewController(defailVC, animated: true)
@@ -100,6 +108,9 @@ extension THHomeTableViewVC{
             }
         }
     }
+    
+    
+    
     
     
     

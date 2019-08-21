@@ -21,7 +21,7 @@ class THTexstsModel:HandyJSON{
         var height:CGFloat=titleH+36+5
         if video_duration != 0 && video_style == 0 && has_video{
             //说明有视频显示
-            height+=screenWidth*0.5
+            height+=screenWidth*0.5+5
             print(height)
         }else if  video_duration != 0 && video_style == 1 && has_video{
             return 95
