@@ -13,8 +13,8 @@ import Kingfisher
 //屏幕宽高
 let screenWidth = CGFloat(UIScreen.main.bounds.width)
 let screenHeight = CGFloat(UIScreen.main.bounds.height)
-let device_id: Int = 6096495334
-let iid: Int = 5034850950
+let device_id: Int = 41312231473
+let iid: Int = 17769976909
 //没有找到三木运算代替
 let isIphoneX:Bool = IphoneX()
 func IphoneX()->Bool{
@@ -31,7 +31,7 @@ func IphoneX()->Bool{
 
 
 let BASE_URL = "https://is.snssdk.com"
-
+let TH_BASE_URL = "https://www.toutiao.com/"
 
 //三木运算符 要空格
 let stausHeight = isIphoneX ? CGFloat(44.0):CGFloat(20.0)

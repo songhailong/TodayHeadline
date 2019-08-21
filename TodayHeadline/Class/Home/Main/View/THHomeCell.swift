@@ -85,40 +85,69 @@ class THHomeCell: UITableViewCell {
             }
             
             //视频和图片的摆放
-            
+            setupRightImageView()
             if self.textmodel.video_duration != 0 && self.textmodel.has_video{
+                
+                setupRightImageView()
+                
+                print("视频类型大手大脚肯定是方便大家好\(self.textmodel.video_style)")
                 //视频
                 if self.textmodel.video_style == 0{
                     //右侧
-                    rightTimeButton.setTitle(self.textmodel.videoDuration, for: .normal)
-                    rightTimeButton.snp.updateConstraints { (mask) in
-                        mask.width.equalTo(50)}
-                    rightImageview.snp.updateConstraints { (mask) in
-                        mask.width.equalTo(screenWidth*0.28)
-                    }
-                    //右面图片的设置
-                    if let image = self.textmodel.image_list.first {
-                        rightImageview.kf.setImage(with: URL(string: image.urlString)!)
-                    } else if self.textmodel.middle_image.url.length > 0 {
-                       rightImageview.kf.setImage(with: URL(string: self.textmodel.middle_image.urlString)!)
-                    } else if let largeImage = self.textmodel.large_image_list.first {
-                        rightImageview.kf.setImage(with: URL(string: largeImage.urlString)!)
-                    }
-                        
-                    
-                }else if self.textmodel.video_style == 2{
+
+                    middleView.backgroundColor=UIColor.red
                     //大图
                     middleView.snp.updateConstraints { (mask) in
-                      mask.height.equalTo(screenWidth*0.5)
-                        
+                        mask.height.equalTo(screenWidth*0.5)
+                        mask.right.equalToSuperview().offset(-15)
+
                     }
-                    if let largeImage = self.textmodel.large_image_list.first {
+                    middleView.addSubview(videoImageButton)
+                     rightTimeButton.setTitle(self.textmodel.videoDuration, for: .normal)
+                    rightTimeButton.snp.updateConstraints { (mask) in
+                        mask.width.equalTo(50)}
+
+
+                    //右面图片的设置
+                    if let image = self.textmodel.image_list.first {
+                        videoImageButton.setImage(UIImage(named: "video_play_icon_44x44_"), for: .normal)
+                        videoImageButton.kf.setBackgroundImage(with: URL(string: image.urlString)!, for: .normal)
+                       
+                    } else if self.textmodel.middle_image.url.length > 0 {
+                        videoImageButton.setImage(UIImage(named: "video_play_icon_44x44_"), for: .normal)
+                        videoImageButton.kf.setBackgroundImage(with: URL(string: self.textmodel.middle_image.urlString)!, for: .normal)
+                      
+                    } else if let largeImage = self.textmodel.large_image_list.first {
+
                         videoImageButton.setImage(UIImage(named: "video_play_icon_44x44_"), for: .normal)
                         videoImageButton.kf.setBackgroundImage(with: URL(string: largeImage.urlString)!, for: .normal)
+
+                      
                     }
-                    //h可能会cellg复用所以先删除
-                    middleView.addSubview(videoImageButton)
-                     setupRightImageView()
+                    
+                    
+                }else if self.textmodel.video_style == 2{
+                rightImageview.snp.updateConstraints { (mask) in
+                    mask.width.equalTo(screenWidth*0.28)
+                  }
+               rightTimeButton.setTitle(self.textmodel.videoDuration, for: .normal)
+               rightTimeButton.snp.updateConstraints { (mask) in
+                                         mask.width.equalTo(50)}
+                    
+                    
+                    //右面图片的设置
+                    if let image = self.textmodel.image_list.first {
+                       
+                        rightImageview.kf.setImage(with: URL(string: image.urlString)!)
+                    } else if self.textmodel.middle_image.url.length > 0 {
+                       
+                        rightImageview.kf.setImage(with: URL(string: self.textmodel.middle_image.urlString)!)
+                    } else if let largeImage = self.textmodel.large_image_list.first {
+                    rightImageview.kf.setImage(with: URL(string: largeImage.urlString)!)
+                    }
+                    
+                    
+                    
                 }
                 
             }else{
@@ -145,6 +174,7 @@ class THHomeCell: UITableViewCell {
                        
                         self.middleView.snp.updateConstraints { (mask) in
                             mask.height.equalTo(image3Width*0.7)
+                           mask.right.equalToSuperview().offset(-10)
                         }
                         middleView.addSubview(collectionView)
                         collectionView.frame = CGRect(x: 0, y: 0, width: screenWidth - 30, height: image3Width*0.7)
@@ -208,8 +238,8 @@ class THHomeCell: UITableViewCell {
         self.contentView.addSubview(self.BootomView)
         self.contentView.addSubview(self.subTitleLable)
         self.contentView.addSubview(self.downLoadBtn)
-        self.contentView.addSubview(self.videoImageButton)
-        setlayoutConstrains()
+        middleView.addSubview(self.videoImageButton)
+         setlayoutConstrains()
     }
     
     func setlayoutConstrains()  {
@@ -245,7 +275,7 @@ class THHomeCell: UITableViewCell {
             mask.width.equalTo(54)
             mask.height.equalTo(16)
         }
-        self.middleView.backgroundColor=UIColor.red
+       
         self.middleView.snp.makeConstraints { (mask) in
             mask.left.equalToSuperview().offset(15)
             mask.right.equalToSuperview().offset(-10)
@@ -292,14 +322,19 @@ class THHomeCell: UITableViewCell {
             mask.height.equalTo(10)
         }
         
-        self.downLoadBtn.snp.makeConstraints { (mask) in
-            mask.width.equalTo(90)
-            mask.left.equalToSuperview().offset(15)
+//        self.downLoadBtn.snp.makeConstraints { (mask) in
+//            mask.width.equalTo(90)
+//            mask.left.equalToSuperview().offset(15)
+//            mask.bottom.equalToSuperview().offset(0)
+//            mask.top.equalTo(middleView.snp.bottom).offset(0)
+//        }
+        
+        self.videoImageButton.snp.makeConstraints { (mask) in
+            mask.right.equalToSuperview().offset(0)
+            mask.left.equalToSuperview().offset(0)
             mask.bottom.equalToSuperview().offset(0)
-            mask.top.equalTo(0)
+            mask.top.equalToSuperview().offset(0)
         }
-        
-        
         
         
         
@@ -393,7 +428,7 @@ class THHomeCell: UITableViewCell {
     /**中间内容**/
     lazy var middleView: UIView = {
         let middleView=UIView()
-        
+        middleView.backgroundColor=UIColor.red
         return middleView
     }()
     /**底部控件**/

@@ -68,6 +68,7 @@ class THHomeVM: NSObject {
                         "iid": iid] as [String: Any]
         THHttpTool.PostLoadDate(url: url, parameters: params) { (respond) in
             let json=JSON(respond)
+            print(json)
             guard json["message"] == "success" else {return}
             guard let dates=json["data"].array else {return}
             var news=[THTexstsModel]()

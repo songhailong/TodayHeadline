@@ -311,6 +311,7 @@
 		826EF56222CC96DA004ACEF0 /* THSmallVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826EF56122CC96DA004ACEF0 /* THSmallVideo.swift */; };
 		828CB2C922CDA3210003A9F4 /* TheyUseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828CB2C722CDA3210003A9F4 /* TheyUseCollectionCell.swift */; };
 		828CB2CA22CDA3210003A9F4 /* TheyUseCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828CB2C822CDA3210003A9F4 /* TheyUseCollectionCell.xib */; };
+		8291C9C4230D0F4900AA1C4D /* MBProgressHUB+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291C9C3230D0F4900AA1C4D /* MBProgressHUB+Extension.swift */; };
 		82C845DC22D436D1006795EC /* SmallVideoPlayerCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C845DB22D436D1006795EC /* SmallVideoPlayerCustomView.swift */; };
 		82C845DE22D43A5B006795EC /* THSmallVideoCellCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C845DD22D43A5B006795EC /* THSmallVideoCellCell.swift */; };
 		82C845E022D4601D006795EC /* THSmallVideoCombinationVidew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C845DF22D4601C006795EC /* THSmallVideoCombinationVidew.swift */; };
@@ -330,7 +331,6 @@
 		82CD5A8822C360A100BA9230 /* THHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD5A8722C360A100BA9230 /* THHeader.swift */; };
 		82CD5A8A22C369E400BA9230 /* THEnumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD5A8922C369E400BA9230 /* THEnumeration.swift */; };
 		82EA99CA230BBAA7004DBD78 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 82EA99C9230BBAA7004DBD78 /* MBProgressHUD.m */; };
-		82EA99D2230BBCDA004DBD78 /* MBProgressHUB+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EA99D1230BBCDA004DBD78 /* MBProgressHUB+Extension.swift */; };
 		D19957D202C377DCBC7A7F0D /* Pods_TodayHeadline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 987219C7AEDD15C8524CACEE /* Pods_TodayHeadline.framework */; };
 /* End PBXBuildFile section */
 
@@ -660,6 +660,7 @@
 		826EF56122CC96DA004ACEF0 /* THSmallVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THSmallVideo.swift; sourceTree = "<group>"; };
 		828CB2C722CDA3210003A9F4 /* TheyUseCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheyUseCollectionCell.swift; sourceTree = "<group>"; };
 		828CB2C822CDA3210003A9F4 /* TheyUseCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TheyUseCollectionCell.xib; sourceTree = "<group>"; };
+		8291C9C3230D0F4900AA1C4D /* MBProgressHUB+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MBProgressHUB+Extension.swift"; sourceTree = "<group>"; };
 		82C845DB22D436D1006795EC /* SmallVideoPlayerCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallVideoPlayerCustomView.swift; sourceTree = "<group>"; };
 		82C845DD22D43A5B006795EC /* THSmallVideoCellCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THSmallVideoCellCell.swift; sourceTree = "<group>"; };
 		82C845DF22D4601C006795EC /* THSmallVideoCombinationVidew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THSmallVideoCombinationVidew.swift; sourceTree = "<group>"; };
@@ -686,7 +687,6 @@
 		82CD5A8922C369E400BA9230 /* THEnumeration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THEnumeration.swift; sourceTree = "<group>"; };
 		82EA99C8230BBAA6004DBD78 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		82EA99C9230BBAA7004DBD78 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		82EA99D1230BBCDA004DBD78 /* MBProgressHUB+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MBProgressHUB+Extension.swift"; path = "/Users/liangmengfushiliangmengfushi/Desktop/头条/头条/TodayHeadline/TodayHeadline/Class/Home/Main/VC/MBProgressHUB+Extension.swift"; sourceTree = "<absolute>"; };
 		987219C7AEDD15C8524CACEE /* Pods_TodayHeadline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayHeadline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBFC740D0EA538245558A981 /* Pods-TodayHeadline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayHeadline.release.xcconfig"; path = "Target Support Files/Pods-TodayHeadline/Pods-TodayHeadline.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1565,11 +1565,11 @@
 		82CD5A7D22C3387300BA9230 /* extension */ = {
 			isa = PBXGroup;
 			children = (
-				82EA99D1230BBCDA004DBD78 /* MBProgressHUB+Extension.swift */,
 				823D7B4E22CDA9D0005CF752 /* UIKit+Extension.swift */,
 				82CD5A8222C35E8400BA9230 /* UIView+extension.swift */,
 				79211F2522C600B1002FAE8F /* UIColor+Categary.swift */,
 				7913E69B22CB544000801977 /* THBasic+extension.swift */,
+				8291C9C3230D0F4900AA1C4D /* MBProgressHUB+Extension.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -2077,7 +2077,7 @@
 				79211EBF22C5D19B002FAE8F /* ActivityIndicatorShape.swift in Sources */,
 				796E69BC22C8A0D00026B638 /* JXSegmentedBaseCell.swift in Sources */,
 				79179C9C22CE36A4000EDF4D /* URLTransform.swift in Sources */,
-				82EA99D2230BBCDA004DBD78 /* MBProgressHUB+Extension.swift in Sources */,
+				8291C9C4230D0F4900AA1C4D /* MBProgressHUB+Extension.swift in Sources */,
 				7913BF8222CCF38A00F0688B /* THTheyAlsoUseCell.swift in Sources */,
 				79211F0722C5D19B002FAE8F /* PaddingDesignable.swift in Sources */,
 				79211EC322C5D19B002FAE8F /* ActivityIndicatorAnimationLineScalePulseOut.swift in Sources */,

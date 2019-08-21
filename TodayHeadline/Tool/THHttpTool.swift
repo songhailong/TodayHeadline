@@ -13,7 +13,7 @@ class THHttpTool {
     
     Alamofire.request(url, method: HTTPMethod.get, parameters: parameters).responseJSON { (DataResponse) in
         guard let result=DataResponse.result.value else {
-        print("提示网络不给力")
+         MBProgressHUD.showInfo("网速不好")
         return}
         finishCallBack(result)
     }
@@ -26,7 +26,7 @@ class  func PostLoadDate(url:String,parameters:[String:Any]?=nil,finishCallBack:
         
         Alamofire.request(url, method: HTTPMethod.post, parameters: parameters).responseJSON { (DataResponse) in
             guard let result = DataResponse.result.value else {
-                print("提示网络不给力")
+              MBProgressHUD.showInfo("网速不好")
                 return}
             
             

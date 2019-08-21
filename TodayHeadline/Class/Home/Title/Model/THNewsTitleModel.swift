@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Alamofire
 import SwiftyJSON
 
 import MJExtension
@@ -25,7 +25,7 @@ class  THNewsTitleModel: NSObject {
   @objc var default_add: Int = 0
   @objc  var web_url: String = ""
   @objc  var concern_id: String = ""
- @objc var icon_url: String = ""
+  @objc var icon_url: String = ""
    @objc  var flags: Int = 0
    @objc var type: Int = 0
   @objc  var name: String = ""
@@ -74,14 +74,37 @@ extension THNewsTitleModel{
     
     
     func loadTitleData(completionHandler:@escaping (_ titles:[THNewsTitleModel])->()) {
-        let url = BASE_URL + "/article/category/get_subscribed/v1/?"
+       // let url = BASE_URL + "/article/category/get_subscribed/v1/?"
+//        let url1="https://s3.pstatp.com/toutiao/static/js/page/index_node/index.01eaf238fae775fb5a33.js"
+//
+//        Alamofire.request(url, method: HTTPMethod.get, parameters: parameters).responseJSON { (DataResponse) in
+//            guard let result=DataResponse.result.value else {
+//                MBProgressHUD.showInfo("网速不好")
+//                return}
+//            finishCallBack(result)
+//        }
+        
+//        Alamofire.request(url1).responseJSON { (DataResponse) in
+//            guard let result=DataResponse.result.value else {
+//                        MBProgressHUD.showInfo("网速不好")
+//                               return}
+//             let json = JSON(result)
+//             print(json)
+//
+//            guard json["message"] == "success" else {
+//
+//                return }
+//
+//
+//        }
+          let url = BASE_URL + "/article/category/get_subscribed/v1/?"
         let params = ["device_id": device_id,
                       "iid": iid]
-       THHttpTool.getLoadDate(url: url, parameters: params) { (respond) in
+        THHttpTool.getLoadDate(url:url,parameters:params) { (respond) in
             //获取JSON数据
            let json = JSON(respond)
 
-          
+          print(json)
 
             guard json["message"] == "success" else {
 
