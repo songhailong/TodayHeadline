@@ -11,7 +11,7 @@ import RxSwift
 
 class THHomeVideoTableViewController: THHomeBassTableViewController {
     /// 播放器
-    lazy var player: BMPlayer = BMPlayer(customControlView: BMPlayerControlView())
+   // lazy var player: BMPlayer = BMPlayer(customControlView: BMPlayerControlView())
     
     //private lazy var disposeBag = DisposeBag()
     /// 上一次播放的 cell
@@ -27,8 +27,8 @@ class THHomeVideoTableViewController: THHomeBassTableViewController {
     }
     /// 移除播放器
     private func removePlayer() {
-        player.pause()
-        player.removeFromSuperview()
+        thPlayer.pause()
+        thPlayer.removeFromSuperview()
         priorCell = nil
     }
     /**把当前播放器放在最后一行****/
@@ -36,15 +36,15 @@ class THHomeVideoTableViewController: THHomeBassTableViewController {
         cell.hideSubviews()
     THHomeVM.parseVideoRealURL(video_id: cell.textModel.video_detail_info.video_id, completionHandler:{ [weak self] (readVideo) in
         self?.realVideo = readVideo
-        cell.bgImageButton.addSubview(self!.player )
+        cell.bgImageButton.addSubview(self!.thPlayer )
        
-        self!.player.snp.makeConstraints({ (mask) in
+        self!.thPlayer.snp.makeConstraints({ (mask) in
             mask.edges.equalTo(cell.bgImageButton)
         })
         
         print("nhoihio\(readVideo.video_list.video_1.main_url)")
         
-        self!.player.setVideo(resource: BMPlayerResource.init(url: URL(string:readVideo.video_list.video_1.mainURL)!))
+        self!.thPlayer.setVideo(resource: BMPlayerResource.init(url: URL(string:readVideo.video_list.video_1.mainURL)!))
       self?.priorCell=cell
         
     })
@@ -54,7 +54,7 @@ class THHomeVideoTableViewController: THHomeBassTableViewController {
     
     deinit {
         
-        self.player.pause()
+        self.thPlayer.pause()
         tableView=nil
     }
     
@@ -81,15 +81,15 @@ extension THHomeVideoTableViewController{
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let curruentCell = tableView.cellForRow(at: indexPath)as! THVideoViewCell
-//        if player.isPlaying {
-//            removePlayer()
-//        }
+       if thPlayer.isPlaying {
+            removePlayer()
+       }
         let videoDetailVC = THVideoDetailViewController()
         videoDetailVC.video = curruentCell.textModel
         videoDetailVC.delegate = self
         videoDetailVC.currentTime = currentTime
         videoDetailVC.currentIndexPath = indexPath
-        videoDetailVC.player=player
+        videoDetailVC.player=thPlayer
     navigationController?.pushViewController(videoDetailVC, animated: true)
     }
     
@@ -98,9 +98,9 @@ extension THHomeVideoTableViewController{
         if self.priorCell != cell {
             self.priorCell?.showSubviews()
             //=是否正在播放  如果播放就暂停和删除
-            if self.player.isPlaying{
-                self.player.pause()
-                self.player.removeFromSuperview()
+            if self.thPlayer.isPlaying{
+                self.thPlayer.pause()
+                self.thPlayer.removeFromSuperview()
             }
              self.addPlayer(cell: cell as! THVideoViewCell)
         }else{

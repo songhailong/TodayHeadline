@@ -82,6 +82,21 @@ extension THHomeTableViewVC{
                     videoDetailVC.delegate = self
                     //videoDetailVC.currentTime = currentTime
                     videoDetailVC.currentIndexPath = indexPath
+                    //右面图片的设置
+                    if let image = model.image_list.first {
+                       
+                     thPlayer.placeholderView.kf.setImage(with: URL.init(string: image.urlString))
+                        
+                    } else if model.middle_image.url.length > 0 {
+                       
+                        thPlayer.placeholderView.kf.setImage(with: URL.init(string: model.middle_image.urlString))
+                        
+                    } else if let largeImage = model.large_image_list.first {
+                        
+                         thPlayer.placeholderView.kf.setImage(with: URL.init(string: largeImage.urlString))
+                        
+                        
+                    }
                     videoDetailVC.player=self.thPlayer
                     videoDetailVC.isPlayer=false
                     THHomeVM.parseVideoRealURL(video_id: model.video_detail_info.video_id, completionHandler:{  (readVideo) in

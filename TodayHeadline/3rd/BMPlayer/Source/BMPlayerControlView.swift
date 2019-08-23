@@ -53,6 +53,10 @@ open class BMPlayerControlView: UIView {
     // MARK: Variables
     open var resource: BMPlayerResource?
     
+    
+    /// MARK:占位图
+    open var placeholderImageView = UIImageView()
+    
     open var selectedIndex = 0
     open var isFullscreen  = false
     open var isMaskShowing = true
@@ -236,7 +240,7 @@ open class BMPlayerControlView: UIView {
         UIView.animate(withDuration: 0.3, animations: {
             self.topMaskView.alpha    = alpha
             self.bottomMaskView.alpha = alpha
-            self.mainMaskView.backgroundColor = UIColor ( red: 0.0, green: 0.0, blue: 0.0, alpha: isShow ? 0.4 : 0.0)
+            //self.mainMaskView.backgroundColor = UIColor ( red: 0.0, green: 0.0, blue: 0.0, alpha: isShow ? 0.4 : 0.0)
             
             if isShow {
                 if self.isFullscreen { self.chooseDefitionView.alpha = 1.0 }
@@ -494,7 +498,7 @@ open class BMPlayerControlView: UIView {
         mainMaskView.addSubview(bottomMaskView)
         mainMaskView.insertSubview(maskImageView, at: 0)
         mainMaskView.clipsToBounds = true
-        mainMaskView.backgroundColor = UIColor ( red: 0.0, green: 0.0, blue: 0.0, alpha: 0.4 )
+        //mainMaskView.backgroundColor = UIColor ( red: 0.0, green: 0.0, blue: 0.0, alpha: 0.4 )
         
         // Top views
         topMaskView.addSubview(backButton)
@@ -716,5 +720,8 @@ open class BMPlayerControlView: UIView {
         let image  = UIImage(named: fileName, in: bundle, compatibleWith: nil)
         return image
     }
+    
+   
+    
 }
 

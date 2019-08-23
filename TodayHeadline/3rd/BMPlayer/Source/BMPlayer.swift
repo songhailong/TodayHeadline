@@ -39,6 +39,10 @@ open class BMPlayer: UIView {
     /// Gesture to change volume / brightness
     open var panGesture: UIPanGestureRecognizer!
     
+    /// 占位图
+    open var placeholderView=UIImageView.init(image: UIImage.init(named: "loading_bgView"))
+    
+    
     /// AVLayerVideoGravityType
     open var videoGravity = AVLayerVideoGravity.resizeAspect {
         didSet {
@@ -367,6 +371,8 @@ open class BMPlayer: UIView {
         initUIData()
         configureVolume()
         preparePlayer()
+        self.placeholderView.frame=self.bounds
+        self.layer.contents=self.placeholderView
     }
     
     public convenience init() {
@@ -375,7 +381,7 @@ open class BMPlayer: UIView {
     
     // MARK: - 初始化
     fileprivate func initUI() {
-        self.backgroundColor = UIColor.black
+        //self.backgroundColor = UIColor.black
         
         if let customView = customControlView {
             controlView = customView
@@ -390,6 +396,9 @@ open class BMPlayer: UIView {
         controlView.snp.makeConstraints { (make) in
             make.edges.equalTo(self)
         }
+        
+        self.placeholderView.frame=self.bounds
+        self.layer.contents=self.placeholderView
         
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.panDirection(_:)))
         self.addGestureRecognizer(panGesture)
@@ -447,6 +456,8 @@ extension BMPlayer: BMPlayerLayerViewDelegate {
         controlView.playerStateDidChange(state: state)
         switch state {
         case BMPlayerState.readyToPlay:
+            
+            //self.layer.contents=nil
             if !isPauseByUser {
                 play()
             }
@@ -574,4 +585,19 @@ extension BMPlayer: BMPlayerControlViewDelegate {
     open func controlView(controlView: BMPlayerControlView, didChangeVideoPlaybackRate rate: Float) {
         self.playerLayer?.player?.rate = rate
     }
+    
+//    open func buttonImageFromColor(color:UIColor)->UIImage{
+//        let rect=self.bounds
+//        UIGraphicsBeginImageContext(rect.size)
+//        let  context = UIGraphicsGetCurrentContext()
+//        CGContext.setFillColor(context)
+//        CGContextSetFillColorWithColor(context!, color.cgColor)
+//        CGContextFillRect(context, rect)
+//        guard let img = UIGraphicsGetImageFromCurrentImageContext() else { return <#default value#> }
+//        UIGraphicsEndImageContext()
+//        return img
+//    }
+    
+    
+    
 }
