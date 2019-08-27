@@ -154,11 +154,17 @@ class THPopView: UIView {
             self.contentView.frame = contentFrame
             window!.addSubview(self.contentView)
             self.contentView.frame=self.contentView.convert(self.contentView.bounds, to: self.popContainerView)
-            self.popContainerView.addSubview(self.contentView)
-            anchorponit.y = 1
-            anchorponit.x = (self.triangleView.frame.origin.x + self.triangleView.frame.size.width/2)/popContentFrame.size.width
-            self.popContainerView.layer.anchorPoint = anchorponit
-             self.popContainerView.layer.position=CGPoint.init(x: onViewFrame.origin.x + onViewFrame.size.width/2, y: onViewFrame.origin.y)
+//            self.popContainerView.addSubview(self.contentView)
+//            anchorponit.y = 1
+//            anchorponit.x = (self.triangleView.frame.origin.x + self.triangleView.frame.size.width/2)/popContentFrame.size.width
+//            self.popContainerView.layer.anchorPoint = anchorponit
+//
+//            print(onViewFrame.size.width)
+//
+//
+//            self.popContainerView.frame=CGRect.init(x: onViewFrame.origin.x + onViewFrame.size.width/2, y: onViewFrame.origin.y+onViewFrame.size.height, width: popContentFrame.size.width, height: popContentFrame.size.height)
+            
+            
             break
         
         case .PopUpBottom:

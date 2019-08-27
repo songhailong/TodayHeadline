@@ -12,19 +12,55 @@ class THDefailWebViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+       let webv=THWebView.shareManager()
+        let ddd=THWebView.shareManager()
+        let sssss=THWebView.shareManager()
+        let eeeee=THWebView.shareManager()
+       
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden=true
+        
+        self.view.addSubview(cutemNative)
+        self.view.addSubview(bottom)
+        
+        
     }
-    */
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    
+    }
+    
+    func configUI()  {
+        self.view.addSubview(bottom)
+    }
+    
+    
+   @objc func leftAction()  {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+  @objc  func rightAction()  {
+        
+    }
+    
+    lazy var bottom: THVideoDefailBottomView = {
+        let bottom=THVideoDefailBottomView.init(frame: CGRect.init(x: 0, y: screenHeight-50, width: screenWidth, height: 50))
+        bottom.backgroundColor=UIColor.red
+        return bottom
+    }()
+    lazy var cutemNative: THCustemNativeView = {
+        let  cutemNative=THCustemNativeView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: NavHeight))
+        cutemNative.leftButton.addTarget(self, action: #selector(leftAction), for: UIControl.Event.touchUpInside)
+        cutemNative.rightButton.addTarget(self, action: #selector(rightAction), for: UIControl.Event.touchUpInside)
+        return cutemNative
+    }()
+    
+   
+    
+    
+  
 
 }

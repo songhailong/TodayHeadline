@@ -14,7 +14,7 @@ class THNavigateView: UIView {
     /// 头像按钮点击
     var didSelectAvatarButton: (()->())?
     /// 相机按钮点击
-    var didSelectCameraButton: (()->())?
+    var didSelectCameraButton: ((_ sender:UIButton)->())?
     override init(frame: CGRect) {
         super.init(frame: frame)
         creatUI()
@@ -51,7 +51,7 @@ class THNavigateView: UIView {
         didSelectSearchButton?()
     }
   @objc  func cameraButtonClicked(sender:UIButton) {
-       didSelectCameraButton?()
+       didSelectCameraButton?(sender)
     }
     
     

@@ -35,6 +35,7 @@ class THHomeViewController: THBassViewController {
         super.viewDidLoad()
       
         configUI()
+        clickAction()
     }
     
     lazy var listtable: THPopTableView = {
@@ -144,11 +145,11 @@ extension THHomeViewController{
     
     //MARK 导航的算法
     
-    private func clickAction(sender:UIButton) {
+    func clickAction() {
         //相机按钮点击
-        self.navgateView.didSelectCameraButton={
+        self.navgateView.didSelectCameraButton={ sender in
         
-        //THPopView.popUpContentView(contentView: <#T##UIView#>, direct: <#T##PopDirection#>, onView: <#T##UIView#>)
+            THPopView.popUpContentView(contentView: self.listtable, direct: .PopUpTop, onView: sender)
         }
         //搜索按钮
         self.navgateView.didSelectSearchButton={

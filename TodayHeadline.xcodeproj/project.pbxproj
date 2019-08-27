@@ -285,8 +285,10 @@
 		79C5ADB32307EB9800BCA65B /* RelatedVideoFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5ADB22307EB9800BCA65B /* RelatedVideoFooterView.swift */; };
 		79D8593B22F9B85A00E69F9B /* THTextTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D8593A22F9B85A00E69F9B /* THTextTable.swift */; };
 		79E91DD822CBA98B00854AC1 /* THUserAuthInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E91DD722CBA98B00854AC1 /* THUserAuthInfo.swift */; };
+		821366A323138BD500C92F17 /* THCustemNativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821366A223138BD500C92F17 /* THCustemNativeView.swift */; };
 		823D7B4F22CDA9D0005CF752 /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D7B4E22CDA9D0005CF752 /* UIKit+Extension.swift */; };
 		823D7B5122CDCA5E005CF752 /* THHomeUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D7B5022CDCA5E005CF752 /* THHomeUserCell.swift */; };
+		824C23F42314D1A500FF6C31 /* THWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824C23F32314D1A500FF6C31 /* THWebView.swift */; };
 		824E6ED12306417000E1F5B1 /* THVideoDefailBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824E6ED02306417000E1F5B1 /* THVideoDefailBottomView.swift */; };
 		824E6ED32306418900E1F5B1 /* VideoDetailUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824E6ED22306418900E1F5B1 /* VideoDetailUserView.swift */; };
 		824E6ED52306440400E1F5B1 /* THRecommendedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824E6ED42306440400E1F5B1 /* THRecommendedView.swift */; };
@@ -635,8 +637,10 @@
 		79C5ADB22307EB9800BCA65B /* RelatedVideoFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedVideoFooterView.swift; sourceTree = "<group>"; };
 		79D8593A22F9B85A00E69F9B /* THTextTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = THTextTable.swift; sourceTree = "<group>"; };
 		79E91DD722CBA98B00854AC1 /* THUserAuthInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THUserAuthInfo.swift; sourceTree = "<group>"; };
+		821366A223138BD500C92F17 /* THCustemNativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THCustemNativeView.swift; sourceTree = "<group>"; };
 		823D7B4E22CDA9D0005CF752 /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
 		823D7B5022CDCA5E005CF752 /* THHomeUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THHomeUserCell.swift; sourceTree = "<group>"; };
+		824C23F32314D1A500FF6C31 /* THWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THWebView.swift; sourceTree = "<group>"; };
 		824E6ED02306417000E1F5B1 /* THVideoDefailBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THVideoDefailBottomView.swift; sourceTree = "<group>"; };
 		824E6ED22306418900E1F5B1 /* VideoDetailUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailUserView.swift; sourceTree = "<group>"; };
 		824E6ED42306440400E1F5B1 /* THRecommendedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THRecommendedView.swift; sourceTree = "<group>"; };
@@ -1444,6 +1448,7 @@
 				82C4F027230E7DCB00D5403F /* PopView */,
 				82EA99C8230BBAA6004DBD78 /* MBProgressHUD.h */,
 				82EA99C9230BBAA7004DBD78 /* MBProgressHUD.m */,
+				824C23F32314D1A500FF6C31 /* THWebView.swift */,
 			);
 			path = GlobleView;
 			sourceTree = "<group>";
@@ -1611,6 +1616,7 @@
 			children = (
 				82CD5A7A22C334D800BA9230 /* THTabBarController.swift */,
 				79211F1F22C5F9D1002FAE8F /* THNavigateView.swift */,
+				821366A223138BD500C92F17 /* THCustemNativeView.swift */,
 			);
 			path = tabBar;
 			sourceTree = "<group>";
@@ -1967,6 +1973,7 @@
 				79211CC822C5C2EB002FAE8F /* BMPlayerManager.swift in Sources */,
 				79211F0A22C5D19B002FAE8F /* BlurDesignable.swift in Sources */,
 				796E69C822C8A0D00026B638 /* JXSegmentedIndicatorParamsModel.swift in Sources */,
+				824C23F42314D1A500FF6C31 /* THWebView.swift in Sources */,
 				79179C8F22CE36A4000EDF4D /* Properties.swift in Sources */,
 				82C4F02B230E826100D5403F /* THPopTableView.swift in Sources */,
 				796E69C422C8A0D00026B638 /* JXSegmentedIndicatorImageView.swift in Sources */,
@@ -2081,6 +2088,7 @@
 				796E69B722C8A0D00026B638 /* JXSegmentedTitleOrImageItemModel.swift in Sources */,
 				79211EA522C5D19B002FAE8F /* PresentationModalSize.swift in Sources */,
 				79211EC422C5D19B002FAE8F /* ActivityIndicatorAnimationBallPulse.swift in Sources */,
+				821366A323138BD500C92F17 /* THCustemNativeView.swift in Sources */,
 				79211ECF22C5D19B002FAE8F /* ActivityIndicatorAnimationBallPulseRise.swift in Sources */,
 				79211E7B22C5D19B002FAE8F /* CoverAnimator.swift in Sources */,
 				796E69CA22C8A0D00026B638 /* JXSegmentedComponetGradientView.swift in Sources */,
