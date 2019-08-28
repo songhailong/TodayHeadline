@@ -44,6 +44,7 @@ extension THHomeTableViewVC{
         case .none:
             let cell=tableView.dequeueReusableCell(withIdentifier:"THHomeCell", for:indexPath) as! THHomeCell
             cell.textmodel=model
+            print("加载链接\(model.web_url)\(model.article_url)")
             return cell
             
        
@@ -65,7 +66,7 @@ extension THHomeTableViewVC{
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model=dadeArr[indexPath.row]
-       
+        
         if newsTitle.categoryType == .questionAndAnswer{
             //跳转问答
             let  defailVC=THWenDaViewController()
@@ -109,6 +110,7 @@ extension THHomeTableViewVC{
                 
                 }else{
                     let  defailVC=THDefailWebViewController()
+                    defailVC.webUrl=model.web_url
                     navigationController?.pushViewController(defailVC, animated: true)
                 }
               //用户

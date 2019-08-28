@@ -52,7 +52,8 @@ class THHomeBassTableViewController: UITableViewController {
 //        heard?.setImages(<#T##images: [Any]!##[Any]!#>, for: MJRefreshState.)
         tableView.mj_header=heard
         tableView.mj_header.beginRefreshing()
-     
+        let custemWeb=THWebView.shareManager(frame: CGRect.zero)
+        
         //底视图加载
         tableView.mj_footer=MJRefreshAutoFooter(refreshingBlock: {
             

@@ -15,12 +15,25 @@ class THWebView:UIView {
   private static let  webViewManager=THWebView()
     
     static  func shareManager(frame:CGRect) -> THWebView {
-       print("dvdsvsdlvmklsdnvlksdnvlksdnvlksdn")
-        
-      
-    
+         webViewManager.frame=frame
         return  webViewManager
     }
+    
+    override init(frame: CGRect) {
+        super.init(frame: CGRect.zero)
+        custwebView=WKWebView.init(frame: CGRect.zero, configuration: custconfig)
+        
+        configWebView()
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.addSubview(custwebView)
+        custwebView.frame=self.bounds
+    }
+    
     
     func configWebView()  {
         
@@ -43,8 +56,18 @@ class THWebView:UIView {
         config.mediaTypesRequiringUserActionForPlayback = .all
         //设置请求的User-Agent信息中应用程序名称 iOS9后可用
         config.applicationNameForUserAgent = "ChinaDailyForiPad"
+        config.userContentController=wkUController
+        
         return config
     }()
+    
+    /// 这个类主要用来做native与JavaScript的交互管理
+    lazy var wkUController: WKUserContentController = {
+        let  wkUController=WKUserContentController()
+        return wkUController
+    }()
+    
+    
 }
 
 
