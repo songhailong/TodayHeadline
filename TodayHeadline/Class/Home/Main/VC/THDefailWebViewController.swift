@@ -84,7 +84,7 @@ extension THDefailWebViewController:WKUIDelegate,WKNavigationDelegate{
     ///   - webView: <#webView description#>
     ///   - navigation: <#navigation description#>
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        MBProgressHUD.show("正在加载")
+        MBProgressHUD.showCustomStatusAnimation(view: self.view)
     }
     
     
