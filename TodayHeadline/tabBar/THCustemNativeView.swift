@@ -56,7 +56,7 @@ class THCustemNativeView: UIView {
     
     lazy var titleLable: UILabel = {
         let titleLable=UILabel()
-        titleLable.backgroundColor=UIColor.red
+        
         titleLable.textColor=UIColor.black
         titleLable.textAlignment=NSTextAlignment.center
         titleLable.text="今日头条"

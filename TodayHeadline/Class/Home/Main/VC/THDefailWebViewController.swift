@@ -16,7 +16,7 @@ class THDefailWebViewController: UIViewController {
         //let ddd=THWebView.shareManager()
        // let sssss=THWebView.shareManager()
        // let eeeee=THWebView.shareManager()
-       
+       configUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -24,7 +24,7 @@ class THDefailWebViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden=true
         
         self.view.addSubview(cutemNative)
-        configUI()
+        //configUI()
         
         
     }
@@ -34,10 +34,12 @@ class THDefailWebViewController: UIViewController {
     }
     
     func configUI()  {
+        self.view.backgroundColor=UIColor.white
         self.view.addSubview(bottom)
-        self.view.addSubview(webView)
+       // self.view.addSubview(webView)
         webView.custwebView.uiDelegate=self
         webView.custwebView.navigationDelegate=self
+        print("cndkcnlkdsnclknlknlknclkasnclk\(webUrl)")
         let requst=NSMutableURLRequest.init(url: URL.init(string: webUrl)!)
         //requst.addValue(<#T##value: String##String#>, forHTTPHeaderField: <#T##String#>)
         webView.custwebView.load(requst as URLRequest)
@@ -54,7 +56,7 @@ class THDefailWebViewController: UIViewController {
     
     lazy var bottom: THVideoDefailBottomView = {
         let bottom=THVideoDefailBottomView.init(frame: CGRect.init(x: 0, y: screenHeight-50, width: screenWidth, height: 50))
-        bottom.backgroundColor=UIColor.red
+       // bottom.backgroundColor=UIColor.red
         return bottom
     }()
     lazy var cutemNative: THCustemNativeView = {
@@ -102,7 +104,8 @@ extension THDefailWebViewController:WKUIDelegate,WKNavigationDelegate{
     ///   - webView: <#webView description#>
     ///   - navigation: <#navigation description#>
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-        //MBProgressHUD.hide()
+        MBProgressHUD.hide()
+        self.view.addSubview(self.webView)
     }
     
     /// 加载完成
@@ -111,28 +114,33 @@ extension THDefailWebViewController:WKUIDelegate,WKNavigationDelegate{
     ///   - webView: <#webView description#>
     ///   - navigation: <#navigation description#>
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        MBProgressHUD.hide()
+       /// MBProgressHUD.hide()
+        //self.view.addSubview(webView)
     }
     // 接收到服务器跳转请求即服务重定向时之后调用
     func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
         
     }
       // 根据WebView对于即将跳转的HTTP请求头信息和相关信息来决定是否跳转 拦截消息头
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        
-    }
+//    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+//
+//    }
     // 根据客户端受到的服务器响应头以及response相关信息来决定是否可以跳转
-    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
-        
-    }
+//    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+//
+//    }
     //需要响应身份验证时调用 同样在block中需要传入用户身份凭证
-    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-        
-    }
+//    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+//        
+//    }
     //进程被终止时调用
     func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
         
     }
+    
+    
+    
+
     
     //MARK  WKNavigationDelegate
     /**

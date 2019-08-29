@@ -38,6 +38,12 @@ class THHomeViewController: THBassViewController {
         clickAction()
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden=false
+    }
+    
     lazy var listtable: THPopTableView = {
         let listtable=THPopTableView()
         //设置数据 和代理
