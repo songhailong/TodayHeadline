@@ -16,6 +16,8 @@ class TBMineViewController: THBassViewController {
         
         MBProgressHUD.showCustomStatusAnimation(view: self.view)
         //MBProgressHUD.showDefaulactivity(view:self.view,dimBackground:false)
+        MBProgressHUD.showCustemActivity(view: self.view)
+        
     }
     
 

@@ -87,6 +87,7 @@ open class BMPlayerLayerView: UIView {
         }
     }
     
+    /// 播放比例
     var aspectRatio:BMPlayerAspectRatio = .default {
         didSet {
             self.setNeedsLayout()
@@ -171,6 +172,7 @@ open class BMPlayerLayerView: UIView {
         case .default:
             self.playerLayer?.videoGravity = AVLayerVideoGravity.resizeAspect
             self.playerLayer?.frame  = self.bounds
+            self.playerLayer?.backgroundColor=UIColor.red as! CGColor
             break
         case .sixteen2NINE:
             self.playerLayer?.videoGravity = AVLayerVideoGravity.resize

@@ -136,11 +136,47 @@ extension MBProgressHUD{
         hub.backgroundColor=UIColor.clear
        hub.removeFromSuperViewOnHide=true
        //小菊花默认是白色
-     hub.bezelView.backgroundColor=UIColor.clear
+       hub.bezelView.backgroundColor=UIColor.clear
         
         return hub
     }
     
+    /// 自定义圆圈转动
+    ///
+    /// - Parameter view: <#view description#>
+ class   func showCustemActivity(view:UIView)  {
+        let HUD=MBProgressHUD.showAdded(to: view, animated: true)
+        HUD.bezelView.style=MBProgressHUDBackgroundStyle.solidColor
+        HUD.bezelView.backgroundColor=UIColor.clear
+    
+        HUD.mode=MBProgressHUDMode.customView
+        //HUD.backgroundColor=UIColor.gray
+        //实质是黑色的弹框的大小是依据中间的detailsLabel的宽度来做约束的，所以你只要限制中间detailsLabel的宽度就可以了。
+        
+        
+        
+        //MBProgressHUD是根据你给定的图片大小来约束大小，所以你要图片显示多大，你就叫UI给你这种尺寸的切图就可以了
+        HUD.isSquare=true
+        let imageViewGif=UIImageView()
+        var imags=[UIImage]()
+       
+            imags.append(UIImage.init(named: "dragloading_0")!)
+          imags.append(UIImage.init(named: "dragloading_1")!)
+           imags.append(UIImage.init(named: "dragloading_2")!)
+        imags.append(UIImage.init(named: "dragloading_3")!)
+        imags.append(UIImage.init(named: "dragloading_4")!)
+        imags.append(UIImage.init(named: "dragloading_5")!)
+        imags.append(UIImage.init(named: "dragloading_6")!)
+        imags.append(UIImage.init(named: "dragloading_7")!)
+        imageViewGif.animationImages=imags
+        imageViewGif.animationDuration=1
+        imageViewGif.animationRepeatCount=0
+        imageViewGif.startAnimating()
+        
+        HUD.removeFromSuperViewOnHide=true
+        HUD.customView=imageViewGif
+        
+    }
     
     
     

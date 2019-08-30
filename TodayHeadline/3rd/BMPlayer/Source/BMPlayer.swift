@@ -390,6 +390,7 @@ open class BMPlayer: UIView {
         }
         
         addSubview(controlView)
+        
         controlView.updateUI(isFullScreen)
         controlView.delegate = self
         controlView.player   = self

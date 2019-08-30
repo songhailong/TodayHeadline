@@ -53,7 +53,7 @@ class THSmallVideoViewController: THBassViewController {
         smallVideoLayout.scrollDirection = .horizontal
          let collectionView=UICollectionView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight), collectionViewLayout: smallVideoLayout)
        
-       
+         collectionView.isPagingEnabled=true
         collectionView.delegate=self
         collectionView.dataSource=self
         collectionView.register(THSmallVideoCellCell.self, forCellWithReuseIdentifier: "THSmallVideoCellCell")
@@ -64,7 +64,7 @@ class THSmallVideoViewController: THBassViewController {
     func setupPlayer(currentIndex: Int)  {
         let smallVideo = smallVideos[currentIndex]
         if  let videoURLString = smallVideo.raw_data.video.play_addr.url_list.first{
-            
+            //self.player.backgroundColor=UIColor.green
             
             let dataTask = URLSession.shared.dataTask(with: URL(string: videoURLString)!, completionHandler: { (data, response, error) in
                 // 货到主线程添加播放器

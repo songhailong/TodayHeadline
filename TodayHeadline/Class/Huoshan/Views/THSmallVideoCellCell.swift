@@ -19,7 +19,7 @@ class THSmallVideoCellCell: UICollectionViewCell {
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.backgroundColor=UIColor.red
+        //self.backgroundColor=UIColor.red
         self.addSubview(bgImageView)
         bgImageView.addSubview(iconImageView)
         bgImageView.addSubview(nameButton)
@@ -150,7 +150,7 @@ class THSmallVideoCellCell: UICollectionViewCell {
     lazy var bgImageView: UIImageView = {
         let bgImageView=UIImageView()
         bgImageView.isUserInteractionEnabled=true
-        //bgImageView.backgroundColor=UIColor.white
+        //bgImageView.backgroundColor=UIColor.red
         return bgImageView
     }()
     /***评论按钮***/
