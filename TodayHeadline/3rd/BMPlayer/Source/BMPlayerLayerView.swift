@@ -56,6 +56,10 @@ open class BMPlayerLayerView: UIView {
     /// 视频跳转秒数置0
     open var seekTime = 0
     
+    
+     /// 展位图
+     open var placeholderView=UIImageView()
+    
     /// 播放属性
     open var playerItem: AVPlayerItem? {
         didSet {
@@ -110,6 +114,9 @@ open class BMPlayerLayerView: UIView {
             if state != oldValue {
                 delegate?.bmPlayer(player: self, playerStateDidChange: state)
             }
+            
+           
+            
         }
     }
     /// 是否为全屏
@@ -168,11 +175,16 @@ open class BMPlayerLayerView: UIView {
     // MARK: - layoutSubviews
     override open func layoutSubviews() {
         super.layoutSubviews()
+        placeholderView.backgroundColor=UIColor.green
+        self.addSubview(placeholderView)
+        placeholderView.frame=self.bounds
+        
+        
         switch self.aspectRatio {
         case .default:
             self.playerLayer?.videoGravity = AVLayerVideoGravity.resizeAspect
             self.playerLayer?.frame  = self.bounds
-            self.playerLayer?.backgroundColor=UIColor.red as! CGColor
+           // self.playerLayer?.backgroundColor=UIColor.red.cgColor
             break
         case .sixteen2NINE:
             self.playerLayer?.videoGravity = AVLayerVideoGravity.resize
@@ -310,6 +322,7 @@ open class BMPlayerLayerView: UIView {
                 if inclodeLoading {
                     if playerItem.isPlaybackLikelyToKeepUp || playerItem.isPlaybackBufferFull {
                         self.state = .bufferFinished
+                        
                     } else {
                         self.state = .buffering
                     }
@@ -356,6 +369,8 @@ open class BMPlayerLayerView: UIView {
                 switch keyPath {
                 case "status":
                     if player?.status == AVPlayer.Status.readyToPlay {
+                        placeholderView.isHidden=true
+                        MBProgressHUD.hide()
                         self.state = .buffering
                         if shouldSeekTo != 0 {
                             print("BMPlayerLayer | Should seek to \(shouldSeekTo)")
@@ -363,16 +378,23 @@ open class BMPlayerLayerView: UIView {
                                 self.shouldSeekTo = 0
                                 self.hasReadyToPlay = true
                                 self.state = .readyToPlay
+                                self.placeholderView.removeFromSuperview()
                             })
                         } else {
                             self.hasReadyToPlay = true
                             self.state = .readyToPlay
+                            placeholderView.removeFromSuperview()
                         }
                     } else if player?.status == AVPlayer.Status.failed {
                         self.state = .error
+                    }else if player?.status == AVPlayer.Status.unknown{
+                         MBProgressHUD.showDefaulactivity(view: self, dimBackground: true)
                     }
                     
                 case "loadedTimeRanges":
+                    
+                   //MBProgressHUD.showCustemActivity(view: self)
+                    
                     // 计算缓冲进度
                     if let timeInterVarl    = self.availableDuration() {
                         let duration        = item.duration
@@ -381,9 +403,12 @@ open class BMPlayerLayerView: UIView {
                     }
                     
                 case "playbackBufferEmpty":
+                    
                     // 当缓冲是空的时候
                     if self.playerItem!.isPlaybackBufferEmpty {
                         self.state = .buffering
+                        MBProgressHUD.showCustemActivity(view: self)
+                        MBProgressHUD.showDefaulactivity(view: self, dimBackground: true)
                         self.bufferingSomeSecond()
                     }
                 case "playbackLikelyToKeepUp":

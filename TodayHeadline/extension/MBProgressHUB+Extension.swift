@@ -136,7 +136,7 @@ extension MBProgressHUD{
         hub.backgroundColor=UIColor.clear
        hub.removeFromSuperViewOnHide=true
        //小菊花默认是白色
-       hub.bezelView.backgroundColor=UIColor.clear
+       hub.bezelView.backgroundColor=UIColor.black
         
         return hub
     }

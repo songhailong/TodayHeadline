@@ -85,16 +85,19 @@ extension THHomeTableViewVC{
                     videoDetailVC.currentIndexPath = indexPath
                     //右面图片的设置
                     if let image = model.image_list.first {
-                       
-                     thPlayer.placeholderView.kf.setImage(with: URL.init(string: image.urlString))
+                        thPlayer.playerLayer?.placeholderView.isHidden=false
+                        thPlayer.playerLayer?.placeholderView.kf.setImage(with: URL.init(string: image.urlString))
+                        
+                        
+                        
                         
                     } else if model.middle_image.url.length > 0 {
-                       
-                        thPlayer.placeholderView.kf.setImage(with: URL.init(string: model.middle_image.urlString))
+                       thPlayer.playerLayer?.placeholderView.isHidden=false
+                        thPlayer.playerLayer?.placeholderView.kf.setImage(with: URL.init(string: model.middle_image.urlString))
                         
                     } else if let largeImage = model.large_image_list.first {
-                        
-                         thPlayer.placeholderView.kf.setImage(with: URL.init(string: largeImage.urlString))
+                         thPlayer.playerLayer?.placeholderView.isHidden=false
+                         thPlayer.playerLayer?.placeholderView.kf.setImage(with: URL.init(string: largeImage.urlString))
                         
                         
                     }
