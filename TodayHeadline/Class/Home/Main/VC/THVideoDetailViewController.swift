@@ -68,20 +68,21 @@ class THVideoDetailViewController: UIViewController {
     func configUI()  {
         player.delegate=self
         view.addSubview(player)
-        view.addSubview(backButton)
+        //view.addSubview(backButton)
         view.addSubview(tableView)
         view.addSubview(userView)
         view.addSubview(bottom)
+      
         player.snp.makeConstraints { (mask) in
             mask.top.equalToSuperview().offset(isIphoneX ? 40 : 0)
             mask.left.right.equalToSuperview().offset(0)
             mask.height.equalTo(screenWidth*9/16)
         }
-        backButton.snp.makeConstraints { (mask) in
-            mask.leading.equalTo(view).offset(10)
-            mask.size.equalTo(CGSize(width: 35, height: 35))
-            mask.top.equalTo(player.snp.top).offset(10)
-        }
+//        backButton.snp.makeConstraints { (mask) in
+//            mask.leading.equalTo(view).offset(10)
+//            mask.size.equalTo(CGSize(width: 35, height: 35))
+//            mask.top.equalTo(player.snp.top).offset(10)
+//        }
         userView.snp.makeConstraints { (mask) in
             mask.top.equalTo(player.snp.bottom)
             mask.left.right.equalTo(view)
@@ -98,7 +99,9 @@ class THVideoDetailViewController: UIViewController {
             mask.left.right.equalTo(view)
         }
        
-        
+        player.backBlock = {[weak self] sender in
+            self?.navigationController?.popViewController(animated: true)
+        }
         
         
     }
@@ -147,9 +150,10 @@ class THVideoDetailViewController: UIViewController {
     
     
   /// 返回监听事件
-  @objc  func backClick()  {
-        self.navigationController?.popViewController(animated: true)
-    }
+//  @objc  func backClick()  {
+//        print("视频返回")
+//        self.navigationController?.popViewController(animated: true)
+//    }
     
     
     
@@ -167,7 +171,7 @@ class THVideoDetailViewController: UIViewController {
     /// 返回按钮
     private lazy var backButton: UIButton = {
         let backButton = UIButton()
-        backButton.addTarget(self, action: #selector(backClick), for: UIControl.Event.touchUpInside)
+//        backButton.addTarget(self, action: #selector(backClick), for: UIControl.Event.touchUpInside)
         backButton.setImage(UIImage(named: "personal_home_back_white_24x24_"), for: .normal)
         return backButton
     }()

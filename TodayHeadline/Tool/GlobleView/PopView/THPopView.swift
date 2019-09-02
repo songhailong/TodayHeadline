@@ -65,7 +65,7 @@ class THPopView: UIView {
             newPopView.setPopMenuSubViewFrame()
         windows?.addSubview(newPopView)
         newPopView.setPopMenuSubViewFrame()
-        newPopView.animationPopContainerViewWithOldPopView(oldPopView: UIView() as! THPopView)
+       // newPopView.animationPopContainerViewWithOldPopView(oldPopView: UIView() as! THPopView)
         newPopView.bringSubviewToFront(newPopView.popContainerView)
         return newPopView
     }
