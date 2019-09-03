@@ -16,6 +16,7 @@ class THDefailWebViewController: UIViewController {
         //let ddd=THWebView.shareManager()
        // let sssss=THWebView.shareManager()
        // let eeeee=THWebView.shareManager()
+        self.view.isUserInteractionEnabled=true
        configUI()
     }
     
@@ -46,7 +47,7 @@ class THDefailWebViewController: UIViewController {
     }
     
     
-   @objc func leftAction()  {
+   @objc func leftActionaa()  {
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -61,7 +62,7 @@ class THDefailWebViewController: UIViewController {
     }()
     lazy var cutemNative: THCustemNativeView = {
         let  cutemNative=THCustemNativeView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: NavHeight))
-        cutemNative.leftButton.addTarget(self, action: #selector(leftAction), for: UIControl.Event.touchUpInside)
+        cutemNative.leftButton1.addTarget(self, action: #selector(leftActionaa), for: UIControl.Event.touchUpOutside)
         cutemNative.rightButton.addTarget(self, action: #selector(rightAction), for: UIControl.Event.touchUpInside)
         return cutemNative
     }()
