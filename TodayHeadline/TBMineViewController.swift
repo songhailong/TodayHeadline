@@ -14,9 +14,10 @@ class TBMineViewController: THBassViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        MBProgressHUD.showCustomStatusAnimation(view: self.view)
-        //MBProgressHUD.showDefaulactivity(view:self.view,dimBackground:false)
-        MBProgressHUD.showCustemActivity(view: self.view)
+       // MBProgressHUD.showCustomStatusAnimation(view: self.view)
+        MBProgressHUD.showDefaulactivity(view:self.view,dimBackground:false)
+        //MBProgressHUD.showCustemActivity(view: self.view)
+         MBProgressHUD.hide(for: self.view, animated: true)
         
     }
     

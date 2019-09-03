@@ -42,6 +42,18 @@ import NVActivityIndicatorView
      - parameter controlView: control view
      - parameter rate:        playback rate
      */
+    
+    
+    
+    
+    /**
+     播放结束
+     
+     - parameter controlView: control view
+     - parameter button:      button type
+     */
+  @objc optional   func palyEndHide(controlView: BMPlayerControlView, didPressButton button: UIButton)
+    
     @objc optional func controlView(controlView: BMPlayerControlView, didChangeVideoPlaybackRate rate: Float)
 }
 
@@ -158,6 +170,7 @@ open class BMPlayerControlView: UIView {
         case .playedToTheEnd:
             playButton.isSelected = false
             showPlayToTheEndView()
+            delegate?.palyEndHide?(controlView: self, didPressButton:replayButton)
             controlViewAnimation(isShow: true)
             
         default:

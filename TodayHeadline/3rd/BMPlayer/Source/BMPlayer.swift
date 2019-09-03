@@ -371,8 +371,12 @@ open class BMPlayer: UIView {
         initUIData()
         configureVolume()
         preparePlayer()
-        self.placeholderView.frame=self.bounds
-        self.layer.contents=self.placeholderView
+       // self.placeholderView.backgroundColor=UIColor.green
+        //self.layer.addSublayer(placeholderView.layer)
+         //self.playerLayer?.addSubview(placeholderView)
+       // self.placeholderView.frame=self.bounds
+        //self.playerLayer?.layer.contents=self.placeholderView
+        //self.playerLayer?.addSubview(placeholderView)
     }
     
     public convenience init() {
@@ -398,8 +402,8 @@ open class BMPlayer: UIView {
             make.edges.equalTo(self)
         }
         
-        self.placeholderView.frame=self.bounds
-        self.layer.contents=self.placeholderView
+        //self.placeholderView.frame=self.bounds
+        //self.layer.contents=self.placeholderView
         
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.panDirection(_:)))
         self.addGestureRecognizer(panGesture)
@@ -586,6 +590,17 @@ extension BMPlayer: BMPlayerControlViewDelegate {
     open func controlView(controlView: BMPlayerControlView, didChangeVideoPlaybackRate rate: Float) {
         self.playerLayer?.player?.rate = rate
     }
+    
+    
+   open func palyEndHide(controlView: BMPlayerControlView, didPressButton button: UIButton){
+      seek(0, completion: {
+        self.play()
+      })
+      controlView.hidePlayToTheEndView()
+      isPlayToTheEnd = false
+    }
+    
+    
     
 //    open func buttonImageFromColor(color:UIColor)->UIImage{
 //        let rect=self.bounds

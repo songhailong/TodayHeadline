@@ -52,6 +52,23 @@ class THHomeVideoTableViewController: THHomeBassTableViewController {
     
     }
     
+    
+    
+    func loadparseVideoUrl(textModel:THTexstsModel,control:THVideoDetailViewController)  {
+        THHomeVM.parseVideoRealURL(video_id: textModel.video_detail_info.video_id) {[weak self] (readVideoR)  in
+            self?.realVideo = readVideoR
+            self?.removePlayer()
+            self!.thPlayer.setVideo(resource: BMPlayerResource.init(url: URL(string:readVideoR.video_list.video_1.mainURL)!))
+            self?.thPlayer.playerLayer?.placeholderView.kf.setImage(with:URL.init(string: textModel.video_detail_info.detail_video_large_image.urlString))
+            control.player=self!.thPlayer
+            
+            self?.navigationController?.pushViewController(control, animated: true)
+        }
+    }
+    
+    
+    
+    
     deinit {
         
         self.thPlayer.pause()
@@ -81,20 +98,36 @@ extension THHomeVideoTableViewController{
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let curruentCell = tableView.cellForRow(at: indexPath)as! THVideoViewCell
-       if thPlayer.isPlaying {
-            removePlayer()
-       }
+        
         let videoDetailVC = THVideoDetailViewController()
         videoDetailVC.video = curruentCell.textModel
         videoDetailVC.delegate = self
         videoDetailVC.currentTime = currentTime
         videoDetailVC.currentIndexPath = indexPath
-        videoDetailVC.player=thPlayer
-    navigationController?.pushViewController(videoDetailVC, animated: true)
+       if thPlayer.isPlaying {
+        if curruentCell==self.priorCell{
+             videoDetailVC.currentTime = currentTime
+            videoDetailVC.player=thPlayer
+            navigationController?.pushViewController(videoDetailVC, animated: true)
+        }else{
+            
+           loadparseVideoUrl(textModel:curruentCell.textModel, control: videoDetailVC)
+        }
+        
+        
+       }else{
+          loadparseVideoUrl(textModel:curruentCell.textModel, control: videoDetailVC)
+        
+        }
+        
+        
+        
+        
+        
     }
     
     @objc func videopale(btn:UIButton){
-        let cell=self.tableView.cellForRow(at: NSIndexPath.init(row: btn.tag, section: 0) as IndexPath)
+        let cell=self.tableView.cellForRow(at: NSIndexPath.init(row: btn.tag, section: 0) as IndexPath)as! THVideoViewCell
         if self.priorCell != cell {
             self.priorCell?.showSubviews()
             //=是否正在播放  如果播放就暂停和删除
@@ -102,12 +135,13 @@ extension THHomeVideoTableViewController{
                 self.thPlayer.pause()
                 self.thPlayer.removeFromSuperview()
             }
-             self.addPlayer(cell: cell as! THVideoViewCell)
+             self.addPlayer(cell: cell )
         }else{
             //点击了当前cell
             // 说明是第一次点击 cell，直接添加播放器
             // 把播放器添加到 cell 上
-            self.addPlayer(cell: cell as! THVideoViewCell)
+             self.thPlayer.playerLayer?.placeholderView.kf.setImage(with: URL.init(string: cell.textModel.video_detail_info.detail_video_large_image.urlString ))
+            self.addPlayer(cell: cell)
         }
         
         
