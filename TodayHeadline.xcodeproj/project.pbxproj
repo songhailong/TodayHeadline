@@ -286,6 +286,7 @@
 		79D8593B22F9B85A00E69F9B /* THTextTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D8593A22F9B85A00E69F9B /* THTextTable.swift */; };
 		79E91DD822CBA98B00854AC1 /* THUserAuthInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E91DD722CBA98B00854AC1 /* THUserAuthInfo.swift */; };
 		821366A323138BD500C92F17 /* THCustemNativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821366A223138BD500C92F17 /* THCustemNativeView.swift */; };
+		8223A0D7231F3A8300939B35 /* THPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223A0D6231F3A8300939B35 /* THPlayerManager.swift */; };
 		823D7B4F22CDA9D0005CF752 /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D7B4E22CDA9D0005CF752 /* UIKit+Extension.swift */; };
 		823D7B5122CDCA5E005CF752 /* THHomeUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D7B5022CDCA5E005CF752 /* THHomeUserCell.swift */; };
 		824C23F42314D1A500FF6C31 /* THWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824C23F32314D1A500FF6C31 /* THWebView.swift */; };
@@ -638,6 +639,7 @@
 		79D8593A22F9B85A00E69F9B /* THTextTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = THTextTable.swift; sourceTree = "<group>"; };
 		79E91DD722CBA98B00854AC1 /* THUserAuthInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THUserAuthInfo.swift; sourceTree = "<group>"; };
 		821366A223138BD500C92F17 /* THCustemNativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THCustemNativeView.swift; sourceTree = "<group>"; };
+		8223A0D6231F3A8300939B35 /* THPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THPlayerManager.swift; sourceTree = "<group>"; };
 		823D7B4E22CDA9D0005CF752 /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
 		823D7B5022CDCA5E005CF752 /* THHomeUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THHomeUserCell.swift; sourceTree = "<group>"; };
 		824C23F32314D1A500FF6C31 /* THWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THWebView.swift; sourceTree = "<group>"; };
@@ -1449,6 +1451,7 @@
 				82EA99C8230BBAA6004DBD78 /* MBProgressHUD.h */,
 				82EA99C9230BBAA7004DBD78 /* MBProgressHUD.m */,
 				824C23F32314D1A500FF6C31 /* THWebView.swift */,
+				8223A0D6231F3A8300939B35 /* THPlayerManager.swift */,
 			);
 			path = GlobleView;
 			sourceTree = "<group>";
@@ -2011,6 +2014,7 @@
 				79179C9A22CE36A4000EDF4D /* ISO8601DateTransform.swift in Sources */,
 				827171FA230FB38400B15B6B /* THAnimationManager.swift in Sources */,
 				824E6ED12306417000E1F5B1 /* THVideoDefailBottomView.swift in Sources */,
+				8223A0D7231F3A8300939B35 /* THPlayerManager.swift in Sources */,
 				79179CAE22CE36A4000EDF4D /* PropertyInfo.swift in Sources */,
 				79211EF822C5D19B002FAE8F /* ViewControllerDesignable.swift in Sources */,
 				79D8593B22F9B85A00E69F9B /* THTextTable.swift in Sources */,

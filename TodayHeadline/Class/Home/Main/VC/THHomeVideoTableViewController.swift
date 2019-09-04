@@ -18,6 +18,8 @@ class THHomeVideoTableViewController: THHomeBassTableViewController {
     private var priorCell: THVideoViewCell?
     /// 视频真实地址
     private var realVideo = RealVideo()
+    
+    private var palyerCurrunt=0
     /// 当前播放的时间
     private var currentTime: TimeInterval = 0
     override func viewDidLoad() {
@@ -42,7 +44,7 @@ class THHomeVideoTableViewController: THHomeBassTableViewController {
             mask.edges.equalTo(cell.bgImageButton)
         })
         
-        print("nhoihio\(readVideo.video_list.video_1.main_url)")
+        print("nhoihio只是播放\(readVideo.video_list.video_1.main_url)")
         
         self!.thPlayer.setVideo(resource: BMPlayerResource.init(url: URL(string:readVideo.video_list.video_1.mainURL)!))
       self?.priorCell=cell
@@ -125,6 +127,21 @@ extension THHomeVideoTableViewController{
         
         
     }
+    
+    
+  /// cell cell出现在界面
+  ///
+  /// - Parameters:
+  ///   - tableView: <#tableView description#>
+  ///   - cell: <#cell description#>
+  ///   - indexPath: <#indexPath description#>
+  override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
+    if self.palyerCurrunt==indexPath.row{
+        self.removePlayer()
+    }
+    }
+    
+    
     
     @objc func videopale(btn:UIButton){
         let cell=self.tableView.cellForRow(at: NSIndexPath.init(row: btn.tag, section: 0) as IndexPath)as! THVideoViewCell

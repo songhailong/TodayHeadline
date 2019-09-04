@@ -17,7 +17,7 @@ class THHomeBassTableViewController: UITableViewController {
     //刷新界面模型
     var newsTitle=THNewsTitleModel()
     //播放器
-    lazy var thPlayer:BMPlayer=BMPlayer.init(customControlView:BMPlayerControlView())
+    lazy var thPlayer:BMPlayer=THPlayerManager.sharedManager
     //刷新时间
     var maxBehotTime:TimeInterval=0.0
     override func viewDidLoad() {

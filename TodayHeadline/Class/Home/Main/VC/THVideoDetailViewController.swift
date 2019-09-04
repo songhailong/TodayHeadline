@@ -17,7 +17,7 @@ class THVideoDetailViewController: UIViewController {
      weak var delegate: VideoDetailViewControllerDelegate?
     
     //播放器
-    lazy var player:BMPlayer=BMPlayer.init(customControlView:BMPlayerControlView())
+    lazy var player:BMPlayer=THPlayerManager.sharedManager
     /// 当前视频数据
     var video = THTexstsModel()
     /// 评论数据
