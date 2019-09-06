@@ -203,6 +203,10 @@ class THHomeCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
           super.init(style: style, reuseIdentifier: reuseIdentifier)
+        //设置为不透明（减少损耗）
+        self.isOpaque=true
+        //设置选中没有颜色
+        self.selectionStyle=UITableViewCell.SelectionStyle.none
           configUI()
         
     }

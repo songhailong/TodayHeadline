@@ -12,7 +12,7 @@ import SnapKit
 import NVActivityIndicatorView
 class THSmallVideoViewController: THBassViewController {
     /// 播放器
-    private lazy var player = BMPlayer(customControlView: SmallVideoPlayerCustomView())
+    private lazy var player = THPlayerManager.sharedManager
     
     /// 小视频数组
     var smallVideos = [THTexstsModel]()
@@ -26,6 +26,12 @@ class THSmallVideoViewController: THBassViewController {
         collectionView.scrollToItem(at: NSIndexPath.init(row: originalIndex, section: 0) as IndexPath, at: .centeredHorizontally, animated: false)
        setupPlayer(currentIndex: originalIndex)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.player.pasuPlayingfromCellSuperview()
+    }
+    
     
     lazy var titleButton: UIButton = {
         let titleBtn=UIButton()
@@ -65,6 +71,26 @@ class THSmallVideoViewController: THBassViewController {
         let smallVideo = smallVideos[currentIndex]
         if  let videoURLString = smallVideo.raw_data.video.play_addr.url_list.first{
             //self.player.backgroundColor=UIColor.green
+            //代理没有执行完成
+//            let cell = self.collectionView.cellForItem(at: IndexPath(item: currentIndex, section: 0)) as! THSmallVideoCellCell
+//            if self.player.isPlaying { self.player.pause() }
+//            //                    // 先把 bgImageView 的子视图移除，再添加
+//            for subview in cell.bgImageView.subviews { subview.removeFromSuperview() }
+//            cell.bgImageView.addSubview(self.player)
+//            self.player.snp.makeConstraints({ $0.edges.equalTo(cell.bgImageView) })
+//
+//            if let firstImage = smallVideo.raw_data.first_frame_image_list.first {
+//                self.player.playerLayer?.placeholderView.kf.setImage(with: URL(string: firstImage.urlString)!)
+//                print(firstImage.urlString)
+//            }else if let largeImage = smallVideo.raw_data.large_image_list.first{
+//
+//                self.player.playerLayer?.placeholderView.kf.setImage(with: URL(string: largeImage.url as String)!)
+//            }
+//
+            
+            
+            
+            
             
             let dataTask = URLSession.shared.dataTask(with: URL(string: videoURLString)!, completionHandler: { (data, response, error) in
                 // 货到主线程添加播放器
@@ -76,6 +102,17 @@ class THSmallVideoViewController: THBassViewController {
                    for subview in cell.bgImageView.subviews { subview.removeFromSuperview() }
                     cell.bgImageView.addSubview(self.player)
                    self.player.snp.makeConstraints({ $0.edges.equalTo(cell.bgImageView) })
+
+                    if let firstImage = smallVideo.raw_data.first_frame_image_list.first {
+                        self.player.playerLayer?.placeholderView.kf.setImage(with: URL(string: firstImage.urlString)!)
+                        print(firstImage.urlString)
+                    }else if let largeImage = smallVideo.raw_data.large_image_list.first{
+
+                        self.player.playerLayer?.placeholderView.kf.setImage(with: URL(string: largeImage.url as String)!)
+                    }
+                    
+                    
+                    
                     let asset = BMPlayerResource(url: URL(string: response!.url!.absoluteString)!)
                     self.player.setVideo(resource: asset)
                 }
@@ -96,6 +133,7 @@ extension THSmallVideoViewController:UICollectionViewDelegate,UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell=collectionView.dequeueReusableCell(withReuseIdentifier: "THSmallVideoCellCell", for: indexPath) as! THSmallVideoCellCell
+        print("显示的cell索引\(indexPath.row)")
         cell.textModel=smallVideos[indexPath.row]
         return cell
     }
@@ -113,6 +151,7 @@ extension THSmallVideoViewController:UICollectionViewDelegate,UICollectionViewDa
 
 extension THSmallVideoCellCell{
    @objc func closeAction() {
+    
         THSmallVideoViewController().dismiss(animated: false, completion: nil)
     }
     @objc func topShareBtnAction(){

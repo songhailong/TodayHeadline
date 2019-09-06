@@ -180,6 +180,12 @@ extension THHomeViewController{
 extension THHomeViewController:JXSegmentedViewDelegate,JXSegmentedListContainerViewDataSource{
     //点击选中或者滚动选中都会调用该方法。适用于只关心选中事件，而不关心具体是点击还是滚动选中的情况。
     func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int) {
+        let player=THPlayerManager.sharedManager
+        if player.isPlaying {
+            player.pasuPlayingfromCellSuperview()
+        }
+        
+        
         self.listContainerView?.didClickSelectedItem(at: index)
     }
     

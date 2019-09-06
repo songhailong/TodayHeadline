@@ -29,22 +29,23 @@ class THHomeVideoTableViewController: THHomeBassTableViewController {
     }
     /// 移除播放器
     private func removePlayer() {
-        thPlayer.pause()
-        thPlayer.removeFromSuperview()
+        thPlayer.pasuPlayingfromCellSuperview()
         priorCell = nil
+        self.palyerCurrunt=0
     }
     /**把当前播放器放在最后一行****/
-   private func addPlayer(cell:THVideoViewCell)  {
+    private func addPlayer(cell:THVideoViewCell,indexPath:NSIndexPath)  {
         cell.hideSubviews()
     THHomeVM.parseVideoRealURL(video_id: cell.textModel.video_detail_info.video_id, completionHandler:{ [weak self] (readVideo) in
         self?.realVideo = readVideo
+        self?.palyerCurrunt=indexPath.row
         cell.bgImageButton.addSubview(self!.thPlayer )
        
         self!.thPlayer.snp.makeConstraints({ (mask) in
             mask.edges.equalTo(cell.bgImageButton)
         })
         
-        print("nhoihio只是播放\(readVideo.video_list.video_1.main_url)")
+        print("nhoihio只是播放\(indexPath.row)")
         
         self!.thPlayer.setVideo(resource: BMPlayerResource.init(url: URL(string:readVideo.video_list.video_1.mainURL)!))
       self?.priorCell=cell
@@ -136,15 +137,46 @@ extension THHomeVideoTableViewController{
   ///   - cell: <#cell description#>
   ///   - indexPath: <#indexPath description#>
   override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
-    if self.palyerCurrunt==indexPath.row{
+    if self.palyerCurrunt>indexPath.row+3||self.palyerCurrunt<indexPath.row-3{
         self.removePlayer()
     }
     }
     
+    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+    }
+    
+    /// 滑动的时候
+    ///
+    /// - Parameter scrollView: <#scrollView description#>
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+      print("当前选择cell\(palyerCurrunt)")
+        if palyerCurrunt != 0{
+            //计算cell在tableview 中的坐标值
+//            let recttableview=self.tableView.rectForRow(at: NSIndexPath.init(row: palyerCurrunt, section: 0) as IndexPath)
+//            //计算在父视图的坐标/当前cell在屏幕中的坐标值
+//            let rectSuperView=self.tableView.convert(recttableview, to: tableView.superview)
+//
+//            print("现在的坐标\(rectSuperView)大小包括基本健康不积跬步")
+//
+//            if recttableview.origin.y>self.view.frame.height{
+//                 print("从下方发出下下\(palyerCurrunt)")
+//                //cell从下方划出
+//                self.removePlayer()
+//            }else if rectSuperView.origin.y+self.view.frame.height<0{
+//                //从上方划出
+//                 print("从上方发出上上\(palyerCurrunt)")
+//                self.removePlayer()
+//            }
+            
+        }
+    }
     
     
     @objc func videopale(btn:UIButton){
         let cell=self.tableView.cellForRow(at: NSIndexPath.init(row: btn.tag, section: 0) as IndexPath)as! THVideoViewCell
+        
+       
         if self.priorCell != cell {
             self.priorCell?.showSubviews()
             //=是否正在播放  如果播放就暂停和删除
@@ -152,13 +184,13 @@ extension THHomeVideoTableViewController{
                 self.thPlayer.pause()
                 self.thPlayer.removeFromSuperview()
             }
-             self.addPlayer(cell: cell )
+            self.addPlayer(cell: cell, indexPath: NSIndexPath.init(row: btn.tag, section: 0))
         }else{
             //点击了当前cell
             // 说明是第一次点击 cell，直接添加播放器
             // 把播放器添加到 cell 上
              self.thPlayer.playerLayer?.placeholderView.kf.setImage(with: URL.init(string: cell.textModel.video_detail_info.detail_video_large_image.urlString ))
-            self.addPlayer(cell: cell)
+            self.addPlayer(cell: cell, indexPath: NSIndexPath.init(row: btn.tag, section: 0))
         }
         
         

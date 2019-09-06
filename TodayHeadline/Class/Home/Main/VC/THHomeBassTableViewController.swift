@@ -17,14 +17,23 @@ class THHomeBassTableViewController: UITableViewController {
     //刷新界面模型
     var newsTitle=THNewsTitleModel()
     //播放器
-    lazy var thPlayer:BMPlayer=THPlayerManager.sharedManager
+    lazy var thPlayer:THPlayerManager=THPlayerManager.sharedManager
     //刷新时间
     var maxBehotTime:TimeInterval=0.0
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        MBProgressHUD.showCustomStatusAnimation(view: self.view)
         setupRefresh(categry: self.newsTitle.categoryType)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.separatorStyle=UITableViewCell.SeparatorStyle.none
+    }
+    
+    
+    
+    
     /**设置透视图**/
     func setupRefresh(categry:NewsTitleCategory)  {
     //透视图刷新
@@ -32,7 +41,7 @@ class THHomeBassTableViewController: UITableViewController {
         THHomeVM.loadNewsFeeds(category: categry, ttFrome: .pull, completionHander: {[weak self] (BehotTime, texts) in
             self?.maxBehotTime=BehotTime
             self?.tableView.mj_header.endRefreshing()
-            
+            MBProgressHUD.hide(for: self!.view, animated: true)
             self?.dadeArr=texts
             self?.tableView.reloadData()
         })
