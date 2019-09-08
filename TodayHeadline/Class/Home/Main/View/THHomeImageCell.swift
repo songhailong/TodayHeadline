@@ -19,7 +19,8 @@ class THHomeImageCell: UITableViewCell {
             timeLabel.text = homeImage.commentCount + "评论"
             if homeImage.media_info.user_id != 0 { usernameLabel.text = homeImage.media_info.name }
             if let firstImage = homeImage.image_list.first {
-                bgImageView.kf.setImage(with: URL(string: firstImage.urlString)!)
+                //bgImageView.kf.setImage(with: URL(string: firstImage.urlString)!)
+                bgImageView.sd_setImage(with: URL(string: firstImage.urlString)!, completed: nil)
             }
             imageTitleLabel.snp.updateConstraints { (mask) in
                 mask.height.equalTo(homeImage.titleH)

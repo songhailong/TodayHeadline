@@ -15,4 +15,6 @@
 #import <zlib.h>
 #import "NSData+CRC32.h"
 #import "MBProgressHUD.h"
+#import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
 #endif /* Swift_bringHeader_h */

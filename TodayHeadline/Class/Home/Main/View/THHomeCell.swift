@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+
 let image3Width: CGFloat = (screenWidth - 40) / 3
 class THHomeCell: UITableViewCell {
     var textmodel=THTexstsModel(){
@@ -117,17 +118,19 @@ class THHomeCell: UITableViewCell {
                     //右面图片的设置
                     if let image = self.textmodel.image_list.first {
                         videoImageButton.setImage(UIImage(named: "video_play_icon_44x44_"), for: .normal)
-                        videoImageButton.kf.setBackgroundImage(with: URL(string: image.urlString)!, for: .normal)
+                       // videoImageButton.kf.setBackgroundImage(with: URL(string: image.urlString)!, for: .normal)
+                         //videoImageButton.sd_b(with: URL(string: image.urlString)!, for: .normal, completed: nil)
+                        videoImageButton.sd_setBackgroundImage(with: URL(string: image.urlString)!, for: .normal, completed: nil)
                        
                     } else if self.textmodel.middle_image.url.length > 0 {
                         videoImageButton.setImage(UIImage(named: "video_play_icon_44x44_"), for: .normal)
-                        videoImageButton.kf.setBackgroundImage(with: URL(string: self.textmodel.middle_image.urlString)!, for: .normal)
-                      
+                        //videoImageButton.kf.setBackgroundImage(with: URL(string: self.textmodel.middle_image.urlString)!, for: .normal)
+                        videoImageButton.sd_setBackgroundImage(with: URL(string: self.textmodel.middle_image.urlString)!, for: .normal, completed: nil)
                     } else if let largeImage = self.textmodel.large_image_list.first {
 
                         videoImageButton.setImage(UIImage(named: "video_play_icon_44x44_"), for: .normal)
-                        videoImageButton.kf.setBackgroundImage(with: URL(string: largeImage.urlString)!, for: .normal)
-
+                        //videoImageButton.kf.setBackgroundImage(with: URL(string: largeImage.urlString)!, for: .normal)
+                        videoImageButton.sd_setBackgroundImage(with: URL(string: largeImage.urlString), for: .normal, completed: nil)
                       
                     }
                     
@@ -144,12 +147,14 @@ class THHomeCell: UITableViewCell {
                     //右面图片的设置
                     if let image = self.textmodel.image_list.first {
                        
-                        rightImageview.kf.setImage(with: URL(string: image.urlString)!)
+                       // rightImageview.kf.setImage(with: URL(string: image.urlString)!)
+                        rightImageview.sd_setImage(with: URL(string: image.urlString)!, completed: nil)
                     } else if self.textmodel.middle_image.url.length > 0 {
-                       
-                        rightImageview.kf.setImage(with: URL(string: self.textmodel.middle_image.urlString)!)
+                        rightImageview.sd_setImage(with: URL(string: self.textmodel.middle_image.urlString)!, completed: nil)
+                        //rightImageview.kf.setImage(with: URL(string: self.textmodel.middle_image.urlString)!)
                     } else if let largeImage = self.textmodel.large_image_list.first {
-                    rightImageview.kf.setImage(with: URL(string: largeImage.urlString)!)
+                    //rightImageview.kf.setImage(with: URL(string: largeImage.urlString)!)
+                     rightImageview.sd_setImage(with: URL(string: largeImage.urlString)!, completed: nil)
                     }
                     
                     
@@ -161,7 +166,9 @@ class THHomeCell: UITableViewCell {
                 if self.textmodel.middle_image.url != "" && self.textmodel.image_list.count==0{
                     //这个y应该显示大图
                     //把中间的显示在了 右面
-                    rightImageview.kf.setImage(with: URL.init(string: self.textmodel.middle_image.urlString))
+                   // rightImageview.kf.setImage(with: URL.init(string: self.textmodel.middle_image.urlString))
+                    rightImageview.sd_setImage(with: URL.init(string: self.textmodel.middle_image.urlString), completed: nil)
+                    
                     rightImageview.snp.updateConstraints { (mask) in
                         mask.width.equalTo(screenWidth*0.28)
                     }
@@ -174,7 +181,8 @@ class THHomeCell: UITableViewCell {
                             mask.width.equalTo(screenWidth*0.28)
                         }
                         
-                        rightImageview.kf.setImage(with: URL.init(string: self.textmodel.image_list.first?.urlString ?? ""))
+                        //rightImageview.kf.setImage(with: URL.init(string: self.textmodel.image_list.first?.urlString ?? ""))
+                        rightImageview.sd_setImage(with: URL.init(string: self.textmodel.image_list.first?.urlString ?? ""), completed: nil)
                         
                     } else {
                        

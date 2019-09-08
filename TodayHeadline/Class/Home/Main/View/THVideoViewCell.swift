@@ -14,10 +14,15 @@ class THVideoViewCell: UITableViewCell {
         didSet{
             titleLabel.text = textModel.title
         palyLabel.text=textModel.video_detail_info.videoWatchCount+"次播放"
-            avatarButton.kf.setImage(with: URL(string: textModel.user_info.avatar_url), for: .normal)
+            //avatarButton.kf.setImage(with: URL(string: textModel.user_info.avatar_url), for: .normal)
+            avatarButton.sd_setBackgroundImage(with: URL(string: textModel.user_info.avatar_url), for: .normal, completed: nil)
+            
+            
              nameLable.text = textModel.user_info.name
             concernButton.isSelected=textModel.user_info.follow
-            bgImageButton.kf.setImage(with: URL(string: textModel.video_detail_info.detail_video_large_image.urlString), for: .normal)
+            //bgImageButton.kf.setImage(with: URL(string: textModel.video_detail_info.detail_video_large_image.urlString), for: .normal)
+            bgImageButton.sd_setBackgroundImage(with:URL(string: textModel.video_detail_info.detail_video_large_image.urlString) , for: .normal, completed: nil)
+            
             timeLableLabel.text=textModel.videoDuration
             commentButton.setTitle(textModel.commentCount, for: .normal)
             //如果是广告隐藏

@@ -86,18 +86,18 @@ extension THHomeTableViewVC{
                     //右面图片的设置
                     if let image = model.image_list.first {
                         thPlayer.playerLayer?.placeholderView.isHidden=false
-                        thPlayer.playerLayer?.placeholderView.kf.setImage(with: URL.init(string: image.urlString))
+                        thPlayer.playerLayer?.placeholderView.sd_setImage(with: URL.init(string: image.urlString), completed: nil)
                         
                         
                         
                         
                     } else if model.middle_image.url.length > 0 {
                        thPlayer.playerLayer?.placeholderView.isHidden=false
-                        thPlayer.playerLayer?.placeholderView.kf.setImage(with: URL.init(string: model.middle_image.urlString))
+                        thPlayer.playerLayer?.placeholderView.sd_setImage(with: URL.init(string: model.middle_image.urlString), completed: nil)
                         
                     } else if let largeImage = model.large_image_list.first {
                          thPlayer.playerLayer?.placeholderView.isHidden=false
-                         thPlayer.playerLayer?.placeholderView.kf.setImage(with: URL.init(string: largeImage.urlString))
+                         thPlayer.playerLayer?.placeholderView.sd_setImage(with: URL.init(string: largeImage.urlString), completed: nil)
                         
                         
                     }

@@ -13,11 +13,11 @@ class THHotCell: UICollectionViewCell {
     var smallVideo=THTexstsModel(){
         didSet{
             if let firstImage = self.smallVideo.raw_data.first_frame_image_list.first {
-                previewImageView.kf.setImage(with: URL(string: firstImage.urlString)!)
+                previewImageView.sd_setImage(with: URL(string: firstImage.urlString)!, completed: nil)
                 print(firstImage.urlString)
             }else if let largeImage = self.smallVideo.raw_data.large_image_list.first{
-                print("图片和GV阿uvdvabiugaiudb\(largeImage.url)")
-                previewImageView.kf.setImage(with: URL(string:largeImage.urlString))
+               
+                previewImageView.sd_setImage(with: URL(string:largeImage.urlString), completed: nil)
             }
             
            diggCountLabel.text = self.smallVideo.raw_data.action.diggCount + "赞"

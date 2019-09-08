@@ -14,14 +14,17 @@ class THHomeUserCell: UITableViewCell {
             if textModel.source != "" {
               nameLable.text=textModel.source
             }else if self.textModel.user.user_id != 0{
-                iconImageview.kf.setImage(with: URL.init(string: self.textModel.user.avatar_url))
+                //iconImageview.kf.setImage(with: URL.init(string: self.textModel.user.avatar_url))
+                iconImageview.sd_setImage(with: URL.init(string: self.textModel.user.avatar_url), completed: nil)
                  nameLable.text = self.textModel.user.screen_name
             }else if self.textModel.user_info.user_id != 0{
-                iconImageview.kf.setImage(with: URL.init(string: self.textModel.user_info.avatar_url))
+                //iconImageview.kf.setImage(with: URL.init(string: self.textModel.user_info.avatar_url))
+                 iconImageview.sd_setImage(with: URL.init(string: self.textModel.user_info.avatar_url), completed: nil)
                   nameLable.text = self.textModel.user_info.name
             }else if self.textModel.media_info.user_id != 0 {
                 nameLable.text = self.textModel.media_info.name
-                 iconImageview.kf.setImage(with: URL.init(string: self.textModel.media_info.avatar_url)!)
+                 //iconImageview.kf.setImage(with: URL.init(string: self.textModel.media_info.avatar_url)!)
+                iconImageview.sd_setImage(with: URL.init(string: self.textModel.media_info.avatar_url)!, completed: nil)
             }
             
         }
