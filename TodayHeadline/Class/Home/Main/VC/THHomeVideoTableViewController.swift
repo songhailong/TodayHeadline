@@ -62,7 +62,8 @@ class THHomeVideoTableViewController: THHomeBassTableViewController {
             self?.realVideo = readVideoR
             self?.removePlayer()
             self!.thPlayer.setVideo(resource: BMPlayerResource.init(url: URL(string:readVideoR.video_list.video_1.mainURL)!))
-            self?.thPlayer.playerLayer?.placeholderView.kf.setImage(with:URL.init(string: textModel.video_detail_info.detail_video_large_image.urlString))
+            //self?.thPlayer.playerLayer?.placeholderView.kf.setImage(with:URL.init(string: textModel.video_detail_info.detail_video_large_image.urlString))
+            self?.thPlayer.playerLayer?.placeholderView.sd_setImage(with: URL.init(string: textModel.video_detail_info.detail_video_large_image.urlString), completed: nil)
             control.player=self!.thPlayer
             
             self?.navigationController?.pushViewController(control, animated: true)
@@ -189,7 +190,10 @@ extension THHomeVideoTableViewController{
             //点击了当前cell
             // 说明是第一次点击 cell，直接添加播放器
             // 把播放器添加到 cell 上
-             self.thPlayer.playerLayer?.placeholderView.kf.setImage(with: URL.init(string: cell.textModel.video_detail_info.detail_video_large_image.urlString ))
+             //self.thPlayer.playerLayer?.placeholderView.kf.setImage(with: URL.init(string: cell.textModel.video_detail_info.detail_video_large_image.urlString ))
+            
+            self.thPlayer.playerLayer?.placeholderView.sd_setImage(with: URL.init(string: cell.textModel.video_detail_info.detail_video_large_image.urlString ), completed: nil)
+            
             self.addPlayer(cell: cell, indexPath: NSIndexPath.init(row: btn.tag, section: 0))
         }
         

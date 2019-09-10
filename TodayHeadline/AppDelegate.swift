@@ -19,6 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor=UIColor.white
         window?.rootViewController=THTabBarController()
         window?.makeKeyAndVisible()
+        //if（）
+        if #available(iOS 11.0, *) {
+          UIScrollView.appearance().contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never
+        }
+        
         return true
     }
 

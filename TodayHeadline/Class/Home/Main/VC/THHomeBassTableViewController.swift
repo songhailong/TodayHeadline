@@ -72,12 +72,27 @@ class THHomeBassTableViewController: UITableViewController {
                 if texts.count==0{
                     print("没有耕读数据了")
                 }
+//                var indexArr=[IndexPath]()
+//                let beginIndex=self?.dadeArr.count
+//
+//                for(index, item)in texts.enumerated(){
+//                    let sindex = beginIndex ?? 0+index
+//                    indexArr.append(IndexPath.init(row: sindex, section: 0))
+//                }
+                
                 self?.dadeArr+=texts
-                self?.tableView.reloadData()
+//                self?.tableView.beginUpdates()
+//                self?.tableView.insertRows(at: indexArr, with: UITableView.RowAnimation.none)
+//                self?.tableView.endUpdates()
+                
+                
+                
+                
+               self?.tableView.reloadData()
                 
             })
         })
-        tableView.mj_footer.isAutomaticallyChangeAlpha = true
+        //tableView.mj_footer.isAutomaticallyChangeAlpha = true
         
         
     }

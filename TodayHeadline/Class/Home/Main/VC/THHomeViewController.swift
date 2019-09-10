@@ -93,7 +93,7 @@ extension THHomeViewController{
             
             
             self.listContainerView = JXSegmentedListContainerView.init(dataSource: self)
-            self.listContainerView?.frame=CGRect.init(x: 0.0, y: CGFloat(NavHeight)+self.TitleNewsH, width: screenWidth, height: screenHeight-CGFloat(NavHeight)-self.TitleNewsH-CGFloat(tabBarHeight))
+            self.listContainerView?.frame=CGRect.init(x: 0.0, y: CGFloat(NavHeight)+self.TitleNewsH, width: screenWidth, height: screenHeight-CGFloat(NavHeight)-self.TitleNewsH-CGFloat(tabBarstause))
             self.view.addSubview(self.listContainerView!)
             //关联cotentScrollView，关联之后才可以互相联动！！！
             self.segmentedView?.contentScrollView = self.listContainerView?.scrollView

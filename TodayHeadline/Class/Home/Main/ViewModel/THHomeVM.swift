@@ -12,6 +12,12 @@ import HandyJSON
 
 class THHomeVM: NSObject {
   class  func loadNewsFeeds(category:NewsTitleCategory,ttFrome:TTFrom,completionHander:@escaping (_ maxBehotTime: TimeInterval,_ news:[THTexstsModel])->()) {
+    
+    DispatchQueue.global().async {
+        
+  
+    
+    
         let pullTime = Date().timeIntervalSince1970
         let url = BASE_URL + "/api/news/feed/v75/?"
         let params = ["device_id": device_id,
@@ -41,13 +47,25 @@ class THHomeVM: NSObject {
                 let dic=item["content"].string
               // news.append(THTexstsModel.mj_object(withKeyValues: item))
                 if let model=THTexstsModel.deserialize(from: dic){
+                    
+                    
+               let cellheight = model.heightForModel()
+                    model.cellHeight=cellheight
                     news.append(model)
                 }
                 
             }
             
+            DispatchQueue.main.async {
+                
+        
+            
             completionHander(pullTime,news)
+            }
         }
+        
+        
+       }
     }
         /***
          maxReshTime:刷新时间 最早时间
@@ -67,6 +85,12 @@ class THHomeVM: NSObject {
                         "tt_from": ttfrom,
                         "iid": iid] as [String: Any]
         THHttpTool.PostLoadDate(url: url, parameters: params) { (respond) in
+            
+            DispatchQueue.global().async {
+                
+        
+            
+            
             let json=JSON(respond)
             print(json)
             guard json["message"] == "success" else {return}
@@ -76,13 +100,19 @@ class THHomeVM: NSObject {
                 let dic=item["content"].string
                 // news.append(THTexstsModel.mj_object(withKeyValues: item))
                 if let model=THTexstsModel.deserialize(from: dic){
+                    let cellheight = model.heightForModel()
+                    model.cellHeight=cellheight
                     news.append(model)
                 }
                 
             }
 
-            completionHander(news)
-
+                DispatchQueue.main.async {
+                   completionHander(news)
+                }
+                
+           
+            }
         }
     }
     

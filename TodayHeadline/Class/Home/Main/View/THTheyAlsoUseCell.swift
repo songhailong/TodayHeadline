@@ -82,6 +82,7 @@ class THTheyAlsoUseCell: UITableViewCell {
     }()
     lazy var bottomView: UIView = {
         let bottomView=UIView()
+        bottomView.isOpaque=true
         return bottomView
     }()
     
@@ -91,7 +92,7 @@ class THTheyAlsoUseCell: UITableViewCell {
         rightBtn.setTitle("查看更多", for: .normal)
         rightBtn.titleLabel?.font=UIFont.systemFont(ofSize: 15)
         rightBtn.titleLabel?.textColor=UIColor.black
-        
+        rightBtn.isOpaque=true
         return rightBtn
     }()
     

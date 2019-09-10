@@ -12,7 +12,7 @@ class THSmallVideoCellCell: UICollectionViewCell {
     var textModel = THTexstsModel(){
         didSet{
             nameButton.setTitle(textModel.raw_data.user.info.name, for: .normal)
-            iconImageView.kf.setImage(with: URL(string: textModel.raw_data.user.info.avatar_url))
+            iconImageView.sd_setImage(with: URL(string: textModel.raw_data.user.info.avatar_url), completed: nil)
             concernButton.isSelected=textModel.raw_data.user.relation.is_following
             //titleLabel.attributedText=textModel.raw_data.at
         }

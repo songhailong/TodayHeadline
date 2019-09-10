@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+
 let image3Width: CGFloat = (screenWidth - 40) / 3
 class THHomeCell: UITableViewCell {
     var textmodel=THTexstsModel(){
@@ -117,17 +118,19 @@ class THHomeCell: UITableViewCell {
                     //右面图片的设置
                     if let image = self.textmodel.image_list.first {
                         videoImageButton.setImage(UIImage(named: "video_play_icon_44x44_"), for: .normal)
-                        videoImageButton.kf.setBackgroundImage(with: URL(string: image.urlString)!, for: .normal)
+                       // videoImageButton.kf.setBackgroundImage(with: URL(string: image.urlString)!, for: .normal)
+                         //videoImageButton.sd_b(with: URL(string: image.urlString)!, for: .normal, completed: nil)
+                        videoImageButton.sd_setBackgroundImage(with: URL(string: image.urlString)!, for: .normal, completed: nil)
                        
                     } else if self.textmodel.middle_image.url.length > 0 {
                         videoImageButton.setImage(UIImage(named: "video_play_icon_44x44_"), for: .normal)
-                        videoImageButton.kf.setBackgroundImage(with: URL(string: self.textmodel.middle_image.urlString)!, for: .normal)
-                      
+                        //videoImageButton.kf.setBackgroundImage(with: URL(string: self.textmodel.middle_image.urlString)!, for: .normal)
+                        videoImageButton.sd_setBackgroundImage(with: URL(string: self.textmodel.middle_image.urlString)!, for: .normal, completed: nil)
                     } else if let largeImage = self.textmodel.large_image_list.first {
 
                         videoImageButton.setImage(UIImage(named: "video_play_icon_44x44_"), for: .normal)
-                        videoImageButton.kf.setBackgroundImage(with: URL(string: largeImage.urlString)!, for: .normal)
-
+                        //videoImageButton.kf.setBackgroundImage(with: URL(string: largeImage.urlString)!, for: .normal)
+                        videoImageButton.sd_setBackgroundImage(with: URL(string: largeImage.urlString), for: .normal, completed: nil)
                       
                     }
                     
@@ -144,12 +147,14 @@ class THHomeCell: UITableViewCell {
                     //右面图片的设置
                     if let image = self.textmodel.image_list.first {
                        
-                        rightImageview.kf.setImage(with: URL(string: image.urlString)!)
+                       // rightImageview.kf.setImage(with: URL(string: image.urlString)!)
+                        rightImageview.sd_setImage(with: URL(string: image.urlString)!, completed: nil)
                     } else if self.textmodel.middle_image.url.length > 0 {
-                       
-                        rightImageview.kf.setImage(with: URL(string: self.textmodel.middle_image.urlString)!)
+                        rightImageview.sd_setImage(with: URL(string: self.textmodel.middle_image.urlString)!, completed: nil)
+                        //rightImageview.kf.setImage(with: URL(string: self.textmodel.middle_image.urlString)!)
                     } else if let largeImage = self.textmodel.large_image_list.first {
-                    rightImageview.kf.setImage(with: URL(string: largeImage.urlString)!)
+                    //rightImageview.kf.setImage(with: URL(string: largeImage.urlString)!)
+                     rightImageview.sd_setImage(with: URL(string: largeImage.urlString)!, completed: nil)
                     }
                     
                     
@@ -161,7 +166,9 @@ class THHomeCell: UITableViewCell {
                 if self.textmodel.middle_image.url != "" && self.textmodel.image_list.count==0{
                     //这个y应该显示大图
                     //把中间的显示在了 右面
-                    rightImageview.kf.setImage(with: URL.init(string: self.textmodel.middle_image.urlString))
+                   // rightImageview.kf.setImage(with: URL.init(string: self.textmodel.middle_image.urlString))
+                    rightImageview.sd_setImage(with: URL.init(string: self.textmodel.middle_image.urlString), completed: nil)
+                    
                     rightImageview.snp.updateConstraints { (mask) in
                         mask.width.equalTo(screenWidth*0.28)
                     }
@@ -174,7 +181,8 @@ class THHomeCell: UITableViewCell {
                             mask.width.equalTo(screenWidth*0.28)
                         }
                         
-                        rightImageview.kf.setImage(with: URL.init(string: self.textmodel.image_list.first?.urlString ?? ""))
+                        //rightImageview.kf.setImage(with: URL.init(string: self.textmodel.image_list.first?.urlString ?? ""))
+                        rightImageview.sd_setImage(with: URL.init(string: self.textmodel.image_list.first?.urlString ?? ""), completed: nil)
                         
                     } else {
                        
@@ -372,15 +380,20 @@ class THHomeCell: UITableViewCell {
     /**标题顶部**/
     lazy var topImageView: UIImageView! = {
         let topimageview=UIImageView.init()
-        
+            topimageview.isOpaque=true
         return topimageview
     }()
     /***标题**/
-    lazy var titleLable: UILabel = {
-        let titleLable=UILabel.init()
+    lazy var titleLable:YYLabel = {
+        let titleLable=YYLabel.init()
         titleLable.textColor=UIColor.black
         titleLable.font=UIFont.systemFont(ofSize: 17)
         titleLable.numberOfLines=3
+        titleLable.isOpaque=true
+        titleLable.displaysAsynchronously=true
+        titleLable.ignoreCommonProperties=true
+        titleLable.fadeOnHighlight=false
+        titleLable.fadeOnAsynchronouslyDisplay=false
         return titleLable
     }()
     /***广告**/
@@ -388,35 +401,56 @@ class THHomeCell: UITableViewCell {
         let hotLable=AnimatableLabel()
         hotLable.cornerRadius=4
         hotLable.borderColor=UIColor.RGBColor(R: 234, G: 57, B: 72)
+        hotLable.isOpaque=true
         return hotLable
     }()
     /**名字*/
-    lazy var nameLable: UILabel = {
-        let nameLable = UILabel()
+    lazy var nameLable: YYLabel = {
+        let nameLable = YYLabel()
         nameLable.text="用户名"
         nameLable.font=UIFont.systemFont(ofSize: 13)
         nameLable.textColor=UIColor.RGBColor(R: 170, G: 170, B: 170)
+        nameLable.isOpaque=true
+        
+        nameLable.displaysAsynchronously=true
+        nameLable.ignoreCommonProperties=true
+        nameLable.fadeOnHighlight=false
+        nameLable.fadeOnAsynchronouslyDisplay=false
         return nameLable
     }()
     /*品论数量*/
-    lazy var commentLabl: UILabel = {
-        let commentLabl=UILabel()
+    lazy var commentLabl: YYLabel = {
+        let commentLabl=YYLabel()
         commentLabl.text="评论数量"
         commentLabl.font=UIFont.systemFont(ofSize: 13)
         commentLabl.textColor=UIColor.RGBColor(R: 170, G: 170, B: 170)
+        commentLabl.isOpaque=true
+        
+        commentLabl.displaysAsynchronously=true
+       commentLabl.ignoreCommonProperties=true
+        commentLabl.fadeOnHighlight=false
+        commentLabl.fadeOnAsynchronouslyDisplay=false
         return commentLabl
     }()
     /**发布时间**/
-    lazy var releaseTimeLable: UILabel = {
-        let releaseTimeLable = UILabel()
+    lazy var releaseTimeLable: YYLabel = {
+        let releaseTimeLable = YYLabel()
         releaseTimeLable.text="发布时间"
         releaseTimeLable.font=UIFont.systemFont(ofSize: 13)
         releaseTimeLable.textColor=UIColor.RGBColor(R: 170, G: 170, B: 170)
+        releaseTimeLable.isOpaque=true
+        
+        releaseTimeLable.displaysAsynchronously=true
+        releaseTimeLable.ignoreCommonProperties=true
+        releaseTimeLable.fadeOnHighlight=false
+        releaseTimeLable.fadeOnAsynchronouslyDisplay=false
         return releaseTimeLable
     }()
     /***右面图片**/
-    lazy var rightImageview: UIImageView = {
-        let rightImageview=UIImageView()
+    lazy var rightImageview: YYAnimatedImageView = {
+        let rightImageview=YYAnimatedImageView()
+          rightImageview.isOpaque=true
+        
         //rightImageview.backgroundColor=UIColor.red
         return rightImageview
     }()
@@ -425,6 +459,7 @@ class THHomeCell: UITableViewCell {
         let rightTimeButton=UIButton()
         rightTimeButton.titleLabel?.font=UIFont.systemFont(ofSize: 13)
         rightTimeButton.setImage(UIImage.init(named: "palyicon_video_textpage_6x8_"), for: UIControl.State.normal)
+        rightTimeButton.isOpaque=true
         return rightTimeButton
     }()
     
@@ -433,36 +468,47 @@ class THHomeCell: UITableViewCell {
           let removeBtn=UIButton()
         removeBtn.addTarget(self, action: #selector(removeBtnClick), for: UIControl.Event.touchUpInside)
         removeBtn.setImage(UIImage.init(named: "add_textpage_17x12_"), for: UIControl.State.normal)
+        removeBtn.isOpaque=true
         return removeBtn
     }()
     /**中间内容**/
     lazy var middleView: UIView = {
         let middleView=UIView()
         //middleView.backgroundColor=UIColor.red
+        middleView.isOpaque=true
         return middleView
     }()
     /**底部控件**/
     lazy var BootomView: UIView = {
         let bootmView=UIView()
+        bootmView.isOpaque=true
         return bootmView
     }()
     /***底部标题**/
-    lazy var subTitleLable: UILabel = {
-        let TitleLable=UILabel()
+    lazy var subTitleLable: YYLabel = {
+        let TitleLable=YYLabel()
         TitleLable.font=UIFont.systemFont(ofSize: 15)
         TitleLable.textColor=UIColor.RGBColor(R: 170, G: 170, B: 170)
+        TitleLable.isOpaque=true
+        //异步绘制
+        TitleLable.displaysAsynchronously=true
+        TitleLable.ignoreCommonProperties=true
+        TitleLable.fadeOnHighlight=false
+        TitleLable.fadeOnAsynchronouslyDisplay=false
         return TitleLable
     }()
     /***下载按钮**/
     lazy var downLoadBtn: UIButton = {
         let downLoadBtn=UIButton()
         downLoadBtn.addTarget(self, action: #selector(downLoadClick), for: UIControl.Event.touchUpInside)
+        downLoadBtn.isOpaque=true
         return downLoadBtn
     }()
     /// 视频大图
     lazy var videoImageButton: UIButton = {
         let videoImageButton = UIButton()
         videoImageButton.isUserInteractionEnabled=false
+        videoImageButton.isOpaque=true
          //videoImageButton.backgroundColor=UIColor.red
         return videoImageButton
     }()

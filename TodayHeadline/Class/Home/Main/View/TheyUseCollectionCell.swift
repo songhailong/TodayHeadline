@@ -14,7 +14,8 @@ class TheyUseCollectionCell: UICollectionViewCell, RegisterCellFromNib {
     
     var userCard = UserCard() {
         didSet {
-            avatarImageView.kf.setImage(with: URL(string: userCard.user.info.avatar_url)!)
+            //avatarImageView.kf.setImage(with: URL(string: userCard.user.info.avatar_url)!)
+            avatarImageView.sd_setImage(with: URL(string: userCard.user.info.avatar_url)!, completed: nil)
             nameLabel.text = userCard.user.info.name
             subtitleLabel.text = userCard.recommend_reason
             vipImageView.isHidden = userCard.user.info.user_auth_info.auth_info == ""

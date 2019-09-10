@@ -14,10 +14,15 @@ class THVideoViewCell: UITableViewCell {
         didSet{
             titleLabel.text = textModel.title
         palyLabel.text=textModel.video_detail_info.videoWatchCount+"次播放"
-            avatarButton.kf.setImage(with: URL(string: textModel.user_info.avatar_url), for: .normal)
+            //avatarButton.kf.setImage(with: URL(string: textModel.user_info.avatar_url), for: .normal)
+            avatarButton.sd_setBackgroundImage(with: URL(string: textModel.user_info.avatar_url), for: .normal, completed: nil)
+            
+            
              nameLable.text = textModel.user_info.name
             concernButton.isSelected=textModel.user_info.follow
-            bgImageButton.kf.setImage(with: URL(string: textModel.video_detail_info.detail_video_large_image.urlString), for: .normal)
+            //bgImageButton.kf.setImage(with: URL(string: textModel.video_detail_info.detail_video_large_image.urlString), for: .normal)
+            bgImageButton.sd_setBackgroundImage(with:URL(string: textModel.video_detail_info.detail_video_large_image.urlString) , for: .normal, completed: nil)
+            
             timeLableLabel.text=textModel.videoDuration
             commentButton.setTitle(textModel.commentCount, for: .normal)
             //如果是广告隐藏
@@ -40,7 +45,9 @@ class THVideoViewCell: UITableViewCell {
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.isOpaque=true
         creatUI()
     }
     
@@ -168,11 +175,13 @@ class THVideoViewCell: UITableViewCell {
         bgImageButton.setImage(UIImage.init(named: "titlebar_shadow_20x64_"), for: .normal)
         bgImageButton.clipsToBounds=true
         bgImageButton.contentMode = .scaleAspectFill
+        bgImageButton.isOpaque=true
         return bgImageButton
     }()
     lazy var PlayImageButton: UIButton = {
         let PlayImageButton=UIButton()
         PlayImageButton.setImage(UIImage.init(named: "video_play_icon_44x44_"), for: .normal)
+        //PlayImageButton.isOpaque=true
         return PlayImageButton
     }()
    
@@ -180,47 +189,80 @@ class THVideoViewCell: UITableViewCell {
     lazy var bottomView: UIView = {
         let view=UIView()
         view.backgroundColor=UIColor.white
+        view.isOpaque=true
         return view
     }()
-    lazy var titleLabel: UILabel = {
-        let titleLabel=UILabel()
+    lazy var titleLabel: YYLabel = {
+        let titleLabel=YYLabel()
         titleLabel.textColor=UIColor.white
         titleLabel.numberOfLines=2
         titleLabel.font=UIFont.systemFont(ofSize: 20)
+        titleLabel.isOpaque=true
+        titleLabel.displaysAsynchronously=true
+        titleLabel.ignoreCommonProperties=true
+        titleLabel.fadeOnHighlight=false
+        titleLabel.fadeOnAsynchronouslyDisplay=false
+        
         return titleLabel
     }()
     
-    lazy var palyLabel: UILabel = {
-        let titleLabel=UILabel()
+    lazy var palyLabel: YYLabel = {
+        let titleLabel=YYLabel()
         titleLabel.textColor=UIColor.white
         titleLabel.font=UIFont.systemFont(ofSize: 14)
+        titleLabel.isOpaque=true
+        
+        titleLabel.displaysAsynchronously=true
+        titleLabel.ignoreCommonProperties=true
+        titleLabel.fadeOnHighlight=false
+        titleLabel.fadeOnAsynchronouslyDisplay=false
         return titleLabel
     }()
     
-    lazy var timeLableLabel: UILabel = {
-        let timeLableLabel=UILabel()
+    lazy var timeLableLabel: YYLabel = {
+        let timeLableLabel=YYLabel()
         timeLableLabel.font=UIFont.systemFont(ofSize: 13)
         timeLableLabel.textColor=UIColor.white
         timeLableLabel.backgroundColor=UIColor.black
         timeLableLabel.alpha=0.5
         timeLableLabel.layer.cornerRadius=10
+        timeLableLabel.isOpaque=true
+        
+        timeLableLabel.displaysAsynchronously=true
+        timeLableLabel.ignoreCommonProperties=true
+        timeLableLabel.fadeOnHighlight=false
+        timeLableLabel.fadeOnAsynchronouslyDisplay=false
+        
         return timeLableLabel
     }()
      /***头像**/
     lazy var avatarButton: UIButton = {
         let avatarButton=UIButton()
         avatarButton.layer.cornerRadius=15
+        avatarButton.isOpaque=true
         return avatarButton
     }()
      /***用户名称**/
-    lazy var nameLable: UILabel = {
-        let nameLable=UILabel()
+    lazy var nameLable: YYLabel = {
+        let nameLable=YYLabel()
         nameLable.textColor=UIColor.black
+        nameLable.isOpaque=true
+        
+        nameLable.displaysAsynchronously=true
+        nameLable.ignoreCommonProperties=true
+        nameLable.fadeOnHighlight=false
+        nameLable.fadeOnAsynchronouslyDisplay=false
         return nameLable
     }()
      /***详情**/
-    lazy var descriptionLabel: UILabel = {
-        let descriptionLabel=UILabel()
+    lazy var descriptionLabel: YYLabel = {
+        let descriptionLabel=YYLabel()
+        descriptionLabel.isOpaque=true
+        
+        descriptionLabel.displaysAsynchronously=true
+        descriptionLabel.ignoreCommonProperties=true
+        descriptionLabel.fadeOnHighlight=false
+        descriptionLabel.fadeOnAsynchronouslyDisplay=false
         return descriptionLabel
     }()
      /***关注**/
@@ -229,6 +271,7 @@ class THVideoViewCell: UITableViewCell {
         concernButton.titleLabel?.textColor=UIColor.mainBackgroundColor()
         concernButton.setTitle("关注", for: .normal)
         concernButton.setTitle("已关注", for: .selected)
+        concernButton.isOpaque=true
         return concernButton
     }()
      /***评论**/
@@ -236,25 +279,33 @@ class THVideoViewCell: UITableViewCell {
         let commentButton=UIButton()
         commentButton.titleLabel?.textColor=UIColor.black
         commentButton.setImage(UIImage.init(named: "comment_feed_24x24_"), for: .normal)
+        commentButton.isOpaque=true
         return commentButton
     }()
      /***更多**/
     lazy var moreButton: UIButton = {
         let moreButton=UIButton()
         moreButton.setImage(UIImage.init(named: "morebutton_dynamic_night_14x8_"), for: .normal)
+        moreButton.isOpaque=true
         return moreButton
     }()
     /***广告**/
     lazy var  adButton: UIButton = {
         let  adButton=UIButton()
+          adButton.isOpaque=true
         return adButton
     }()
     /***广告**/
-    lazy var  adLable: UILabel = {
-        let  lable=UILabel()
+    lazy var  adLable: YYLabel = {
+        let  lable=YYLabel()
         lable.textColor=UIColor.blue
         lable.text="广告"
         lable.font=UIFont.systemFont(ofSize: 12)
+        
+        lable.displaysAsynchronously=true
+        lable.ignoreCommonProperties=true
+        lable.fadeOnHighlight=false
+        lable.fadeOnAsynchronouslyDisplay=false
         return lable
     }()
 

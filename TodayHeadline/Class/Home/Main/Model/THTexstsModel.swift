@@ -16,48 +16,7 @@ class THTexstsModel:HandyJSON{
     required init() {}
     /*****需要的计算内容******/
     //MARK  普通cell分为 用户 关注  基本
-    var cellHeight:CGFloat{
-        /**固定的 头部距离10 评论高16 评论距离5 底部还有5 */
-        var height:CGFloat=titleH+36+5
-        if video_duration != 0 && video_style == 0 && has_video{
-            //说明有视频显示
-            height+=screenWidth*0.5+5
-            print(height)
-        }else if  video_duration != 0 && video_style == 1 && has_video{
-            return 95
-        }else{
-            if middle_image.url != "" && image_list.count==0{
-                //有大图
-               return 95
-               
-            }else{
-                if image_list.count != 0 {
-                    if image_list.count >= 1&&image_list.count < 3 {
-                        
-                        return 95
-                    }
-                    else {
-                        
-                        height+=image3Width*0.7+5
-                    }
-                }
-                
-            }
-        }
-        
-        
-        
-        if label_style == .ad && sub_title != ""{
-            // sub_title 广告语
-            height+=40
-        }
-        
-       
-        
-        
-        
-        return height
-    }
+    var cellHeight:CGFloat=0
     /**文字高度****/
     var titleH :CGFloat{
         if video_duration != 0 && video_style == 0 {
@@ -236,6 +195,90 @@ class THTexstsModel:HandyJSON{
     var brand_info = ""
     
      var card_type:CardType = .video
+    
+    
+    
+    func heightForModel() -> CGFloat {
+        /**固定的 头部距离10 评论高16 评论距离5 底部还有5 */
+        //开启多线程
+       // DispatchQueue.global().async {
+            
+        
+        
+            var height:CGFloat=self.titleH+36+5
+            if self.video_duration != 0 && self.video_style == 0 && self.has_video{
+            //说明有视频显示
+            height+=screenWidth*0.5+5
+            
+            }else if  self.video_duration != 0 && self.video_style == 1 && self.has_video{
+            height=95
+          }else{
+                if self.middle_image.url != "" && self.image_list.count==0{
+                //有大图
+               return  95
+                
+            }else{
+                    if self.image_list.count != 0 {
+                        if self.image_list.count >= 1&&self.image_list.count < 3 {
+                        
+                       return  95
+                    }
+                    else {
+                        
+                        height+=image3Width*0.7+5
+                    }
+                }
+                
+            }
+        }
+        
+        
+        
+            if self.label_style == .ad && self.sub_title != ""{
+            // sub_title 广告语
+            height+=40
+        }
+        
+           
+            
+            //self.cellHeight=height
+            
+           // DispatchQueue.main.async {
+                //self.cellHeight=height
+                
+           // }
+            
+            
+            
+        //}
+        
+        
+       return height
+        
+    }
+    
+    
+    func titleHeight() ->CGFloat {
+        
+        if video_duration != 0 && video_style == 0 {
+            //f大图
+            return title.calculateHeight(fontSize: 17, width: screenWidth - 30)
+        } else {
+            let textH = title.calculateHeight(fontSize: 17, width: screenWidth - 30)
+            if textH>60{
+                return 60
+            }else{
+                return textH
+            }
+            
+            
+        }
+        
+    }
+    
+    
+    
+    
     
     
     

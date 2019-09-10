@@ -40,6 +40,8 @@ let NavHeight=isIphoneX ?CGFloat(88.0): CGFloat(64.0)
 
 let tabBarHeight=isIphoneX ? CGFloat(49.0+34.0):CGFloat(49.0)
 
+let tabBarstause=isIphoneX ? CGFloat(34.0):CGFloat(0)
+
 func THRGBColor(R:CGFloat,G:CGFloat,B:CGFloat) -> UIColor {
     let color=UIColor.init(red: R/255.0, green: G/255.0, blue: B/255.0, alpha: 1.0)
     return color
