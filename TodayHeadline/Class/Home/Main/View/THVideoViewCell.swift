@@ -195,14 +195,15 @@ class THVideoViewCell: UITableViewCell {
     lazy var titleLabel: YYLabel = {
         let titleLabel=YYLabel()
         titleLabel.textColor=UIColor.white
+        titleLabel.preferredMaxLayoutWidth=screenWidth-20
         titleLabel.numberOfLines=2
         titleLabel.font=UIFont.systemFont(ofSize: 20)
         titleLabel.isOpaque=true
         titleLabel.displaysAsynchronously=true
-        titleLabel.ignoreCommonProperties=true
-        titleLabel.fadeOnHighlight=false
-        titleLabel.fadeOnAsynchronouslyDisplay=false
-        
+//        titleLabel.ignoreCommonProperties=true
+//        titleLabel.fadeOnHighlight=false
+//        titleLabel.fadeOnAsynchronouslyDisplay=false
+//
         return titleLabel
     }()
     
