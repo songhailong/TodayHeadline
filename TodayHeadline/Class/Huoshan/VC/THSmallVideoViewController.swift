@@ -23,7 +23,7 @@ class THSmallVideoViewController: THBassViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       self.view.addSubview(collectionView)
-        collectionView.scrollToItem(at: NSIndexPath.init(row: originalIndex, section: 0) as IndexPath, at: .centeredHorizontally, animated: false)
+        collectionView.scrollToItem(at: NSIndexPath.init(row: originalIndex, section: 0) as IndexPath, at: .centeredVertically, animated: false)
        setupPlayer(currentIndex: originalIndex)
     }
     
@@ -56,7 +56,7 @@ class THSmallVideoViewController: THBassViewController {
         smallVideoLayout.itemSize = CGSize(width: screenWidth, height: screenHeight)
         smallVideoLayout.minimumLineSpacing = 0
         smallVideoLayout.minimumInteritemSpacing = 0
-        smallVideoLayout.scrollDirection = .horizontal
+        smallVideoLayout.scrollDirection = .vertical
          let collectionView=UICollectionView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight), collectionViewLayout: smallVideoLayout)
        
          collectionView.isPagingEnabled=true
@@ -131,19 +131,27 @@ extension THSmallVideoViewController:UICollectionViewDelegate,UICollectionViewDa
         return smallVideos.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+          setupPlayer(currentIndex: indexPath.row)
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell=collectionView.dequeueReusableCell(withReuseIdentifier: "THSmallVideoCellCell", for: indexPath) as! THSmallVideoCellCell
-        print("显示的cell索引\(indexPath.row)")
+        //print("显示的cell索引\(indexPath.row)")
         cell.textModel=smallVideos[indexPath.row]
         return cell
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let currentIndex = Int(scrollView.contentOffset.x / scrollView.width + 0.5)
-        // 根据当前索引设置播放器
-        setupPlayer(currentIndex: currentIndex)
-    }
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        let currentIndex = Int(scrollView.contentOffset.y / scrollView.width + 0.5)
+//        // 根据当前索引设置播放器
+//        setupPlayer(currentIndex: currentIndex)
+//    }
     @objc func closeAction() {
+        self.player.prepareToDealloc()
+        self.player.playerLayer?.playerItem?.cancelPendingSeeks()
+        self.player.playerLayer?.playerItem?.asset.cancelLoading()
        dismiss(animated: false, completion: nil)
     }
     

@@ -19,7 +19,8 @@ class THHomeCell: UITableViewCell {
             topImageView.image=nil
             rightImageview.image=nil
             videoImageButton.setImage(nil, for: .normal)
-            titleLable.text=self.textmodel.title
+            titleLable.preferredMaxLayoutWidth=screenWidth-30
+            //titleLable.text=self.textmodel.title
             collectionView.removeFromSuperview()
             if middleView.subviews.count != 0 {
                 videoImageButton.removeFromSuperview()
@@ -113,7 +114,7 @@ class THHomeCell: UITableViewCell {
                      rightTimeButton.setTitle(self.textmodel.videoDuration, for: .normal)
                     rightTimeButton.snp.updateConstraints { (mask) in
                         mask.width.equalTo(50)}
-
+             titleLable.preferredMaxLayoutWidth=screenWidth-35-screenWidth*0.28
 
                     //右面图片的设置
                     if let image = self.textmodel.image_list.first {
@@ -121,6 +122,7 @@ class THHomeCell: UITableViewCell {
                        // videoImageButton.kf.setBackgroundImage(with: URL(string: image.urlString)!, for: .normal)
                          //videoImageButton.sd_b(with: URL(string: image.urlString)!, for: .normal, completed: nil)
                         videoImageButton.sd_setBackgroundImage(with: URL(string: image.urlString)!, for: .normal, completed: nil)
+                       
                        
                     } else if self.textmodel.middle_image.url.length > 0 {
                         videoImageButton.setImage(UIImage(named: "video_play_icon_44x44_"), for: .normal)
@@ -139,6 +141,7 @@ class THHomeCell: UITableViewCell {
                 rightImageview.snp.updateConstraints { (mask) in
                     mask.width.equalTo(screenWidth*0.28)
                   }
+                    titleLable.preferredMaxLayoutWidth=screenWidth-35-screenWidth*0.28
                rightTimeButton.setTitle(self.textmodel.videoDuration, for: .normal)
                rightTimeButton.snp.updateConstraints { (mask) in
                                          mask.width.equalTo(50)}
@@ -149,6 +152,7 @@ class THHomeCell: UITableViewCell {
                        
                        // rightImageview.kf.setImage(with: URL(string: image.urlString)!)
                         rightImageview.sd_setImage(with: URL(string: image.urlString)!, completed: nil)
+                        
                     } else if self.textmodel.middle_image.url.length > 0 {
                         rightImageview.sd_setImage(with: URL(string: self.textmodel.middle_image.urlString)!, completed: nil)
                         //rightImageview.kf.setImage(with: URL(string: self.textmodel.middle_image.urlString)!)
@@ -167,10 +171,13 @@ class THHomeCell: UITableViewCell {
                     //这个y应该显示大图
                     //把中间的显示在了 右面
                    // rightImageview.kf.setImage(with: URL.init(string: self.textmodel.middle_image.urlString))
-                    rightImageview.sd_setImage(with: URL.init(string: self.textmodel.middle_image.urlString), completed: nil)
+                    //rightImageview.sd_setImage(with: URL.init(string: self.textmodel.middle_image.urlString), completed: nil)
+                    
+                    rightImageview.sd_setImage(with: URL.init(string: self.textmodel.middle_image.urlString), placeholderImage: UIImage.init(named: "details_slogan01"),completed: nil)
                     
                     rightImageview.snp.updateConstraints { (mask) in
                         mask.width.equalTo(screenWidth*0.28)
+                        titleLable.preferredMaxLayoutWidth=screenWidth-35-screenWidth*0.28
                     }
                 }else{
                   setupRightImageView()
@@ -182,7 +189,10 @@ class THHomeCell: UITableViewCell {
                         }
                         
                         //rightImageview.kf.setImage(with: URL.init(string: self.textmodel.image_list.first?.urlString ?? ""))
-                        rightImageview.sd_setImage(with: URL.init(string: self.textmodel.image_list.first?.urlString ?? ""), completed: nil)
+                        //rightImageview.sd_setImage(with: URL.init(string: self.textmodel.image_list.first?.urlString ?? ""), completed: nil)
+                       
+                        rightImageview.sd_setImage(with: URL.init(string: self.textmodel.image_list.first?.urlString ?? ""), placeholderImage: UIImage.init(named: "details_slogan01"), completed: nil)
+                        titleLable.preferredMaxLayoutWidth=screenWidth-35-screenWidth*0.28
                         
                     } else {
                        
@@ -201,7 +211,7 @@ class THHomeCell: UITableViewCell {
             }
             
             
-            
+            titleLable.text=self.textmodel.title
             
             
             
@@ -385,15 +395,17 @@ class THHomeCell: UITableViewCell {
     }()
     /***标题**/
     lazy var titleLable:YYLabel = {
-        let titleLable=YYLabel.init()
+        let titleLable=YYLabel()
         titleLable.textColor=UIColor.black
         titleLable.font=UIFont.systemFont(ofSize: 17)
         titleLable.numberOfLines=3
+        titleLable.preferredMaxLayoutWidth=screenWidth-30
         titleLable.isOpaque=true
-        titleLable.displaysAsynchronously=true
-        titleLable.ignoreCommonProperties=true
-        titleLable.fadeOnHighlight=false
-        titleLable.fadeOnAsynchronouslyDisplay=false
+        //titleLable.displaysAsynchronously=true
+        //titleLable.backgroundColor=UIColor.red
+        //titleLable.ignoreCommonProperties=true
+        //titleLable.fadeOnHighlight=false
+        //titleLable.fadeOnAsynchronouslyDisplay=false
         return titleLable
     }()
     /***广告**/
@@ -474,7 +486,7 @@ class THHomeCell: UITableViewCell {
     /**中间内容**/
     lazy var middleView: UIView = {
         let middleView=UIView()
-        //middleView.backgroundColor=UIColor.red
+        //middleView.backgroundColor=UIColor.green
         middleView.isOpaque=true
         return middleView
     }()

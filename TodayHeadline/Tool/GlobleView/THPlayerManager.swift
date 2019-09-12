@@ -22,6 +22,7 @@ class THPlayerManager: BMPlayer {
     
     open func pasuPlayingfromCellSuperview (){
         self.pause()
+        self.prepareToDealloc()
         self.removeFromSuperview()
     }
     

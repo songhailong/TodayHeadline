@@ -9,6 +9,7 @@
 import UIKit
 
 class TBShortVideoViewController: THBassViewController {
+    private lazy var player = THPlayerManager.sharedManager
    private var pageView:JXSegmentedView?
     var titles = [THNewsTitleModel]()
     let TitleNewsH:CGFloat=40.0
@@ -16,9 +17,16 @@ class TBShortVideoViewController: THBassViewController {
     private var listContainerView:JXSegmentedListContainerView?
     override func viewDidLoad() {
         super.viewDidLoad()
+        //player.pause()
          creatUI()
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        player.pause()
+    }
+    
+    
    
     func creatUI()  {
           let model = THNewsTitleModel()

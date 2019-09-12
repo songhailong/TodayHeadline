@@ -28,7 +28,7 @@ class HomeImageCollectionView: UICollectionView, UICollectionViewDelegateFlowLay
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(images.count)
+        //print(images.count)
         return images.count
     }
     

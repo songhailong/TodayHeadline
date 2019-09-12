@@ -14,7 +14,10 @@ class HomeImageCell: UICollectionViewCell, RegisterCellFromNib {
     var image = ImageList() {
         didSet {
             //imageView.kf.setImage(with: URL(string: image.urlString)!)
-            imageView.sd_setImage(with: URL(string: image.urlString)!, completed: nil)
+            //imageView.sd_setImage(with: URL(string: image.urlString)!, completed: nil)
+            imageView.sd_setImage(with: URL(string: image.urlString)!, placeholderImage: UIImage.init(named: "details_slogan01"),completed: nil)
+            
+            
         }
     }
     

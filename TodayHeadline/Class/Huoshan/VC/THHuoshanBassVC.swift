@@ -74,8 +74,11 @@ class THHuoshanBassVC: THBassViewController {
         
         
     collectionView.mj_footer=MJRefreshAutoGifFooter.init(refreshingBlock: {
-         [weak self] in
-        
+        THHomeVM.loadMoreNewsFeed(categray: .hotsoonVideo, ttfrom: .enterAuto, maxReshTime: self.maxBehotTime, fromCount: self.dataArr.count, completionHander: { [weak self] (texts) in
+            self?.dataArr+=texts
+            self!.collectionView.reloadData()
+            self?.collectionView.mj_footer.endRefreshing()
+        })
         
         })
         collectionView.mj_footer.isAutomaticallyChangeAlpha=true

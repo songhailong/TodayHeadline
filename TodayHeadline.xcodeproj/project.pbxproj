@@ -367,6 +367,11 @@
 		8260FA982304FE5F00B0A282 /* THUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8260FA972304FE5F00B0A282 /* THUserVC.swift */; };
 		8260FA9A2304FE8300B0A282 /* THUserMesseageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8260FA992304FE8300B0A282 /* THUserMesseageViewController.swift */; };
 		8260FA9C23052E9400B0A282 /* THWenDaVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8260FA9B23052E9400B0A282 /* THWenDaVM.swift */; };
+		82629160232A2CDE0092BC7F /* THShortVideoCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262915F232A2CDE0092BC7F /* THShortVideoCache.swift */; };
+		82629162232A2D7C0092BC7F /* THShortMedaiDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82629161232A2D7C0092BC7F /* THShortMedaiDiskCache.swift */; };
+		82629164232A2EF10092BC7F /* THVideoDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82629163232A2EF10092BC7F /* THVideoDownloadOperation.swift */; };
+		82629166232A2FD80092BC7F /* THShortVideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82629165232A2FD80092BC7F /* THShortVideoManager.swift */; };
+		82629168232A35E10092BC7F /* THShortVideoResourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82629167232A35E10092BC7F /* THShortVideoResourceLoader.swift */; };
 		826EF56222CC96DA004ACEF0 /* THSmallVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826EF56122CC96DA004ACEF0 /* THSmallVideo.swift */; };
 		827171FA230FB38400B15B6B /* THAnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827171F9230FB38400B15B6B /* THAnimationManager.swift */; };
 		828CB2C922CDA3210003A9F4 /* TheyUseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828CB2C722CDA3210003A9F4 /* TheyUseCollectionCell.swift */; };
@@ -920,6 +925,11 @@
 		8260FA972304FE5F00B0A282 /* THUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THUserVC.swift; sourceTree = "<group>"; };
 		8260FA992304FE8300B0A282 /* THUserMesseageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THUserMesseageViewController.swift; sourceTree = "<group>"; };
 		8260FA9B23052E9400B0A282 /* THWenDaVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THWenDaVM.swift; sourceTree = "<group>"; };
+		8262915F232A2CDE0092BC7F /* THShortVideoCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THShortVideoCache.swift; sourceTree = "<group>"; };
+		82629161232A2D7C0092BC7F /* THShortMedaiDiskCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THShortMedaiDiskCache.swift; sourceTree = "<group>"; };
+		82629163232A2EF10092BC7F /* THVideoDownloadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THVideoDownloadOperation.swift; sourceTree = "<group>"; };
+		82629165232A2FD80092BC7F /* THShortVideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THShortVideoManager.swift; sourceTree = "<group>"; };
+		82629167232A35E10092BC7F /* THShortVideoResourceLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THShortVideoResourceLoader.swift; sourceTree = "<group>"; };
 		826EF56122CC96DA004ACEF0 /* THSmallVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THSmallVideo.swift; sourceTree = "<group>"; };
 		827171F9230FB38400B15B6B /* THAnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THAnimationManager.swift; sourceTree = "<group>"; };
 		828CB2C722CDA3210003A9F4 /* TheyUseCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheyUseCollectionCell.swift; sourceTree = "<group>"; };
@@ -2065,6 +2075,18 @@
 			path = VC;
 			sourceTree = "<group>";
 		};
+		8262915E232A2A4E0092BC7F /* VideoCache */ = {
+			isa = PBXGroup;
+			children = (
+				82629167232A35E10092BC7F /* THShortVideoResourceLoader.swift */,
+				82629165232A2FD80092BC7F /* THShortVideoManager.swift */,
+				8262915F232A2CDE0092BC7F /* THShortVideoCache.swift */,
+				82629161232A2D7C0092BC7F /* THShortMedaiDiskCache.swift */,
+				82629163232A2EF10092BC7F /* THVideoDownloadOperation.swift */,
+			);
+			path = VideoCache;
+			sourceTree = "<group>";
+		};
 		82C3DD8123279A8200F9F100 /* YYKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -2418,6 +2440,7 @@
 		82CD5A7C22C3381A00BA9230 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				8262915E232A2A4E0092BC7F /* VideoCache */,
 				8258D03F230E7BCE00475B4C /* GlobleView */,
 				8256DA4822DDB0D40019AA24 /* NSData+CRC32.h */,
 				8256DA4922DDB0D40019AA24 /* NSData+CRC32.m */,
@@ -2713,6 +2736,7 @@
 				82CD5A4422C3214C00BA9230 /* ViewController.swift in Sources */,
 				79179CA022CE36A4000EDF4D /* CBridge.swift in Sources */,
 				82C3DE6E23279A8400F9F100 /* NSTimer+YYAdd.m in Sources */,
+				82629162232A2D7C0092BC7F /* THShortMedaiDiskCache.swift in Sources */,
 				82C3DE6D23279A8400F9F100 /* NSKeyedUnarchiver+YYAdd.m in Sources */,
 				79211EC822C5D19B002FAE8F /* ActivityIndicatorAnimationBallZigZag.swift in Sources */,
 				79211E8322C5D19B002FAE8F /* PresentationPresenter.swift in Sources */,
@@ -2744,6 +2768,7 @@
 				79211EA222C5D19B002FAE8F /* BlurEffectStyle.swift in Sources */,
 				826EF56222CC96DA004ACEF0 /* THSmallVideo.swift in Sources */,
 				796E69C322C8A0D00026B638 /* JXSegmentedIndicatorRainbowLineView.swift in Sources */,
+				82629168232A35E10092BC7F /* THShortVideoResourceLoader.swift in Sources */,
 				7919D4EF22D36B7E00BD7FFF /* TBShortVideoViewController.swift in Sources */,
 				79211EED22C5D19B002FAE8F /* AnimatableTextField.swift in Sources */,
 				796E69CD22C8A0D00026B638 /* JXSegmentedDotItemModel.swift in Sources */,
@@ -2752,6 +2777,7 @@
 				82C3DE8123279A8400F9F100 /* YYThreadSafeArray.m in Sources */,
 				79211E8122C5D19B002FAE8F /* TransitionPresenter.swift in Sources */,
 				824E6ED52306440400E1F5B1 /* THRecommendedView.swift in Sources */,
+				82629160232A2CDE0092BC7F /* THShortVideoCache.swift in Sources */,
 				79211EAD22C5D19B002FAE8F /* PresentSlideSegue.swift in Sources */,
 				79059D2E22C71453007C2733 /* THHomeBassTableViewController.swift in Sources */,
 				8260FA962304FBFF00B0A282 /* THDefailWebViewController.swift in Sources */,
@@ -2934,6 +2960,7 @@
 				8223A0D7231F3A8300939B35 /* THPlayerManager.swift in Sources */,
 				79179CAE22CE36A4000EDF4D /* PropertyInfo.swift in Sources */,
 				79211EF822C5D19B002FAE8F /* ViewControllerDesignable.swift in Sources */,
+				82629166232A2FD80092BC7F /* THShortVideoManager.swift in Sources */,
 				79D8593B22F9B85A00E69F9B /* THTextTable.swift in Sources */,
 				79211ECE22C5D19B002FAE8F /* ActivityIndicatorAnimationSquareSpin.swift in Sources */,
 				82C3DE3723279A8300F9F100 /* YYWebImageManager.m in Sources */,
@@ -3040,6 +3067,7 @@
 				82C3DE4C23279A8300F9F100 /* YYTextSelectionView.m in Sources */,
 				79211CCE22C5C2EB002FAE8F /* BMPlayerControlView.swift in Sources */,
 				796E69BB22C8A0D00026B638 /* JXSegmentedBaseItemModel.swift in Sources */,
+				82629164232A2EF10092BC7F /* THVideoDownloadOperation.swift in Sources */,
 				796E69C122C8A0D00026B638 /* JXSegmentedIndicatorTriangleView.swift in Sources */,
 				796E69B722C8A0D00026B638 /* JXSegmentedTitleOrImageItemModel.swift in Sources */,
 				79211EA522C5D19B002FAE8F /* PresentationModalSize.swift in Sources */,

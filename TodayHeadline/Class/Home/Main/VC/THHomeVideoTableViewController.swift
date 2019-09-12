@@ -30,6 +30,7 @@ class THHomeVideoTableViewController: THHomeBassTableViewController {
     /// 移除播放器
     private func removePlayer() {
         thPlayer.pasuPlayingfromCellSuperview()
+        //thPlayer.prepareToDealloc()
         priorCell = nil
         self.palyerCurrunt=0
     }
