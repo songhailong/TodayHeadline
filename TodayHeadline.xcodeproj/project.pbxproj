@@ -346,6 +346,7 @@
 		8223A0D7231F3A8300939B35 /* THPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223A0D6231F3A8300939B35 /* THPlayerManager.swift */; };
 		823D7B4F22CDA9D0005CF752 /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D7B4E22CDA9D0005CF752 /* UIKit+Extension.swift */; };
 		823D7B5122CDCA5E005CF752 /* THHomeUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D7B5022CDCA5E005CF752 /* THHomeUserCell.swift */; };
+		8248761E232B273A00170E5E /* THShortDownLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8248761D232B273A00170E5E /* THShortDownLoader.swift */; };
 		824C23F42314D1A500FF6C31 /* THWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824C23F32314D1A500FF6C31 /* THWebView.swift */; };
 		824E6ED12306417000E1F5B1 /* THVideoDefailBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824E6ED02306417000E1F5B1 /* THVideoDefailBottomView.swift */; };
 		824E6ED32306418900E1F5B1 /* VideoDetailUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824E6ED22306418900E1F5B1 /* VideoDetailUserView.swift */; };
@@ -903,6 +904,7 @@
 		8223A0D6231F3A8300939B35 /* THPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THPlayerManager.swift; sourceTree = "<group>"; };
 		823D7B4E22CDA9D0005CF752 /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
 		823D7B5022CDCA5E005CF752 /* THHomeUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THHomeUserCell.swift; sourceTree = "<group>"; };
+		8248761D232B273A00170E5E /* THShortDownLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THShortDownLoader.swift; sourceTree = "<group>"; };
 		824C23F32314D1A500FF6C31 /* THWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THWebView.swift; sourceTree = "<group>"; };
 		824E6ED02306417000E1F5B1 /* THVideoDefailBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THVideoDefailBottomView.swift; sourceTree = "<group>"; };
 		824E6ED22306418900E1F5B1 /* VideoDetailUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailUserView.swift; sourceTree = "<group>"; };
@@ -2083,6 +2085,7 @@
 				8262915F232A2CDE0092BC7F /* THShortVideoCache.swift */,
 				82629161232A2D7C0092BC7F /* THShortMedaiDiskCache.swift */,
 				82629163232A2EF10092BC7F /* THVideoDownloadOperation.swift */,
+				8248761D232B273A00170E5E /* THShortDownLoader.swift */,
 			);
 			path = VideoCache;
 			sourceTree = "<group>";
@@ -2895,6 +2898,7 @@
 				82C3DE3F23279A8300F9F100 /* MKAnnotationView+YYWebImage.m in Sources */,
 				7902E79F232280D7009E28A2 /* SDImageCoder.m in Sources */,
 				79211EFC22C5D19B002FAE8F /* RefreshControlerDesignable.swift in Sources */,
+				8248761E232B273A00170E5E /* THShortDownLoader.swift in Sources */,
 				790EA13022D6079C004B1129 /* THTexstsModel.swift in Sources */,
 				79211E9D22C5D19B002FAE8F /* BorderType.swift in Sources */,
 				82C3DE4B23279A8300F9F100 /* YYTextLine.m in Sources */,
